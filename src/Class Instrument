@@ -1,0 +1,5 @@
+class Instrument {
+ String name;
+ String soundFont;
+  
+}
