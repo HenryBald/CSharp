@@ -3,4 +3,5 @@
 * We think we can implement the sound aspect of this using keycodes such as the ones used in the calculator app so each key represents a sound
 - For example a piano that inputs each sound when you press the specific key
 
+## Class Diagram for Classes
 ![UMLKeyboard](https://github.com/HenryBald/CSharp/blob/main/assets/UMLKeyboard.png)
