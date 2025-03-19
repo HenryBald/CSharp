@@ -1,1 +1,5 @@
-
+Class Effect() {
+  Effect {
+    
+  }
+}
