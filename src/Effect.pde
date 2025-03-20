@@ -1,5 +1,5 @@
-Class Effect() {
-  Effect {
+Class Effect {
+  Effect() {
     
   }
 }
