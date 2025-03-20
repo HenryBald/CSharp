@@ -1,3 +1,5 @@
-Class Instrument() {
+Class Instrument {
+  Instrument() {
 
+  }
 }
