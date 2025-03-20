@@ -1,4 +1,4 @@
-Class Button() {
+Class Button {
   Button() {
   
   }
