@@ -8,3 +8,6 @@
 
 ## Start Screen for CSharp
 ![keyboardStartScreen](https://github.com/HenryBald/CSharp/blob/main/assets/keyboardStartScreen.png)
+
+## Logo for CSharp
+![Logo](https://github.com/HenryBald/CSharp/blob/c3a433bb44157a078d1488f17fed2252079a3146/assets/cSharpLogo.png)
