@@ -22,3 +22,9 @@
 
 ## Logo for CSharp - Reed 
 ![Logo](https://github.com/HenryBald/CSharp/blob/c3a433bb44157a078d1488f17fed2252079a3146/assets/cSharpLogo.png)
+
+## Drums GUI Mockup - Santhosh
+![DrumsGUI](https://github.com/HenryBald/CSharp/blob/main/assets/Drums.png)
+
+## Keyboard GUI Mockup - Kirubashinilakshana
+![KeyboardGUI](https://github.com/HenryBald/CSharp/blob/main/assets/music2Piano.png)
