@@ -17,8 +17,8 @@
 ## Class Diagram for Classes
 ![UMLKeyboard](https://github.com/HenryBald/CSharp/blob/main/assets/Screenshot%202025-03-23%20161837.png)
 
-## Start Screen for CSharp
+## Start Screen for CSharp (Henry Baldwin)
 ![CSharpStartScreen](https://github.com/HenryBald/CSharp/blob/a7152459e2e43bdc11a03afaa5825a4dd274490f/assets/CSharpStartScreen.png)
 
-## Logo for CSharp
+## Logo for CSharp (Reed Stringham)
 ![Logo](https://github.com/HenryBald/CSharp/blob/c3a433bb44157a078d1488f17fed2252079a3146/assets/cSharpLogo.png)
