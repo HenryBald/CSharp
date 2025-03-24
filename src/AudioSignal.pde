@@ -1,4 +1,4 @@
-Class AudioSignal {
+class AudioSignal {
   AudioSignal() {
   
   }
