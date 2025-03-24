@@ -16,3 +16,36 @@ void setup() {
 void draw() {
   background(startImage);
 }
+
+void gameOver(){
+  
+}
+void mousePressed() {
+  
+}
+void playNote(){
+ 
+}
+
+void mouseReleased(){
+  
+}
+
+void stopNote(){
+  
+}
+
+void applyAffect(){
+  
+}
+
+void removeAffect(){
+  
+}
+
+void selectInstrument(){
+  
+}
+void swicthInstrument(){
+  
+}
