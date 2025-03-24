@@ -1,4 +1,4 @@
-Class UI {
+class UI {
   UI() {
 
   }
