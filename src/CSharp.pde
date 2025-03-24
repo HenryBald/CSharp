@@ -1,4 +1,4 @@
-//William Barney
+//William Barney/Kirubashini
 PImage startImage, logoImage, mainCursor;
 Button[] buttons = new Button[2];
 float l, r, result;
