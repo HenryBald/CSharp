@@ -1,3 +1,4 @@
+//William Barney
 PImage startImage, logoImage, mainCursor;
 
 void setup() {
