@@ -5,7 +5,7 @@
 * Reed Stringham () 
 * Kirubashinilakshana Senthilnathan ()
 * Zoe Leclair ()
-* William Barney ()
+* William Barney (Some Logic && Sound Man [Recording Sound Bits and Making Effects Class])
 * Santhosh  ()
 
 
