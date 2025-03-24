@@ -1,5 +1,9 @@
 //William Barney
 PImage startImage, logoImage, mainCursor;
+Button[] buttons = new Button[2];
+float l, r, result;
+char op;
+boolean left;
 
 void setup() {
   size(1024,540);
@@ -11,11 +15,36 @@ void setup() {
   mainCursor = loadImage("4881475.png");
   mainCursor.resize(50,50);
   surface.setCursor(mainCursor, mouseX, mouseY);
+  
+  l = 0.0;
+  r = 0.0;
+  result = 0.0;
+  op = ' ';
+  left = true;
+
+  //buttons core
+  buttons[0] = new Button(315, 380, 300, 184, "PLAY", true);
+  buttons[1] = new Button(705, 380, 300, 184, "EXIT", true);
+
 }
+
+
+
 
 void draw() {
   background(startImage);
+    for (int i=0; i<buttons.length; i++) {
+    buttons[i].display();
+    buttons[i].hover(mouseX, mouseY);
+  }
+  updateDisplay();
+ 
+
+  //println("Left:" + l + " Right:" + r + " Result:" + result + " Op:" + op + "L:" + left);
 }
+
+  void updateDisplay(){
+  }
 
 void gameOver(){
   
