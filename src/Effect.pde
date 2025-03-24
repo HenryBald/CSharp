@@ -1,4 +1,4 @@
-Class Effect {
+class Effect {
   Effect() {
     
   }
