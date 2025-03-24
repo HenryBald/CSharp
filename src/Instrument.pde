@@ -1,4 +1,4 @@
-Class Instrument {
+class Instrument {
   Instrument() {
 
   }
