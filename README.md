@@ -6,7 +6,7 @@
 * Kirubashinilakshana Senthilnathan ()
 * Zoe Leclair ()
 * William Barney (Some Logic && Sound Man [Recording Sound Bits and Making Effects Class])
-* Santhosh  ()
+* Santhosh  (Logic and UI for drumset)
 
 
 ## Outline for CSharp - Santhosh 
