@@ -15,7 +15,7 @@
 - For example a piano that inputs each sound when you press the specific key
 
 ## Class Diagram for Classes - Santhosh 
-![UMLKeyboard](https://github.com/HenryBald/CSharp/blob/main/assets/Screenshot%202025-03-23%20161837.png)
+![UMLKeyboard](https://github.com/HenryBald/CSharp/blob/main/assets/Screenshot%202025-03-24%20224912.png)
 
 ## Start Screen for CSharp - Henry 
 ![CSharpStartScreen](https://github.com/HenryBald/CSharp/blob/a7152459e2e43bdc11a03afaa5825a4dd274490f/assets/CSharpStartScreen.png)
