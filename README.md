@@ -14,7 +14,7 @@ Our idea for a application is a music creation app that allows the user to recre
 - We think we can implement the sound aspect of this using keycodes such as the ones used in the calculator app so each key represents a sound
 - For example a piano that inputs each sound when you press the specific key.
 - We also think that all the UI's are going to be madel in a pixel form to keep the visual mathcing with the logo.
-- ( if time )We might add quests such as if you complete or try these enough instruments you can get acces to a whole new one ( this is to keep the user engages and exited for the next instrument they are going to unlock).
+
 
 ## Class Diagram for Classes - Santhosh 
 ![UMLKeyboard](https://github.com/HenryBald/CSharp/blob/main/assets/Screenshot%202025-03-24%20224912.png)
