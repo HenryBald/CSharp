@@ -13,6 +13,8 @@ class Button {
     this.h = h;
     w = 30;
     h = 30;
+//later we will want different button constructors for different shapes, or a variable to specify which shape button they will want
+  //Also we probably will want the buttons clear, exept to the second color, which can be a black with low alpha value for rollover, that way we can just customize the looks of the button in the GUI, not in each specific button
     c1 = color(#FFFFFF);
     c2 = color(#808080);
     this.val = val;
