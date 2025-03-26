@@ -55,4 +55,6 @@ class Button {
       isClicked = false;
     }
   }
+  
+  void mouseReleased() {}
 }
