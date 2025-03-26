@@ -23,7 +23,7 @@ Our idea for a application is a music creation app that allows the user to recre
 ![CSharpStartScreen](https://github.com/HenryBald/CSharp/blob/a7152459e2e43bdc11a03afaa5825a4dd274490f/assets/CSharpStartScreen.png)
 
 ## Logo for CSharp - Reed 
-![Logo](https://github.com/HenryBald/CSharp/blob/c3a433bb44157a078d1488f17fed2252079a3146/assets/cSharpLogo.png)
+![Logo](https://github.com/HenryBald/CSharp/blob/main/assets/NewC%23.png)
 
 ## Drums GUI Mockup - Santhosh
 ![DrumsGUI](https://github.com/HenryBald/CSharp/blob/main/assets/Drums.png)
