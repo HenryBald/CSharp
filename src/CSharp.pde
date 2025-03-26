@@ -1,4 +1,5 @@
 //William Barney/Kirubashini
+ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 PImage startImage, logoImage, mainCursor;
 Button[] buttons = new Button[2];
 float l, r, result;
@@ -34,6 +35,15 @@ void setup() {
 
 void draw() {
   background(startImage);
+   backgroundeffects.add(new BackgroundEffect());
+    for (int i=0; i<backgroundeffects.size(); i++) {
+      BackgroundEffect s = backgroundeffects.get(i);
+      s.display();
+      s.move();
+      if (s.reachedBottom()) {
+        backgroundeffects.remove(s);
+      }
+      }
     for (int i=0; i<buttons.length; i++) {
     buttons[i].display();
     buttons[i].hover(mouseX, mouseY);
