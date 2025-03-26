@@ -1,4 +1,4 @@
-// Reed Stringham 
+// Henry Baldwin
 class Instrument {
   Instrument() {
 String name = "name";
