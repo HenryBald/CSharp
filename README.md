@@ -20,7 +20,7 @@ Our idea for a application is a music creation app that allows the user to recre
 ![UMLKeyboard](https://github.com/HenryBald/CSharp/blob/main/assets/Screenshot%202025-03-24%20224912.png)
 
 ## Start Screen for CSharp - Henry
-![CSharpStartScreen]([https://github.com/HenryBald/CSharp/blob/a7152459e2e43bdc11a03afaa5825a4dd274490f/assets/CSharpStartScreen.png](https://github.com/HenryBald/CSharp/blob/main/assets/CSharpStartScreen.png))
+![CSharpStartScreen](https://github.com/HenryBald/CSharp/blob/main/assets/CSharpStartScreen.png)
 
 ## Logo for CSharp - Reed 
 ![Logo](https://github.com/HenryBald/CSharp/blob/main/assets/NewC%23.png)
