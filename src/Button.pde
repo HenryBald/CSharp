@@ -3,10 +3,10 @@ class Button {
   int x, y, w, h;
   color c1, c2;
   String val;
-  boolean on, isNum;
+  boolean on, isClicked, isNote;
 
   // Constructor
-  Button(int x, int y, int w, int h, String val, boolean isNum) {
+  Button(int x, int y, int w, int h, String val, boolean isNote) {
     this.x = x;
     this.y = y;
     this.w = w;
@@ -17,7 +17,8 @@ class Button {
     c2 = color(#808080);
     this.val = val;
     on=false;
-    this.isNum = isNum;
+    isClicked = false;
+    this.isNote = isNote;
   }
 
   // Member Methods
@@ -44,6 +45,14 @@ class Button {
     } else {
       on = false;
       return on;
+    }
+  }
+  
+  void mousePressed(int mx, int my) {
+    if(mx > x-w/2 && mx < x+w/2 && my > y-h/2 && my < y+h/2) {
+      isClicked = true;
+    } else {
+      isClicked = false;
     }
   }
 }
