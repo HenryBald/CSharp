@@ -26,7 +26,7 @@ Our idea for a application is a music creation app that allows the user to recre
 ![Logo](https://github.com/HenryBald/CSharp/blob/main/assets/NewC%23.png)
 
 ## Drums GUI Mockup ( work in progress ) - Santhosh
-![DrumsGUI](https://github.com/HenryBald/CSharp/blob/main/assets/Drums.png)
+![DrumsGUI](https://github.com/HenryBald/CSharp/blob/main/src/CSharp/data/Drums.png)
 
 ## Keyboard GUI Mockup - Kirubashinilakshana
 ![KeyboardGUI](https://github.com/HenryBald/CSharp/blob/main/assets/music2Piano.png)
