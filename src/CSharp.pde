@@ -36,12 +36,12 @@ void setup() {
 void draw() {
   background(startImage);
    backgroundeffects.add(new BackgroundEffect());
-    for (int i=0; i<backgroundeffects.size(); i++) {
-      BackgroundEffect s = backgroundeffects.get(i);
-      s.display();
-      s.move();
-      if (s.reachedBottom()) {
-        backgroundeffects.remove(s);
+    for (int i = backgroundeffects.size() - 1; i >= 0; i--) {
+      BackgroundEffect b = backgroundeffects.get(i);
+      b.display();
+      b.move();
+      if (b.reachedBottom()) {
+        backgroundeffects.remove(i);
       }
       }
     for (int i=0; i<buttons.length; i++) {

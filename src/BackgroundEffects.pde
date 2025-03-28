@@ -7,7 +7,7 @@ class BackgroundEffect {
   BackgroundEffect() {
     x = int(random(width));
     y = -10;
-    diam = int(random(1, 4));
+    diam = int(12);
     speed = int(random(1, 6));
   }
 
@@ -15,7 +15,7 @@ class BackgroundEffect {
   void display() {
     fill(255);
     ellipse(x, y, diam, diam);  // The ellipse is at position (x, y)
-    rect(x + 1, y + 1, 5, 5);   // The rectangle is at position (x + 1, y + 1)
+    rect(x + 5, y - 12, 2, 20);   // The rectangle is at position (x + 1, y + 1)
   }
 
   void move() {
@@ -23,7 +23,7 @@ class BackgroundEffect {
   }
 
   boolean reachedBottom() {
-    if (y > height + 5) {
+    if (y > height + 25) {
       return true;
     } else {
       return false;
