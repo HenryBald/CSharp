@@ -1,5 +1,6 @@
 //William Barney/Kirubashini
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
+// Ignore layerImage
 PImage startImage, logoImage, mainCursor;
 Button[] buttons = new Button[2];
 float l, r, result;
@@ -10,12 +11,13 @@ Timer beTime;
 void setup() {
   size(1024, 540);
   surface.setResizable(true);
-  logoImage = loadImage("NewC#Logo.png");
   beTime = new Timer(50);
   beTime.start();
-  surface.setIcon(logoImage);
+  //surface.setIcon(logoImage);
   surface.setTitle("CSharp - Online Music Creator");
   startImage = loadImage("CSharpStartScreen.png");
+  logoImage = loadImage("NewC#Logo.png");
+  logoImage.resize(50, 50);
   mainCursor = loadImage("4881475.png");
   mainCursor.resize(50, 50);
   surface.setCursor(mainCursor, mouseX, mouseY);
@@ -28,8 +30,8 @@ void setup() {
   time4Drums = false;
 
   //buttons core
-  buttons[0] = new Button(315, 380, 300, 184, "PLAY", false);
-  buttons[1] = new Button(705, 380, 300, 184, "EXIT", false);
+  buttons[0] = new Button(315, 380, 300, 184, "PLAY", false, "q");
+  buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "q");
 }
 
 
@@ -48,6 +50,7 @@ void draw() {
     if (b.reachedBottom()) {
       backgroundeffects.remove(i);
     }
+    image(logoImage, 500, 200);
   }
   for (int i=0; i<buttons.length; i++) {
     buttons[i].display();

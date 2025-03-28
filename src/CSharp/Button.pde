@@ -2,15 +2,16 @@ class Button {
   // Member Variables
   int x, y, w, h;
   color c1, c2;
-  String val;
+  String val, hiddenTag;
   boolean on, isClicked, isNote;
 
   // Constructor
-  Button(int x, int y, int w, int h, String val, boolean isNote) {
+  Button(int x, int y, int w, int h, String val, boolean isNote, String hiddenTag) {
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h;
+    this.hiddenTag = hiddenTag;
     w = 30;
     h = 30;
 //later we will want different button constructors for different shapes, or a variable to specify which shape button they will want
