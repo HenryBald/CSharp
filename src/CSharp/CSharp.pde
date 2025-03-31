@@ -1,4 +1,4 @@
-//William Barney/Kirubashini
+// William Barney and Kirubashini
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
