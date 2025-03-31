@@ -1,7 +1,7 @@
 //William Barney/Kirubashini
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 // Ignore layerImage
-PImage startImage, logoImage, mainCursor;
+PImage logoImage, mainCursor, background;
 Button[] buttons = new Button[2];
 float l, r, result;
 char op;
@@ -15,7 +15,7 @@ void setup() {
   beTime.start();
   //surface.setIcon(logoImage);
   surface.setTitle("CSharp - Online Music Creator");
-  startImage = loadImage("CSharpStartScreen.png");
+  background = loadImage("CSharpStartScreen.png");
   logoImage = loadImage("NewC#Logo.png");
   logoImage.resize(50, 50);
   mainCursor = loadImage("4881475.png");
@@ -30,15 +30,16 @@ void setup() {
   time4Drums = false;
 
   //buttons core
-  buttons[0] = new Button(315, 380, 300, 184, "PLAY", false, "q");
-  buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "q");
+  buttons[0] = new Button(315, 380, 300, 184, "PLAY", false, "selectPage");
+  buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "exit");
 }
 
 
 
 
 void draw() {
-  background(startImage);
+  background.resize(width, height);
+  background(background);
   if (beTime.isFinished()) {
     backgroundeffects.add(new BackgroundEffect());
     beTime.start();
@@ -56,7 +57,10 @@ void draw() {
     buttons[i].display();
     buttons[i].hover(mouseX, mouseY);
     buttons[i].mousePressed(mouseX, mouseY);
-    if (buttons[i].isClicked) {
+    if (buttons[i].isClicked && mousePressed) {
+      if (buttons[i].hiddenTag == "selectPage") {
+        background = loadImage("selectionScreen1.png");
+      }
       if (buttons[i].val == "Drumset") {
         time4Drums = true;
       }
@@ -77,6 +81,7 @@ void updateDisplay() {
 void gameOver() {
 }
 void mousePressed() {
+  
 }
 void playNote() {
 }
