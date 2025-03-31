@@ -30,8 +30,8 @@ void setup() {
   time4Drums = false;
 
   //buttons core
-  buttons[0] = new Button(315, 380, 300, 184, "PLAY", false, "selectPage");
-  buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "exit");
+  buttons[0] = new Button(315, 380, 300, 184, "PLAY", false, "selectPage", "start");
+  buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "exit", "start");
 }
 
 

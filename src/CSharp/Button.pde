@@ -7,7 +7,7 @@ class Button {
   boolean on, isClicked, isNote;
 
   // Constructor
-  Button(int x, int y, int w, int h, String val, boolean isNote, String hiddenTag) {
+  Button(int x, int y, int w, int h, String val, boolean isNote, String hiddenTag, String pageOn) {
     this.x = x;
     this.y = y;
     this.w = w;
