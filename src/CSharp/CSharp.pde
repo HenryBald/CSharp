@@ -63,6 +63,11 @@ void draw() {
     if (buttons[i].isClicked && mousePressed) {
       if (buttons[i].hiddenTag == "selectPage") {
         background = loadImage("selectionScreen1.png");
+        for (int j=0; j<buttons.length; j++) {
+          if(buttons[j].pageOn == "start") {
+            buttons[j].remove;
+          }
+        }
       }
       if (buttons[i].val == "Drumset") {
         time4Drums = true;

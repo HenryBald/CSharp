@@ -3,7 +3,7 @@ class Button {
   // Member Variables
   int x, y, w, h;
   color c1, c2;
-  String val, hiddenTag;
+  String val, hiddenTag, pageOn;
   boolean on, isClicked, isNote;
 
   // Constructor
