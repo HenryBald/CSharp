@@ -4,7 +4,7 @@ ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>(
 PImage logoImage, mainCursor, background;
 Button[] buttons = new Button[2];
 float l, r, result;
-char op;
+char op, screen;
 boolean left, time4Drums;
 Timer beTime;
 
@@ -14,6 +14,7 @@ void setup() {
   beTime = new Timer(50);
   beTime.start();
   //surface.setIcon(logoImage);
+
   surface.setTitle("CSharp - Online Music Creator");
   background = loadImage("CSharpStartScreen.png");
   logoImage = loadImage("NewC#Logo.png");
@@ -25,6 +26,7 @@ void setup() {
   mainCursor.resize(50, 50);
   surface.setCursor(mainCursor, mouseX, mouseY);
 
+  screen = '1';
   l = 0.0;
   r = 0.0;
   result = 0.0;
@@ -41,47 +43,42 @@ void setup() {
 
 
 void draw() {
-  background.resize(width, height);
-  background(background);
-  if (beTime.isFinished()) {
-    backgroundeffects.add(new BackgroundEffect());
-    beTime.start();
-  }
-  for (int i = backgroundeffects.size() - 1; i >= 0; i--) {
-    BackgroundEffect b = backgroundeffects.get(i);
-    b.display();
-    b.move();
-    if (b.reachedBottom()) {
-      backgroundeffects.remove(i);
+  if (screen == '1') {
+    background.resize(width, height);
+    background(background);
+    if (beTime.isFinished()) {
+      backgroundeffects.add(new BackgroundEffect());
+      beTime.start();
     }
-    image(logoImage, 292, 30);
-  }
-  for (int i=0; i<buttons.length; i++) {
-    buttons[i].display();
-    buttons[i].hover(mouseX, mouseY);
-    buttons[i].mousePressed(mouseX, mouseY);
-    if (buttons[i].isClicked && mousePressed) {
-      if (buttons[i].hiddenTag == "selectPage") {
-        background = loadImage("selectionScreen1.png");
-        for (int j=0; j<buttons.length; j++) {
-          if(buttons[j].pageOn == "start") {
-            buttons[j].remove;
-          }
-        }
+    for (int i = backgroundeffects.size() - 1; i >= 0; i--) {
+      BackgroundEffect b = backgroundeffects.get(i);
+      b.display();
+      b.move();
+      if (b.reachedBottom()) {
+        backgroundeffects.remove(i);
       }
-      if (buttons[i].val == "Drumset") {
-        time4Drums = true;
-      }
-      //check if other instrument here
+      image(logoImage, 292, 30);
     }
+
+    buttons[0].display();
+    buttons[1].display();
+    buttons[0].hover(mouseX, mouseY);
+    buttons[1].hover(mouseX, mouseY);
+    buttons[0].mousePressed(mouseX, mouseY);
+    buttons[1].mousePressed(mouseX, mouseY);
+    if (buttons[0].isClicked && mousePressed) {
+      screen = '2';
+    }
+    buttons[1].isClicked = false;
     //Always make sure to turn it to false after mousePressed, but after changing the screen and stuff
-    buttons[i].isClicked = false;
+  } else if (screen == '2') {
+          background = loadImage("selectionScreen1.png");
   }
   updateDisplay();
-
-
-  //println("Left:" + l + " Right:" + r + " Result:" + result + " Op:" + op + "L:" + left);
 }
+
+
+//println("Left:" + l + " Right:" + r + " Result:" + result + " Op:" + op + "L:" + left);
 
 void updateDisplay() {
 }
@@ -89,7 +86,6 @@ void updateDisplay() {
 void gameOver() {
 }
 void mousePressed() {
-  
 }
 void playNote() {
 }
