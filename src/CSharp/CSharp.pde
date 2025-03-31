@@ -2,7 +2,7 @@
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
-Button[] buttons = new Button[2];
+Button[] buttons = new Button[3];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums;
@@ -37,6 +37,7 @@ void setup() {
   //buttons core
   buttons[0] = new Button(315, 380, 300, 184, "PLAY", false, "selectPage", "start");
   buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "exit", "start");
+  buttons[2] = new Button(100, 200, 300, 184, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage");
 }
 
 
@@ -75,6 +76,14 @@ void draw() {
     //Always make sure to turn it to false after mousePressed, but after changing the screen and stuff
   } else if (screen == '2') {
     background = loadImage("selectionScreen1.png");
+    buttons[2].display();
+    buttons[2].hover(mouseX, mouseY);
+    buttons[2].mousePressed(mouseX, mouseY);
+    if (buttons[2].isClicked && mousePressed) {
+      screen = '1';
+      buttons[2].isClicked = false;
+      background = loadImage("CSharpStartScreen.png");
+    }
   }
 }
 
