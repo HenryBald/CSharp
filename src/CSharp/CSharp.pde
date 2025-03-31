@@ -43,9 +43,9 @@ void setup() {
 
 
 void draw() {
+  background.resize(width, height);
+  background(background);
   if (screen == '1') {
-    background.resize(width, height);
-    background(background);
     if (beTime.isFinished()) {
       backgroundeffects.add(new BackgroundEffect());
       beTime.start();
@@ -68,23 +68,18 @@ void draw() {
     buttons[1].mousePressed(mouseX, mouseY);
     if (buttons[0].isClicked && mousePressed) {
       screen = '2';
+      buttons[0].isClicked = false;
     }
-    buttons[1].isClicked = false;
     //Always make sure to turn it to false after mousePressed, but after changing the screen and stuff
   } else if (screen == '2') {
-          background = loadImage("selectionScreen1.png");
+    background = loadImage("selectionScreen1.png");
   }
-  updateDisplay();
 }
 
 
 //println("Left:" + l + " Right:" + r + " Result:" + result + " Op:" + op + "L:" + left);
 
-void updateDisplay() {
-}
 
-void gameOver() {
-}
 void mousePressed() {
 }
 void playNote() {
