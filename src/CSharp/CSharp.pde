@@ -37,7 +37,7 @@ void setup() {
   //buttons core
   buttons[0] = new Button(315, 380, 300, 184, "PLAY", false, "selectPage", "start");
   buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "exit", "start");
-  buttons[2] = new Button(100, 200, 300, 184, "home", false, "start", "selectPage");
+  buttons[2] = new Button(100, 200, 300, 184, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage");
 }
 
 
