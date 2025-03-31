@@ -18,6 +18,9 @@ void setup() {
   background = loadImage("CSharpStartScreen.png");
   logoImage = loadImage("NewC#Logo.png");
   logoImage.resize(50, 50);
+  background = loadImage("CSharpStartScreen.png");
+  logoImage = loadImage("NewC#.png");
+  logoImage.resize(440, 237);
   mainCursor = loadImage("4881475.png");
   mainCursor.resize(50, 50);
   surface.setCursor(mainCursor, mouseX, mouseY);
@@ -51,7 +54,7 @@ void draw() {
     if (b.reachedBottom()) {
       backgroundeffects.remove(i);
     }
-    image(logoImage, 500, 200);
+    image(logoImage, 292, 30);
   }
   for (int i=0; i<buttons.length; i++) {
     buttons[i].display();
