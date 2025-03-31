@@ -1,4 +1,4 @@
-// Kirubashini
+// Kirubashini (and a little bit of William)
 class Button {
   // Member Variables
   int x, y, w, h;
