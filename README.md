@@ -4,7 +4,7 @@
 * Henry Baldwin ()
 * Reed Stringham () 
 * Kirubashinilakshana Senthilnathan ()
-* Zoe Leclair ()
+* Zoe Leclair (Settings and pages design)
 * William Barney (Some Logic && Sound Man [Recording Sound Bits and Making Effects Class])
 * Santhosh  (Logic and UI for drumset)
 
