@@ -69,6 +69,8 @@ void draw() {
     if (buttons[0].isClicked && mousePressed) {
       screen = '2';
       buttons[0].isClicked = false;
+    } else if (buttons[1].isClicked && mousePressed) {
+      exit();
     }
     //Always make sure to turn it to false after mousePressed, but after changing the screen and stuff
   } else if (screen == '2') {
