@@ -30,3 +30,6 @@ Our idea for a application is a music creation app that allows the user to recre
 
 ## Keyboard GUI Mockup - Henry
 ![KeyboardGUI](https://github.com/HenryBald/CSharp/blob/main/src/CSharp/data/KeyboardGUIFinalVers.png)
+
+## Selection Screen GUI Mockup - William
+![SelectionScreenGUI](https://github.com/HenryBald/CSharp/blob/main/src/CSharp/data/selectionScreen1.png)
