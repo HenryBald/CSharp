@@ -17,7 +17,7 @@ Our idea for a application is a music creation app that allows the user to recre
 
 
 ## Class Diagram for Classes - Santhosh 
-![UMLKeyboard](https://github.com/HenryBald/CSharp/blob/main/assets/Screenshot%202025-03-24%20224912.png)
+![UMLKeyboard](https://github.com/HenryBald/CSharp/blob/main/src/CSharp/data/ClassDiagram.png)
 
 ## Start Screen for CSharp - Henry
 ![CSharpStartScreen](https://github.com/HenryBald/CSharp/blob/main/assets/CSharpStartScreen.png)
