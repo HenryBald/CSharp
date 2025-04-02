@@ -37,8 +37,14 @@ class Button {
     rect(x, y, w, h, 5);
     fill(0);
     textAlign(CENTER, CENTER);
-    textSize(65);
-    fill(0,0,0);
+    
+    float maxTextSize = min(w, h) * 0.6;
+    textSize(maxTextSize);
+    
+    while (textWidth(val) > w * 0.8) {
+      maxTextSize -= 1;
+      textSize(maxTextSize);
+    }
     text(val, x, y);
   }
 
