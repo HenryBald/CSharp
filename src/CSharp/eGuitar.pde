@@ -1,8 +1,8 @@
-// Assigned to Santhosh
+// Assigned to 
 //import processing.sound.*;
-//SoundFile snare, base, hiHat, crashSymbol, splashSymbol, triangle, cowbell;
-class Drumset {
-  Drumset() {
+//SoundFile e ;
+class eGuitar {
+  eGuitar() {
   
   //snare = new SoundFile(this, "");
   //base = new SoundFile(this, "");
