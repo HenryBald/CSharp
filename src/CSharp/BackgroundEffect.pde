@@ -3,14 +3,19 @@ class BackgroundEffect {
   // Member variables
   int x, x1, y, diam, speed;
   char noteType;
+  PImage note;
 
   // Constructor
   BackgroundEffect() {
     int random = int(random(1, 7));
     if (random == 6) {
       noteType = 'a';
+      note = loadImage("WholeNote.png");
+      note.resize(25,25);
+      speed = 1;
     } else if (random == 5) {
       noteType = 'b';
+      speed = 2;
     } else if (random == 4) {
       noteType = 'c';
     } else if (random == 3) {
@@ -30,8 +35,7 @@ class BackgroundEffect {
   void display() {
     fill(255);
     if (noteType == 'a') {
-      ellipse(x, y, diam, diam);  // The ellipse is at position (x, y)
-      rect(x + 5, y - 12, 2, 20);   // The rectangle is at position (x + 1, y + 1)
+      image(note,x,y);
     } else if (noteType == 'b') {
       ellipse(x1, y, diam, diam);  // The ellipse is at position (x, y)
     }
