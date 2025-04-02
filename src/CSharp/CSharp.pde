@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 // William and Kirubashini and Henry
 import processing.sound.*;
-=======
 // William, Kirubashini, Henry, and Santhosh
->>>>>>> 76696e00407a1d73b070798ef0d773223ac28bf1
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
