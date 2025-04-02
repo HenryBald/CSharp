@@ -7,27 +7,36 @@ class BackgroundEffect {
 
   // Constructor
   BackgroundEffect() {
-    int random = int(random(1, 7));
-    if (random == 6) {
+    int random = int(random(1, 6));
+    if (random == 5) {
       noteType = 'a';
       note = loadImage("WholeNote.png");
       note.resize(25,25);
       speed = 1;
-    } else if (random == 5) {
-      noteType = 'b';
-      speed = 2;
     } else if (random == 4) {
-      noteType = 'c';
+      noteType = 'b';
+      note = loadImage("HalfNote.png");
+      note.resize(50,50);
+      speed = 2;
     } else if (random == 3) {
-      noteType = 'd';
+      noteType = 'c';
+      note = loadImage("QuarterNote.png");
+      note.resize(50,50);
+      speed = 3;
     } else if (random == 2) {
+      noteType = 'd';
+      note = loadImage("EighthNote.png");
+      note.resize(30,50);
+      speed = 4;
+    } else {
       noteType = 'e';
-    } else if (random == 1) {
-      noteType = 'f';
+      note = loadImage("SixteenthNote.png");
+      note.resize(50,50);
+      speed = 5;
     }
     x = int(random(width));
     x1 = int(random(width));
-    y = -10;
+    y = -50;
     diam = int(12);
   }
 
@@ -37,7 +46,13 @@ class BackgroundEffect {
     if (noteType == 'a') {
       image(note,x,y);
     } else if (noteType == 'b') {
-      ellipse(x1, y, diam, diam);  // The ellipse is at position (x, y)
+      image(note,x,y);
+    } else if (noteType == 'c') {
+      image(note,x,y);
+    } else if (noteType == 'd') {
+      image(note,x,y);
+    } else {
+      image(note,x,y);
     }
   }
 
