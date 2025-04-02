@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 // William and Kirubashini and Henry
 import processing.sound.*;
+=======
+// William, Kirubashini, Henry, and Santhosh
+>>>>>>> 76696e00407a1d73b070798ef0d773223ac28bf1
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
-Button[] buttons = new Button[3];
+Button[] buttons = new Button[4];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums;
@@ -40,6 +44,8 @@ void setup() {
   buttons[0] = new Button(315, 380, 300, 184, "PLAY", false, "selectPage", "start");
   buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "exit", "start");
   buttons[2] = new Button(100, 200, 300, 184, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage");
+  buttons[3] = new Button(805, 35 ,100, 100, "Trivia", false, "book", "selectPage");
+
 }
 
 
@@ -81,13 +87,24 @@ void draw() {
   } else if (screen == '2') {
     background = loadImage("selectionScreen1.png");
     buttons[2].display();
+    buttons[3].display();
     buttons[2].hover(mouseX, mouseY);
+    buttons[3].hover(mouseX, mouseY);
     buttons[2].mousePressed(mouseX, mouseY);
+    buttons[3].mousePressed(mouseX, mouseY);
     if (buttons[2].isClicked && mousePressed) {
       screen = '1';
       buttons[2].isClicked = false;
       background = loadImage("CSharpStartScreen.png");
     }
+    else if(buttons[3].isClicked && mousePressed){
+      screen = '3';
+    }
+    else if(screen == '3'){
+      
+    }
+    
+
   }
 }
 
