@@ -1,4 +1,5 @@
 // William and Kirubashini and Henry
+import processing.sound.*;
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
@@ -7,11 +8,12 @@ float l, r, result;
 char op, screen;
 boolean left, time4Drums;
 Timer beTime;
+SoundFile egC4;
 
 void setup() {
   size(1024, 540);
   surface.setResizable(true);
-  beTime = new Timer(50);
+  beTime = new Timer(500);
   beTime.start();
   //surface.setIcon(logoImage);
 
@@ -46,10 +48,12 @@ void setup() {
 void draw() {
   background.resize(width, height);
   background(background);
+  egC4 = new SoundFile(this, "egC4.mp3");
   if (screen == '1') {
     if (beTime.isFinished()) {
       backgroundeffects.add(new BackgroundEffect());
       beTime.start();
+      egC4.play();
     }
     for (int i = backgroundeffects.size() - 1; i >= 0; i--) {
       BackgroundEffect b = backgroundeffects.get(i);
