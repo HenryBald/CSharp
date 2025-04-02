@@ -1,17 +1,23 @@
+<<<<<<< HEAD
 // William and Kirubashini and Henry
+import processing.sound.*;
+=======
+// William, Kirubashini, Henry, and Santhosh
+>>>>>>> 76696e00407a1d73b070798ef0d773223ac28bf1
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
-Button[] buttons = new Button[3];
+Button[] buttons = new Button[4];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums;
 Timer beTime;
+SoundFile egC4;
 
 void setup() {
   size(1024, 540);
   surface.setResizable(true);
-  beTime = new Timer(50);
+  beTime = new Timer(500);
   beTime.start();
   //surface.setIcon(logoImage);
 
@@ -38,6 +44,8 @@ void setup() {
   buttons[0] = new Button(315, 380, 300, 184, "PLAY", false, "selectPage", "start");
   buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "exit", "start");
   buttons[2] = new Button(100, 200, 300, 184, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage");
+  buttons[3] = new Button(805, 35 ,100, 100, "Trivia", false, "book", "selectPage");
+
 }
 
 
@@ -46,10 +54,12 @@ void setup() {
 void draw() {
   background.resize(width, height);
   background(background);
+  egC4 = new SoundFile(this, "egC4.mp3");
   if (screen == '1') {
     if (beTime.isFinished()) {
       backgroundeffects.add(new BackgroundEffect());
       beTime.start();
+      egC4.play();
     }
     for (int i = backgroundeffects.size() - 1; i >= 0; i--) {
       BackgroundEffect b = backgroundeffects.get(i);
@@ -77,13 +87,24 @@ void draw() {
   } else if (screen == '2') {
     background = loadImage("selectionScreen1.png");
     buttons[2].display();
+    buttons[3].display();
     buttons[2].hover(mouseX, mouseY);
+    buttons[3].hover(mouseX, mouseY);
     buttons[2].mousePressed(mouseX, mouseY);
+    buttons[3].mousePressed(mouseX, mouseY);
     if (buttons[2].isClicked && mousePressed) {
       screen = '1';
       buttons[2].isClicked = false;
       background = loadImage("CSharpStartScreen.png");
     }
+    else if(buttons[3].isClicked && mousePressed){
+      screen = '3';
+    }
+    else if(screen == '3'){
+      
+    }
+    
+
   }
 }
 
