@@ -6,7 +6,7 @@
 * Kirubashinilakshana Senthilnathan (Logic, UI Design)
 * Zoe Leclair (UI Design)
 * William Barney (Some Logic && Sound Man [Recording Sound Bits and Making Effects Class])
-* Santhosh  (Logic and UI for drumset)
+* Santhosh  (Logic and UI for drumset, Logic for Trivia )
 
 
 ## Outline for CSharp - Santhosh 
