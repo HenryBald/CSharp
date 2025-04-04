@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-
-// William and Kirubashini and Henry
 import processing.sound.*;
-
-=======
-// William and Kirubashini and Henry
-import processing.sound.*;
->>>>>>> e0815cde991964846d71190d4992a31df88137e2
 // William, Kirubashini, Henry, and Santhosh
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 // Ignore layerImage
