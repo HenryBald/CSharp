@@ -4,7 +4,7 @@
 * Henry Baldwin (Logic, UI Design, Extra Sound Bits, Team Leader)
 * Reed Stringham (Logic, UI Design, Background Effects Logic and Design,) 
 * Kirubashinilakshana Senthilnathan (Logic, UI Design)
-* Zoe Leclair (Logic, UI Design)
+* Zoe Leclair (UI Design)
 * William Barney (Some Logic && Sound Man [Recording Sound Bits and Making Effects Class])
 * Santhosh  (Logic and UI for drumset)
 
