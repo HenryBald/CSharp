@@ -8,12 +8,15 @@ float l, r, result;
 char op, screen;
 boolean left, time4Drums;
 Timer beTime;
-SoundFile egC4, egE3;
+//guitar sound files
+SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, egE3, egEb3, egFs2, egFs3, egF2, egF3, egGs2, egGs3, egG2, egG3;
+//piano sound files
+SoundFile hellothere;
 
 void setup() {
   size(1024, 540);
   surface.setResizable(true);
-  beTime = new Timer(500);
+  beTime = new Timer(250);
   beTime.start();
   //surface.setIcon(logoImage);
 
@@ -41,7 +44,12 @@ void setup() {
   buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "exit", "start");
   buttons[2] = new Button(100, 200, 300, 184, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage");
   buttons[3] = new Button(805, 35 ,100, 100, "Trivia", false, "book", "selectPage");
-
+  
+//sounds core
+  //eletric guitar sounds
+  egC4 = new SoundFile(this, "egC4.mp3");
+  egE3 = new SoundFile(this, "egE3.mp3");
+  //piano sounds
 }
 
 
@@ -50,8 +58,6 @@ void setup() {
 void draw() {
   background.resize(width, height);
   background(background);
-  egC4 = new SoundFile(this, "egC4.mp3");
-  egE3 = new SoundFile(this, "egE3.mp3");
   if (screen == '1') {
     if (beTime.isFinished()) {
       backgroundeffects.add(new BackgroundEffect());
@@ -63,9 +69,6 @@ void draw() {
       b.move();
       if (b.reachedBottom()) {
         backgroundeffects.remove(i);
-        int 
-        egC4.play();
-        egE3.play();
       }
       image(logoImage, 292, 30);
     }
