@@ -2,7 +2,7 @@
 class Button {
   // Member Variables
   int x, y, w, h;
-  color c1, c2;
+  color c1, c2, c3;
   String val, hiddenTag, pageOn;
   boolean on, isClicked, isNote;
 
@@ -19,8 +19,9 @@ class Button {
   //Also we probably will want the buttons clear, exept to the second color, which can be a black with low alpha value for rollover, that way we can just customize the looks of the button in the GUI, not in each specific button
     c1 = color(#FFFFFF);
     c2 = color(#808080);
+    c3 = color(144, 22, 222, 10);
     this.val = val;
-    on=false;
+    on = false;
     isClicked = false;
     this.isNote = isNote;
   }
@@ -32,7 +33,10 @@ class Button {
     } else {
       fill(c1);
     }
-    stroke(255);
+    if (isNote) {
+      fill(c3);
+    }
+    stroke(255, 20);
     rectMode(CENTER);
     rect(x, y, w, h, 5);
     fill(0);

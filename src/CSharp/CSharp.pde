@@ -44,7 +44,7 @@ void setup() {
   buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "exit", "start");
   buttons[2] = new Button(100, 200, 300, 184, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage");
   buttons[3] = new Button(805, 35, 100, 100, "Trivia", false, "book", "selectPage");
-  buttons[4] = new Button(500, 500, 200, 100, " ", false, "keyboard", "selectPage");
+  buttons[4] = new Button(500, 500, 200, 100, " ", true, "keyboard", "selectPage");
   
 //sounds core
   //eletric guitar sounds
