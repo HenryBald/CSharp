@@ -18,7 +18,7 @@ class Button {
     c1 = color(255, 255, 255);
     c2 = color(#808080);
     c3 = color(241, 232, 255, 25);
-    c4 = color(130);
+    c4 = color(130, 0);
     this.val = val;
     on = false;
     isClicked = false;
