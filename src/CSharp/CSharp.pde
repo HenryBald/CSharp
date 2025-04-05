@@ -40,11 +40,11 @@ void setup() {
   time4Drums = false;
 
   //buttons core
-  buttons[0] = new Button(315, 380, 300, 184, "PLAY", false, "selectPage", "start", false);
-  buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "exit", "start", false);
-  buttons[2] = new Button(100, 200, 300, 184, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
-  buttons[3] = new Button(805, 35, 100, 100, "Trivia", false, "book", "selectPage", false);
-  buttons[4] = new Button(680, 345, 220, 100, " ", false, "keyboard", "selectPage", true);
+  buttons[0] = new Button(315, 380, 300, 184, 120, "PLAY", false, "selectPage", "start", false);
+  buttons[1] = new Button(705, 380, 300, 184, 120, "EXIT", false, "exit", "start", false);
+  buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
+  buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
+  buttons[4] = new Button(680, 345, 220, 100, 100,  " ", false, "keyboard", "selectPage", true);
   
 //sounds core
   //eletric guitar sounds

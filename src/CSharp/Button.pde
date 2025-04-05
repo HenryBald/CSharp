@@ -1,13 +1,13 @@
 // Kirubashini (and a little bit of William)
 class Button {
   // Member Variables
-  int x, y, w, h;
+  int x, y, w, h, size;
   color c1, c2, c3, c4;
   String val, hiddenTag, pageOn;
   boolean on, isClicked, isNote, selectyThing;
 
   // Constructor
-  Button(int x, int y, int w, int h, String val, boolean isNote, String hiddenTag, String pageOn, boolean selectyThing) {
+  Button(int x, int y, int w, int h, int size, String val, boolean isNote, String hiddenTag, String pageOn, boolean selectyThing) {
     this.x = x;
     this.y = y;
     this.w = w;
@@ -24,6 +24,7 @@ class Button {
     isClicked = false;
     this.isNote = isNote;
     this.selectyThing = selectyThing;
+    this.size = size;
   }
 
   // Member Methods
@@ -45,15 +46,8 @@ class Button {
     rect(x, y, w, h, 5);
     fill(0);
     textAlign(CENTER, CENTER);
-    
-    float maxTextSize = min(w, h) * 0.6;
-    textSize(maxTextSize);
-    
-    while (textWidth(val) > w * 0.8) {
-      maxTextSize -= 1;
-      textSize(maxTextSize);
-    }
-    text(val, x, y);
+    textSize(size);
+    text(val, x, y, w, h);
   }
 
   boolean hover(int mx, int my) {
