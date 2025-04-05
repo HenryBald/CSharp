@@ -3,7 +3,7 @@ import processing.sound.*;
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
-Button[] buttons = new Button[4];
+Button[] buttons = new Button[5];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums;
@@ -43,7 +43,8 @@ void setup() {
   buttons[0] = new Button(315, 380, 300, 184, "PLAY", false, "selectPage", "start");
   buttons[1] = new Button(705, 380, 300, 184, "EXIT", false, "exit", "start");
   buttons[2] = new Button(100, 200, 300, 184, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage");
-  buttons[3] = new Button(805, 35 ,100, 100, "Trivia", false, "book", "selectPage");
+  buttons[3] = new Button(805, 35, 100, 100, "Trivia", false, "book", "selectPage");
+  buttons[4] = new Button(500, 500, 200, 100, " ", false, "keyboard", "selectPage");
   
 //sounds core
   //eletric guitar sounds
@@ -90,14 +91,22 @@ void draw() {
     background = loadImage("selectionScreen1.png");
     buttons[2].display();
     buttons[3].display();
+    buttons[4].display();
     buttons[2].hover(mouseX, mouseY);
     buttons[3].hover(mouseX, mouseY);
+    buttons[4].hover(mouseX, mouseY);
     buttons[2].mousePressed(mouseX, mouseY);
     buttons[3].mousePressed(mouseX, mouseY);
+    buttons[4].mousePressed(mouseX, mouseY);
     if (buttons[2].isClicked && mousePressed) {
       screen = '1';
       buttons[2].isClicked = false;
       background = loadImage("CSharpStartScreen.png");
+    }
+    if (buttons[4].isClicked && mousePressed) {
+      screen = '4';
+      buttons[4].isClicked = false;
+      background = loadImage("KeyboardGUI.png");
     }
     else if(buttons[3].isClicked && mousePressed){
       screen = '3';
@@ -105,8 +114,9 @@ void draw() {
     else if(screen == '3'){
       
     }
-    
-
+    else if(screen == '4'){
+      background = loadImage("KeyboardGUI.png");
+    }
   }
 }
 
