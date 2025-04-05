@@ -48,8 +48,27 @@ void setup() {
   
 //sounds core
   //eletric guitar sounds
-  egC4 = new SoundFile(this, "egC4.mp3");
+  egE2 = new SoundFile(this, "egE2.mp3");
+  egF2 = new SoundFile(this, "egF2.mp3");
+  egFs2 = new SoundFile(this, "egFs2.mp3");
+  egG2 = new SoundFile(this, "egG2.mp3");
+  egGs2 = new SoundFile(this, "egGs2.mp3");
+  egA2 = new SoundFile(this, "egA2.mp3");
+  egBb2 = new SoundFile(this, "egBb2.mp3");
+  egB2 = new SoundFile(this, "egB2.mp3");
+  egC3 = new SoundFile(this, "egC3.mp3");
+  egCs3 = new SoundFile(this, "egCs3.mp3");
+  egD3 = new SoundFile(this, "egD3.mp3");
+  egEb3 = new SoundFile(this, "egEb3.mp3");
   egE3 = new SoundFile(this, "egE3.mp3");
+  egF3 = new SoundFile(this, "egF3.mp3");
+  egFs3 = new SoundFile(this, "egFs3.mp3");
+  egG3 = new SoundFile(this, "egG3.mp3");
+  egGs3 = new SoundFile(this, "egGs3.mp3");
+  egA3 = new SoundFile(this, "egA3.mp3");
+  egBb3 = new SoundFile(this, "egBb3.mp3");
+  egB3 = new SoundFile(this, "egB3.mp3");
+  egC4 = new SoundFile(this, "egC4.mp3");
   //piano sounds
 }
 
