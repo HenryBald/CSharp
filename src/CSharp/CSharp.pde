@@ -135,6 +135,9 @@ void draw() {
     }
     else if(screen == '4'){
       background = loadImage("KeyboardGUI.png");
+      //eGuitar.egbuttons[0].display();
+      //eGuitar.egbuttons[0].hover(mouseX, mouseY);
+      //eGuitar.egbuttons[0].mousePressed(mouseX, mouseY);
     }
   }
 }

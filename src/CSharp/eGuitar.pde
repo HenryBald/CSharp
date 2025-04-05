@@ -1,6 +1,7 @@
 class eGuitar {
+  Button[] egbuttons = new Button[20];
   eGuitar() {
-
+    egbuttons[0] = new Button(315, 380, 300, 184, 100, " ", true, "playsNote", "eGuitar", false);
   }
 void keyPressed(){
 if (key == 0 || keyCode == 96 || keyCode == 48){
