@@ -1,9 +1,11 @@
 import processing.sound.*;
 // William, Kirubashini, Henry, and Santhosh
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
+ArrayList<Trivia> questions = new ArrayList<Trivia>();
+int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
-Button[] buttons = new Button[5];
+Button[] buttons = new Button[6];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums;
@@ -30,7 +32,6 @@ void setup() {
   mainCursor = loadImage("4881475.png");
   mainCursor.resize(50, 50);
   surface.setCursor(mainCursor, mouseX, mouseY);
-
   screen = '1';
   l = 0.0;
   r = 0.0;
@@ -38,6 +39,16 @@ void setup() {
   op = ' ';
   left = true;
   time4Drums = false;
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat in 4/4 time and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+
 
   //buttons core
   buttons[0] = new Button(315, 380, 300, 184, 120, "PLAY", false, "selectPage", "start", false);
@@ -45,6 +56,8 @@ void setup() {
   buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
   buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
   buttons[4] = new Button(680, 345, 220, 100, 100,  " ", false, "keyboard", "selectPage", true);
+  buttons[5] = new Button(500, 225, 300, 50, 40,  "Begin", false, "Trivia", "selectPage", false);
+
   
 //sounds core
   //eletric guitar sounds
@@ -129,18 +142,40 @@ void draw() {
     }
     else if(buttons[3].isClicked && mousePressed){
       screen = '3';
+      buttons[3].isClicked = false;
+      background = loadImage("Trivias.png");
+     
     }
-    else if(screen == '3'){
-      
-    }
+
+    } else if (screen == '3') {
+     background = loadImage("Trivias.png");
+    buttons[5].display();
+    buttons[5].hover(mouseX, mouseY);
+    buttons[5].mousePressed(mouseX, mouseY);
+    PFont font;
+    font = createFont("SpongeTitle.ttf", 25);
+    textFont(font);
+    
+    textAlign(CENTER);
+    text("Welcome to the trivia game: \n This is where you can unlock new instruments", width/2,100);
+  
+  if (buttons[5].isClicked && mousePressed) {
+      screen = 5;
+     
+  }
+}
     else if(screen == '4'){
       background = loadImage("KeyboardGUI.png");
       //eGuitar.egbuttons[0].display();
       //eGuitar.egbuttons[0].hover(mouseX, mouseY);
       //eGuitar.egbuttons[0].mousePressed(mouseX, mouseY);
     }
+    else if(screen == '5'){
+        size(1024, 540);
+
+    }
   }
-}
+
 
 
 //println("Left:" + l + " Right:" + r + " Result:" + result + " Op:" + op + "L:" + left);
