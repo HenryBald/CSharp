@@ -10,5 +10,4 @@ class Trivia {
       this.correctAnswer = correctAnswer;
       this.options = options;
     }
-  
 }

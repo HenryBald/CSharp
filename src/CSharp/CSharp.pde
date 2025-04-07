@@ -2,6 +2,7 @@ import processing.sound.*;
 // William, Kirubashini, Henry, and Santhosh
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
+ArrayList<Button> triviaButtons = new ArrayList<Button>(); 
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
@@ -9,6 +10,7 @@ Button[] buttons = new Button[6];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums;
+String explanation = "";
 Timer beTime;
 //guitar sound files
 SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, egE3, egEb3, egFs2, egFs3, egF2, egF3, egGs2, egGs3, egG2, egG3;
@@ -39,8 +41,8 @@ void setup() {
   op = ' ';
   left = true;
   time4Drums = false;
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat in 4/4 time and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("Whnhjhhhhr a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
   questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
   questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
   questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
@@ -172,17 +174,32 @@ void draw() {
     }
     else if(screen == '5'){
         size(1024, 540);
-
     }
   }
 
+void mousePressed() {
+
+}
+
+void checkAnswer(int selectedOption) {
+  Trivia currentTrivia = questions.get(currentQuestion);
+
+  if (selectedOption == currentTrivia.correctAnswer) {
+     explanation = "Great Job!";
+   
+    currentQuestion++;
+    if (currentQuestion >= questions.size()) {
+      currentQuestion = 0;
+    }
+  } else if(selectedOption != currentTrivia.correctAnswer) {
+    explanation = currentTrivia.explanation;
+    
+  }
+}
 
 
 //println("Left:" + l + " Right:" + r + " Result:" + result + " Op:" + op + "L:" + left);
 
-
-void mousePressed() {
-}
 void playNote() {
 }
 
