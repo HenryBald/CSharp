@@ -11,6 +11,7 @@ float l, r, result;
 char op, screen;
 boolean left, time4Drums;
 String explanation = "";
+String feedback = "";
 Timer beTime;
 //guitar sound files
 SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, egE3, egEb3, egFs2, egFs3, egF2, egF3, egGs2, egGs3, egG2, egG3;
@@ -60,7 +61,7 @@ void setup() {
   buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
   buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
   buttons[4] = new Button(680, 345, 220, 100, 100,  " ", false, "keyboard", "selectPage", true);
-  buttons[5] = new Button(500, 225, 300, 50, 40,  "Begin", false, "Trivia", "selectPage", false);
+  buttons[5] = new Button(500, 200, 300, 50, 40,  "Begin", false, "Trivia", "selectPage", false);
 
   
 //sounds core
@@ -163,11 +164,13 @@ void draw() {
     textAlign(CENTER);
     text("Welcome to the trivia game: \n This is where you can unlock new instruments", width/2,100);
   
-  if (buttons[5].isClicked && mousePressed) {
-      screen = 5;
+ 
+ if (buttons[5].isClicked && mousePressed) {
+     screen = '5';
+     buttons[5].isClicked = false;
+ }
      
   }
-}
     else if(screen == '4'){
       background = loadImage("KeyboardGUI.png");
       //eGuitar.egbuttons[0].display();
@@ -175,9 +178,16 @@ void draw() {
       //eGuitar.egbuttons[0].mousePressed(mouseX, mouseY);
     }
     else if(screen == '5'){
-        size(1024, 540);
+   background(255);
+   
+    text(questions.get(currentQuestion).question, width / 2, 100);
+    
+    String[] options = questions.get(currentQuestion).options;
+    for (int i = 0; i < options.length; i++) {
+        text(options[i], width / 2, 150 + (i * 40)); 
     }
   }
+}
 
 void mousePressed() {
 
@@ -187,7 +197,7 @@ void checkAnswer(int selectedOption) {
   Trivia currentTrivia = questions.get(currentQuestion);
 
   if (selectedOption == currentTrivia.correctAnswer) {
-     explanation = "Great Job!";
+     feedback = "Great Job!";
    
     currentQuestion++;
     if (currentQuestion >= questions.size()) {
