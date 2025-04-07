@@ -193,19 +193,18 @@ void mousePressed() {
 
 }
 
-void checkAnswer(int selectedOption) {
+void checkAnswer(int chosenOption) {
   Trivia currentTrivia = questions.get(currentQuestion);
-
-  if (selectedOption == currentTrivia.correctAnswer) {
+// if user gets the correct answer the message feedback will be outputted
+  if (chosenOption == currentTrivia.correctAnswer) {
      feedback = "Great Job!";
-   
+  // adds to the int currentQuestion so it can move to next question
     currentQuestion++;
-    if (currentQuestion >= questions.size()) {
-      currentQuestion = 0;
-    }
-  } else if(selectedOption != currentTrivia.correctAnswer) {
+    // to check if user inputted wrong choice
+  } else if(chosenOption != currentTrivia.correctAnswer) {
+    // the explanation will be outputted
     explanation = currentTrivia.explanation;
-    
+    currentQuestion++;
   }
 }
 
