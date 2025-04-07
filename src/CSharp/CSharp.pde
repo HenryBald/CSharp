@@ -41,6 +41,8 @@ void setup() {
   op = ' ';
   left = true;
   time4Drums = false;
+//Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
+// the second part of the first question just reads out loud weird
   questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
   questions.add(new Trivia ("Whnhjhhhhr a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
   questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
