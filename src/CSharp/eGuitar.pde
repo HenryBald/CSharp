@@ -14,7 +14,7 @@ public void keyPressed(){
   egbuttons[0].mousePressed(mouseX, mouseY);
   //egbuttons[3].mousePressed(mouseX, mouseY);
   //egbuttons[4].mousePressed(mouseX, mouseY);
-if (key == 0 || keyCode == 96 || keyCode == 48){
+  if (keyPressed && key == 'e' || key == 'E'){
     egE2.play();
     egE2.loop();
     }

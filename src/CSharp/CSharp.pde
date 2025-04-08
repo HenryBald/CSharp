@@ -174,6 +174,13 @@ void draw() {
   }
     else if(screen == '4'){
       background = loadImage("KeyboardGUI.png");
+      if(keyPressed){
+        if(key == CODED) {
+      println("keyCode =" + keyCode);
+        } else {
+          println("key = " + key);
+        }
+      }
       theEGuitarYipee.keyPressed();
       theEGuitarYipee.keyReleased();
       theEGuitarYipee.mousePressed();
