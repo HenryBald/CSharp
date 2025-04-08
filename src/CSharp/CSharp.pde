@@ -17,6 +17,7 @@ Timer beTime;
 SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, egE3, egEb3, egFs2, egFs3, egF2, egF3, egGs2, egGs3, egG2, egG3;
 //piano sound files
 SoundFile hellothere;
+eGuitar theEGuitarYipee = new eGuitar();
 
 void setup() {
   size(1024, 540);
@@ -173,7 +174,10 @@ void draw() {
   }
     else if(screen == '4'){
       background = loadImage("KeyboardGUI.png");
-      
+      theEGuitarYipee.keyPressed();
+      theEGuitarYipee.keyReleased();
+      theEGuitarYipee.mousePressed();
+      theEGuitarYipee.mouseReleased();
     }
     else if(screen == '5'){
    background(255);

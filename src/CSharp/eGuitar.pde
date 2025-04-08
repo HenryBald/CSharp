@@ -1,9 +1,10 @@
 class eGuitar {
   Button[] egbuttons = new Button[20];
+  
   eGuitar() {
-  egbuttons[0] = new Button(315, 380, 300, 184, 100, " ", true, "playsNote", "eGuitar", false);
+  egbuttons[0] = new Button(180, 500, 73, 85, 100, " ", true, "playsNote", "eGuitar", false);
   }
-void keyPressed(){
+public void keyPressed(){
   egbuttons[0].display();
   //egbuttons[3].display();
   //egbuttons[4].display();
