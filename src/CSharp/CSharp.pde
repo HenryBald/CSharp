@@ -23,12 +23,12 @@ void setup() {
   surface.setResizable(true);
   beTime = new Timer(250);
   beTime.start();
-  //surface.setIcon(logoImage);
 
   surface.setTitle("CSharp - Online Music Creator");
   background = loadImage("CSharpStartScreen.png");
   logoImage = loadImage("NewC#Logo.png");
   logoImage.resize(50, 50);
+  surface.setIcon(logoImage);
   background = loadImage("CSharpStartScreen.png");
   logoImage = loadImage("NewC#.png");
   logoImage.resize(440, 237);
@@ -173,9 +173,7 @@ void draw() {
   }
     else if(screen == '4'){
       background = loadImage("KeyboardGUI.png");
-      //eGuitar.egbuttons[0].display();
-      //eGuitar.egbuttons[0].hover(mouseX, mouseY);
-      //eGuitar.egbuttons[0].mousePressed(mouseX, mouseY);
+      
     }
     else if(screen == '5'){
    background(255);

@@ -1,23 +1,37 @@
 class eGuitar {
   Button[] egbuttons = new Button[20];
   eGuitar() {
-    egbuttons[0] = new Button(315, 380, 300, 184, 100, " ", true, "playsNote", "eGuitar", false);
+  egbuttons[0] = new Button(315, 380, 300, 184, 100, " ", true, "playsNote", "eGuitar", false);
   }
 void keyPressed(){
+  egbuttons[0].display();
+  //egbuttons[3].display();
+  //egbuttons[4].display();
+  egbuttons[0].hover(mouseX, mouseY);
+  //egbuttons[3].hover(mouseX, mouseY);
+  //egbuttons[4].hover(mouseX, mouseY);
+  egbuttons[0].mousePressed(mouseX, mouseY);
+  //egbuttons[3].mousePressed(mouseX, mouseY);
+  //egbuttons[4].mousePressed(mouseX, mouseY);
 if (key == 0 || keyCode == 96 || keyCode == 48){
-    //egC3.play();
-    //egC3.loop();
+    egE2.play();
+    egE2.loop();
     }
 }
 void keyReleased(){
- if (key == 0 || keyCode == 96 || keyCode == 48){
-    //egC3.stop();
+ if (key == 0 || keyCode == 96 || keyCode == 48 && !keyPressed){
+    egE2.stop();
     }
 }
 void mousePressed(){
-
+  if(egbuttons[0].isClicked && mousePressed){
+    egE2.play();
+    egE2.loop();
+  }
 }
 void mouseReleased(){
-
+  if(!egbuttons[0].isClicked || !mousePressed){
+    egE2.stop();
+  }
 }
 }
