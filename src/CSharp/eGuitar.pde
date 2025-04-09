@@ -4,7 +4,7 @@ class eGuitar {
   eGuitar() {
   egbuttons[0] = new Button(180, 500, 73, 85, 100, " ", true, "playsNote", "eGuitar", false);
   }
-public void keyPressed(){
+void keyTyped(){
   egbuttons[0].display();
   //egbuttons[3].display();
   //egbuttons[4].display();
@@ -27,7 +27,7 @@ void mousePressed(){
   //egbuttons[4].mousePressed(mouseX, mouseY);
   if(egbuttons[0].isClicked && mousePressed){
     egE2.play();
-    egE2.loop();
+    //egE2.loop();
   }
 }
 void mouseReleased(){
