@@ -35,7 +35,7 @@ void setup() {
   logoImage.resize(440, 237);
   mainCursor = loadImage("4881475.png");
   mainCursor.resize(50, 50);
-  surface.setCursor(mainCursor, mouseX, mouseY);
+  surface.setCursor(mainCursor, 25, 25);
   screen = '1';
   l = 0.0;
   r = 0.0;
