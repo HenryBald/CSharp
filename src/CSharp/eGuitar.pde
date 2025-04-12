@@ -9,10 +9,16 @@ void keyPressed(){
   egbuttons[0].display();
   println("egE2 is: " + egE2);
   if(egE2 != null) {
+    egE2.stop();
     egE2.play();
     println("egE2 played");
   } else {
     println("egE2 is null");
+  }
+  if(egE2.isPlaying()) {
+    println("egE2 is playing");
+  } else {
+    println("egE2 is NOT playing");
   }
   //if (!egE2.isPlaying() && (key == 'e' || key == 'E')){
   //  egE2.play();
