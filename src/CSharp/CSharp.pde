@@ -191,9 +191,29 @@ void draw() {
   }
 }
 
-//void mousePressed() {
+void mousePressed() {
+  if (screen == '5') {
+    theEGuitarYipee.mousePressed();
+  }
+}
 
-//}
+void mouseReleased() {
+  if (screen == '5') {
+    theEGuitarYipee.mouseReleased();
+  }
+}
+
+void keyPressed() {
+  if (screen == '5') {
+    theEGuitarYipee.keyPressed();
+  }
+}
+
+void keyReleased() {
+  if (screen == '5') {
+    theEGuitarYipee.keyReleased();
+  }
+}
 
 void checkAnswer(int chosenOption) {
   Trivia currentTrivia = questions.get(currentQuestion);
@@ -215,9 +235,6 @@ void checkAnswer(int chosenOption) {
 
 void playNote() {
 }
-
-//void mouseReleased() {
-//}
 
 void stopNote() {
 }
