@@ -174,10 +174,10 @@ void draw() {
   }
     else if(screen == '4'){
       background = loadImage("KeyboardGUI.png");
-      //theEGuitarYipee.keyPressed();
-      //theEGuitarYipee.keyReleased();
-      //theEGuitarYipee.mousePressed();
-      //theEGuitarYipee.mouseReleased();
+      theEGuitarYipee.keyPressed();
+      theEGuitarYipee.keyReleased();
+      theEGuitarYipee.mousePressed();
+      theEGuitarYipee.mouseReleased();
     }
     else if(screen == '5'){
    background(255);

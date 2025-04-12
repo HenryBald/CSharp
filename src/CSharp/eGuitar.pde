@@ -1,5 +1,5 @@
 //William
-public class eGuitar extends PApplet {
+class eGuitar {
   Button[] egbuttons = new Button[20];
   
   eGuitar() {
