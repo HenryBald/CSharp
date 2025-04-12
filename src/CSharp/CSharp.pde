@@ -174,7 +174,7 @@ void draw() {
   }
     else if(screen == '4'){
       background = loadImage("KeyboardGUI.png");
-      theEGuitarYipee.keyTyped();
+      theEGuitarYipee.keyPressed();
       theEGuitarYipee.keyReleased();
       theEGuitarYipee.mousePressed();
       theEGuitarYipee.mouseReleased();
@@ -191,9 +191,9 @@ void draw() {
   }
 }
 
-void mousePressed() {
+//void mousePressed() {
 
-}
+//}
 
 void checkAnswer(int chosenOption) {
   Trivia currentTrivia = questions.get(currentQuestion);
@@ -216,8 +216,8 @@ void checkAnswer(int chosenOption) {
 void playNote() {
 }
 
-void mouseReleased() {
-}
+//void mouseReleased() {
+//}
 
 void stopNote() {
 }
