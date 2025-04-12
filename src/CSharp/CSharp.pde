@@ -174,10 +174,7 @@ void draw() {
   }
     else if(screen == '4'){
       background = loadImage("KeyboardGUI.png");
-      theEGuitarYipee.keyPressed();
-      theEGuitarYipee.keyReleased();
-      theEGuitarYipee.mousePressed();
-      theEGuitarYipee.mouseReleased();
+      theEGuitarYipee.neededStuffOrSomething();
     }
     else if(screen == '5'){
    background(255);
@@ -192,25 +189,25 @@ void draw() {
 }
 
 void mousePressed() {
-  if (screen == '5') {
+  if (screen == '4') {
     theEGuitarYipee.mousePressed();
   }
 }
 
 void mouseReleased() {
-  if (screen == '5') {
+  if (screen == '4') {
     theEGuitarYipee.mouseReleased();
   }
 }
 
 void keyPressed() {
-  if (screen == '5') {
+  if (screen == '4') {
     theEGuitarYipee.keyPressed();
   }
 }
 
 void keyReleased() {
-  if (screen == '5') {
+  if (screen == '4') {
     theEGuitarYipee.keyReleased();
   }
 }

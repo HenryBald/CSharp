@@ -5,8 +5,12 @@ class eGuitar {
   eGuitar() {
   egbuttons[0] = new Button(180, 500, 73, 85, 25, "E2", true, "playsNote", "eGuitar", true);
   }
-void keyPressed(){
+void neededStuffOrSomething() {
   egbuttons[0].display();
+  egbuttons[0].hover(mouseX, mouseY);
+  egbuttons[0].mousePressed(mouseX, mouseY);
+}
+void keyPressed(){
   if (!egE2.isPlaying() && (key == 'e' || key == 'E')){
     egE2.play();
     println("egE2 played");
@@ -19,8 +23,6 @@ void keyReleased(){
     }
 }
 void mousePressed(){
-  egbuttons[0].hover(mouseX, mouseY);
-  egbuttons[0].mousePressed(mouseX, mouseY);
   if(!egE2.isPlaying() && egbuttons[0].isClicked){
     egE2.play();
   }
