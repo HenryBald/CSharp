@@ -2,11 +2,11 @@ import processing.sound.*;
 // William, Kirubashini, Henry, and Santhosh
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
-ArrayList<Button> triviaButtons = new ArrayList<Button>(); 
+ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
-Button[] buttons = new Button[6];
+Button[] buttons = new Button[7];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums;
@@ -43,17 +43,17 @@ void setup() {
   op = ' ';
   left = true;
   time4Drums = false;
-//Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
-// the second part of the first question just reads out loud weird
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
-  questions.add(new Trivia ("Whnhjhhhhr a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  //Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
+  // the second part of the first question just reads out loud weird
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  questions.add(new Trivia ("Whnhjhhhhr a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
 
 
   //buttons core
@@ -61,11 +61,12 @@ void setup() {
   buttons[1] = new Button(705, 380, 300, 184, 120, "EXIT", false, "exit", "start", false);
   buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
   buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
-  buttons[4] = new Button(680, 345, 220, 100, 100,  " ", false, "keyboard", "selectPage", true);
-  buttons[5] = new Button(500, 200, 300, 50, 40,  "Begin", false, "Trivia", "selectPage", false);
+  buttons[4] = new Button(680, 345, 220, 100, 100, " ", false, "keyboard", "selectPage", true);
+  buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
+  buttons[6] = new Button(878, 49, 284, 99, 40, " ", false, "selectPage", "keyboard", true);
 
-  
-//sounds core
+
+  //sounds core
   //eletric guitar sounds
   egE2 = new SoundFile(this, "egE2.mp3");
   egF2 = new SoundFile(this, "egF2.mp3");
@@ -145,45 +146,47 @@ void draw() {
       screen = '4';
       buttons[4].isClicked = false;
       background = loadImage("KeyboardGUI.png");
-    }
-    else if(buttons[3].isClicked && mousePressed){
+    } else if (buttons[3].isClicked && mousePressed) {
       screen = '3';
       buttons[3].isClicked = false;
       background = loadImage("Trivias.png");
-     
     }
-
-    } else if (screen == '3') {
-     background = loadImage("Trivias.png");
+  } else if (screen == '3') {
+    background = loadImage("Trivias.png");
     buttons[5].display();
     buttons[5].hover(mouseX, mouseY);
     buttons[5].mousePressed(mouseX, mouseY);
     PFont font;
     font = createFont("SpongeTitle.ttf", 25);
     textFont(font);
-    
+
     textAlign(CENTER);
-    text("Welcome to the trivia game: \n This is where you can unlock new instruments", width/2,100);
-  
- 
- if (buttons[5].isClicked && mousePressed) {
-     screen = '5';
-     buttons[5].isClicked = false;
- }
-     
-  }
-    else if(screen == '4'){
-      background = loadImage("KeyboardGUI.png");
-      theEGuitarYipee.neededStuffOrSomething();
+    text("Welcome to the trivia game: \n This is where you can unlock new instruments", width/2, 100);
+
+
+    if (buttons[5].isClicked && mousePressed) {
+      screen = '5';
+      buttons[5].isClicked = false;
     }
-    else if(screen == '5'){
-   background(255);
-   
+  } else if (screen == '4') {
+    background = loadImage("KeyboardGUI.png");
+    theEGuitarYipee.neededStuffOrSomething();
+    buttons[6].display();
+    buttons[6].hover(mouseX, mouseY);
+    buttons[6].mousePressed(mouseX, mouseY);
+    if (buttons[6].isClicked && mousePressed) {
+      screen = '2';
+      buttons[6].isClicked = false;
+      background = loadImage("KeyboardGUI.png");
+    }
+  } else if (screen == '5') {
+    background(255);
+
     text(questions.get(currentQuestion).question, width / 2, 100);
-    
+
     String[] options = questions.get(currentQuestion).options;
     for (int i = 0; i < options.length; i++) {
-        text(options[i], width / 2, 150 + (i * 40)); 
+      text(options[i], width / 2, 150 + (i * 40));
     }
   }
 }
@@ -214,13 +217,13 @@ void keyReleased() {
 
 void checkAnswer(int chosenOption) {
   Trivia currentTrivia = questions.get(currentQuestion);
-// if user gets the correct answer the message feedback will be outputted
+  // if user gets the correct answer the message feedback will be outputted
   if (chosenOption == currentTrivia.correctAnswer) {
-     feedback = "Great Job!";
-  // adds to the int currentQuestion so it can move to next question
+    feedback = "Great Job!";
+    // adds to the int currentQuestion so it can move to next question
     currentQuestion++;
     // to check if user inputted wrong choice
-  } else if(chosenOption != currentTrivia.correctAnswer) {
+  } else if (chosenOption != currentTrivia.correctAnswer) {
     // the explanation will be outputted
     explanation = currentTrivia.explanation;
     currentQuestion++;
