@@ -1,13 +1,21 @@
 //Assigned to William
-SoundFile yay, snare;
-class Effect {
+String note;
+int distortion, gainS, reverbS, delayS;
+AllPass gain;
+Reverb reverb;
+Delay delay;
+class Effect extends CSharp {
   Effect() {
-String name = "name";  
+    note = this.note;
   }
 void apply(){
-
+  distortion = this.distortion;
+  gain = this.gain;
+  reverb = this.reverb;
 }
 void remove(){
-
+  gain.stop();
+  reverb.stop();
+  delay.stop();
 }
 }
