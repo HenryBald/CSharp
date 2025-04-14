@@ -13,13 +13,11 @@ void neededStuffOrSomething() {
 void keyPressed(){
   if (!egE2.isPlaying() && (key == 'e' || key == 'E')){
     egE2.play();
-    println("egE2 played");
     }
 }
 void keyReleased(){
  if (egE2.isPlaying() && (key == 'e' || key == 'E')){
     egE2.stop();
-    println("egE2 stopped");
     }
 }
 void mousePressed(){
