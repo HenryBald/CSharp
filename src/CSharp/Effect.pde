@@ -13,7 +13,7 @@ void apply(){
   gain = this.gain;
   reverb = this.reverb;
 }
-void remove(){
+void removeEffect(){
   gain.stop();
   reverb.stop();
   delay.stop();
