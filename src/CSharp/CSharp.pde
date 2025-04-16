@@ -6,13 +6,16 @@ ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
-Button[] buttons = new Button[7];
+Button[] buttons = new Button[9];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums;
 String explanation = "";
 String feedback = "";
 Timer beTime;
+//Sound effects that affect
+int gainVar = 0, reverbVar = 0, delayVar = 0;
+Effect[] effects = new Effect[1];
 //guitar sound files
 SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, egE3, egEb3, egFs2, egFs3, egF2, egF3, egGs2, egGs3, egG2, egG3;
 //piano sound files
@@ -64,6 +67,8 @@ void setup() {
   buttons[4] = new Button(680, 345, 220, 100, 100, " ", false, "keyboard", "selectPage", true);
   buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
   buttons[6] = new Button(878, 49, 284, 99, 40, " ", false, "selectPage", "keyboard", true);
+  buttons[7] = new Button(945, 270, 110, 200, 100, " ", false, "effectsPage", "selectPage", true);
+  buttons[8] = new Button(33, 35, 65, 40, 100, " ", false, "selectPage", "settingsPage", true);
 
 
   //sounds core
@@ -131,18 +136,20 @@ void draw() {
     buttons[2].display();
     buttons[3].display();
     buttons[4].display();
+    buttons[7].display();
     buttons[2].hover(mouseX, mouseY);
     buttons[3].hover(mouseX, mouseY);
     buttons[4].hover(mouseX, mouseY);
+    buttons[7].hover(mouseX, mouseY);
     buttons[2].mousePressed(mouseX, mouseY);
     buttons[3].mousePressed(mouseX, mouseY);
     buttons[4].mousePressed(mouseX, mouseY);
+    buttons[7].mousePressed(mouseX, mouseY);
     if (buttons[2].isClicked && mousePressed) {
       screen = '1';
       buttons[2].isClicked = false;
       background = loadImage("CSharpStartScreen.png");
-    }
-    if (buttons[4].isClicked && mousePressed) {
+    } else if (buttons[4].isClicked && mousePressed) {
       screen = '4';
       buttons[4].isClicked = false;
       background = loadImage("KeyboardGUI.png");
@@ -150,6 +157,10 @@ void draw() {
       screen = '3';
       buttons[3].isClicked = false;
       background = loadImage("Trivias.png");
+    } else if (buttons[7].isClicked && mousePressed) {
+      screen = '6';
+      buttons[7].isClicked = false;
+      background = loadImage("cSharpSettingsPage.png");
     }
   } else if (screen == '3') {
     background = loadImage("Trivias.png");
@@ -187,6 +198,15 @@ void draw() {
     String[] options = questions.get(currentQuestion).options;
     for (int i = 0; i < options.length; i++) {
       text(options[i], width / 2, 150 + (i * 40));
+    }
+  } else if (screen == '6') {
+    buttons[8].display();
+    buttons[8].hover(mouseX, mouseY);
+    buttons[8].mousePressed(mouseX, mouseY);
+    if (buttons[8].isClicked && mousePressed) {
+      screen = '2';
+      buttons[8].isClicked = false;
+      background = loadImage("selectionScreen1.png");
     }
   }
 }
