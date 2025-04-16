@@ -1,14 +1,19 @@
-//Assigned to William
-import processing.sound.*;
-SoundFile yay, snare;
-class Effect {
+//William
+AllPass gain;
+Reverb reverb;
+Delay delay;
+class Effect extends CSharp {
   Effect() {
-String name = "name";  
+    
   }
-void apply(){
-
-}
-void remove(){
-
-}
+  void apply(){
+    gain = this.gain;
+    reverb = this.reverb;
+    delay = this.delay;
+  }
+  void removeEffect(){
+    gain.stop();
+    reverb.stop();
+    delay.stop();
+  }
 }
