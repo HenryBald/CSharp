@@ -60,6 +60,8 @@ void setup() {
 
 
   //buttons core
+  //buttons[#] = new Button(xPos, yPos, width, height, textSize, "text to display", does it play a note?, "what page it goes to(if it is a note, just say plays note)", "what page it is displaying on", is it a selection button (clear until hover, then glows)?);
+  //none of these buttons should be note buttons, those go in the constructors of their respective instrument class
   buttons[0] = new Button(315, 380, 300, 184, 120, "PLAY", false, "selectPage", "start", false);
   buttons[1] = new Button(705, 380, 300, 184, 120, "EXIT", false, "exit", "start", false);
   buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
