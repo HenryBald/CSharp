@@ -6,7 +6,11 @@ ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
+<<<<<<< HEAD
 Button[] buttons = new Button[6];
+=======
+Button[] buttons = new Button[7];
+>>>>>>> parent of 6a49713 (e)
 float l, r, result;
 char op, screen;
 boolean left, time4Drums;
@@ -63,6 +67,10 @@ void setup() {
   buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
   buttons[4] = new Button(680, 345, 220, 100, 100,  " ", false, "keyboard", "selectPage", true);
   buttons[5] = new Button(500, 200, 300, 50, 40,  "Begin", false, "Trivia", "selectPage", false);
+<<<<<<< HEAD
+=======
+  buttons[6] = new Button(375, 340, 150, 100, 100,  " ", false, "keyboard", "selectPage", true);
+>>>>>>> parent of 6a49713 (e)
 
   
 //sounds core
@@ -130,12 +138,20 @@ void draw() {
     buttons[2].display();
     buttons[3].display();
     buttons[4].display();
+<<<<<<< HEAD
+=======
+    buttons[6].display();
+>>>>>>> parent of 6a49713 (e)
     buttons[2].hover(mouseX, mouseY);
     buttons[3].hover(mouseX, mouseY);
     buttons[4].hover(mouseX, mouseY);
     buttons[2].mousePressed(mouseX, mouseY);
     buttons[3].mousePressed(mouseX, mouseY);
     buttons[4].mousePressed(mouseX, mouseY);
+<<<<<<< HEAD
+=======
+    buttons[6].mousePressed(mouseX,mouseY);
+>>>>>>> parent of 6a49713 (e)
     if (buttons[2].isClicked && mousePressed) {
       screen = '1';
       buttons[2].isClicked = false;
@@ -145,6 +161,13 @@ void draw() {
       screen = '4';
       buttons[4].isClicked = false;
       background = loadImage("KeyboardGUI.png");
+<<<<<<< HEAD
+=======
+    }
+    if(buttons[6].isClicked && mousePressed){
+      screen = '6';
+      buttons[6].isClicked = false;
+>>>>>>> parent of 6a49713 (e)
     }
     else if(buttons[3].isClicked && mousePressed){
       screen = '3';
@@ -195,6 +218,13 @@ void draw() {
     for (int i = 0; i < options.length; i++) {
         text(options[i], width / 2, 150 + (i * 40)); 
     }
+<<<<<<< HEAD
+=======
+  
+  }
+  else if(screen == '6'){
+    
+>>>>>>> parent of 6a49713 (e)
   }
 }
 
