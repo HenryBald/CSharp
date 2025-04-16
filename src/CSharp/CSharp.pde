@@ -6,12 +6,13 @@ ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
-Button[] buttons = new Button[9];
+Button[] buttons = new Button[10];
 float l, r, result;
 char op, screen;
-boolean left, time4Drums;
+boolean left, time4Drums, metOnScreen;
 String explanation = "";
 String feedback = "";
+Metronome m1;
 Timer beTime;
 //Sound effects that affect
 int gainVar = 0, reverbVar = 0, delayVar = 0;
@@ -27,6 +28,7 @@ void setup() {
   surface.setResizable(true);
   beTime = new Timer(250);
   beTime.start();
+  m1 = new Metronome();
 
   surface.setTitle("CSharp - Online Music Creator");
   background = loadImage("CSharpStartScreen.png");
@@ -46,6 +48,7 @@ void setup() {
   op = ' ';
   left = true;
   time4Drums = false;
+  metOnScreen = false;
   //Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
   // the second part of the first question just reads out loud weird
   questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
@@ -71,6 +74,7 @@ void setup() {
   buttons[6] = new Button(878, 49, 284, 99, 40, " ", false, "selectPage", "keyboard", true);
   buttons[7] = new Button(945, 270, 110, 200, 100, " ", false, "effectsPage", "selectPage", true);
   buttons[8] = new Button(33, 35, 65, 40, 100, " ", false, "selectPage", "settingsPage", true);
+  buttons[9] = new Button(600, 254, 258, 80, 100, " ", false, "keyboard", "keyboard", true);
 
 
   //sounds core
@@ -187,6 +191,16 @@ void draw() {
     buttons[6].display();
     buttons[6].hover(mouseX, mouseY);
     buttons[6].mousePressed(mouseX, mouseY);
+    buttons[9].display();
+    buttons[9].hover(mouseX, mouseY);
+    buttons[9].mousePressed(mouseX, mouseY);
+    if (buttons[9].isClicked && mousePressed && metOnScreen == false) {
+      metOnScreen = true;
+    } else if (buttons[9].isClicked && mousePressed && metOnScreen == true) {
+      metOnScreen = false;
+    } else if (metOnScreen) {
+      metOnScreen = true;;
+    }
     if (buttons[6].isClicked && mousePressed) {
       screen = '2';
       buttons[6].isClicked = false;
@@ -210,6 +224,9 @@ void draw() {
       buttons[8].isClicked = false;
       background = loadImage("selectionScreen1.png");
     }
+  }
+  if (metOnScreen) {
+    m1.display();
   }
 }
 
