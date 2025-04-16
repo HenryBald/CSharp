@@ -6,18 +6,7 @@ ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
-<<<<<<< HEAD
-<<<<<<< HEAD
-Button[] buttons = new Button[6];
-=======
-Button[] buttons = new Button[7];
->>>>>>> parent of 6a49713 (e)
-=======
-Button[] buttons = new Button[7];
-=======
 Button[] buttons = new Button[10];
->>>>>>> ad816d59849747a9ed38b498d077c1dcf29a6f7e
->>>>>>> parent of 6ce0352 (Revert "e")
 float l, r, result;
 char op, screen;
 boolean left, time4Drums, metOnScreen;
@@ -79,24 +68,15 @@ void setup() {
   buttons[1] = new Button(705, 380, 300, 184, 120, "EXIT", false, "exit", "start", false);
   buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
   buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
-<<<<<<< HEAD
   buttons[4] = new Button(680, 345, 220, 100, 100,  " ", false, "keyboard", "selectPage", true);
   buttons[5] = new Button(500, 200, 300, 50, 40,  "Begin", false, "Trivia", "selectPage", false);
-<<<<<<< HEAD
-=======
   buttons[6] = new Button(375, 340, 150, 100, 100,  " ", false, "keyboard", "selectPage", true);
-<<<<<<< HEAD
->>>>>>> parent of 6a49713 (e)
-=======
-=======
   buttons[4] = new Button(680, 345, 220, 100, 100, " ", false, "keyboard", "selectPage", true);
   buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
   buttons[6] = new Button(878, 49, 284, 99, 40, " ", false, "selectPage", "keyboard", true);
   buttons[7] = new Button(945, 270, 110, 200, 100, " ", false, "effectsPage", "selectPage", true);
   buttons[8] = new Button(33, 35, 65, 40, 100, " ", false, "selectPage", "settingsPage", true);
   buttons[9] = new Button(600, 254, 258, 80, 100, " ", false, "keyboard", "keyboard", true);
->>>>>>> ad816d59849747a9ed38b498d077c1dcf29a6f7e
->>>>>>> parent of 6ce0352 (Revert "e")
 
 
   //sounds core
@@ -164,26 +144,14 @@ void draw() {
     buttons[2].display();
     buttons[3].display();
     buttons[4].display();
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 6ce0352 (Revert "e")
     buttons[6].display();
->>>>>>> parent of 6a49713 (e)
     buttons[2].hover(mouseX, mouseY);
     buttons[3].hover(mouseX, mouseY);
     buttons[4].hover(mouseX, mouseY);
     buttons[2].mousePressed(mouseX, mouseY);
     buttons[3].mousePressed(mouseX, mouseY);
     buttons[4].mousePressed(mouseX, mouseY);
-<<<<<<< HEAD
-=======
     buttons[6].mousePressed(mouseX,mouseY);
-<<<<<<< HEAD
->>>>>>> parent of 6a49713 (e)
-=======
-=======
     buttons[7].display();
     buttons[2].hover(mouseX, mouseY);
     buttons[3].hover(mouseX, mouseY);
@@ -193,8 +161,6 @@ void draw() {
     buttons[3].mousePressed(mouseX, mouseY);
     buttons[4].mousePressed(mouseX, mouseY);
     buttons[7].mousePressed(mouseX, mouseY);
->>>>>>> ad816d59849747a9ed38b498d077c1dcf29a6f7e
->>>>>>> parent of 6ce0352 (Revert "e")
     if (buttons[2].isClicked && mousePressed) {
       screen = '1';
       buttons[2].isClicked = false;
@@ -203,21 +169,13 @@ void draw() {
       screen = '4';
       buttons[4].isClicked = false;
       background = loadImage("KeyboardGUI.png");
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 6ce0352 (Revert "e")
     }
     if(buttons[6].isClicked && mousePressed){
       screen = '6';
       buttons[6].isClicked = false;
->>>>>>> parent of 6a49713 (e)
     }
     else if(buttons[3].isClicked && mousePressed){
-=======
     } else if (buttons[3].isClicked && mousePressed) {
->>>>>>> ad816d59849747a9ed38b498d077c1dcf29a6f7e
       screen = '3';
       buttons[3].isClicked = false;
       background = loadImage("Trivias.png");
@@ -273,19 +231,10 @@ void draw() {
     for (int i = 0; i < options.length; i++) {
       text(options[i], width / 2, 150 + (i * 40));
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 6ce0352 (Revert "e")
   
   }
   else if(screen == '6'){
     
-<<<<<<< HEAD
->>>>>>> parent of 6a49713 (e)
-=======
-=======
   } else if (screen == '6') {
     buttons[8].display();
     buttons[8].hover(mouseX, mouseY);
@@ -298,8 +247,6 @@ void draw() {
   }
   if (metOnScreen) {
     m1.display();
->>>>>>> ad816d59849747a9ed38b498d077c1dcf29a6f7e
->>>>>>> parent of 6ce0352 (Revert "e")
   }
 }
 
