@@ -1,12 +1,17 @@
 // Henry Baldwin
 class Metronome {
+  int bpm;
+  SoundFile tick;
+  Timer metTimer;
+  PImage metImage;
+
   Metronome() {
-    int bpm;
-    SoundFile tick;
-    Timer metTimer;
+    metImage = loadImage("Metronome.png");
+  }
+  void display () {
+    image(metImage, width/2, height/2);
   }
   void setBPM() {
-
   }
   void play() {
   }
