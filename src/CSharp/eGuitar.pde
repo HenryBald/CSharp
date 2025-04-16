@@ -1,38 +1,39 @@
+//William
 class eGuitar {
   Button[] egbuttons = new Button[20];
+  float dampener = 1;
   
   eGuitar() {
-  egbuttons[0] = new Button(180, 500, 73, 85, 100, " ", true, "playsNote", "eGuitar", false);
+  egbuttons[0] = new Button(180, 500, 73, 85, 25, "E2", true, "playsNote", "eGuitar", true);
   }
-public void keyPressed(){
-  egbuttons[0].display();
-  //egbuttons[3].display();
-  //egbuttons[4].display();
-  if (keyPressed && key == 'e' || key == 'E'){
-    egE2.play();
-    egE2.loop();
-    }
-}
-void keyReleased(){
- if (key == 0 || keyCode == 96 || keyCode == 48 && !keyPressed){
-    egE2.stop();
-    }
-}
-void mousePressed(){
+  void neededStuffOrSomething() {
+    egbuttons[0].display();
     egbuttons[0].hover(mouseX, mouseY);
-  //egbuttons[3].hover(mouseX, mouseY);
-  //egbuttons[4].hover(mouseX, mouseY);
-  egbuttons[0].mousePressed(mouseX, mouseY);
-  //egbuttons[3].mousePressed(mouseX, mouseY);
-  //egbuttons[4].mousePressed(mouseX, mouseY);
-  if(egbuttons[0].isClicked && mousePressed){
-    egE2.play();
-    egE2.loop();
+    egbuttons[0].mousePressed(mouseX, mouseY);
+    egE2.amp(dampener);
   }
-}
-void mouseReleased(){
-  if(!egbuttons[0].isClicked || !mousePressed){
-    egE2.stop();
+  void keyPressed(){
+    if (!egE2.isPlaying() && (key == 'e' || key == 'E')){
+      egE2.play();
+      dampener -= 0.1;
+      }
   }
-}
+  void keyReleased(){
+   if (egE2.isPlaying() && (key == 'e' || key == 'E')){
+      egE2.stop();
+      dampener = 1;
+      }
+  }
+  void mousePressed(){
+    if(!egE2.isPlaying() && egbuttons[0].isClicked){
+      egE2.play();
+      dampener -= 0.01;
+    }
+  }
+  void mouseReleased(){
+    if(!egbuttons[0].isClicked || !mousePressed){
+      egE2.stop();
+      dampener = 1;
+    }
+  }
 }
