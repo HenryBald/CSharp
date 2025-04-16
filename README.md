@@ -5,7 +5,7 @@
 * Reed Stringham (Logic, UI Design, Background Effects Logic and Design,) 
 * Kirubashinilakshana Senthilnathan (Logic, UI Design)
 * Zoe Leclair (UI Design)
-* William Barney (Oh my goodness how amni the onlynone not credited for UI i did tons of UI && Some Logic && Sound Man [Recording Sound Bits and Making Effects Class])
+* William Barney (Some Logic && Sound Man [Recording Sound Bits and Making Effects Class])
 * Santhosh  (Logic and UI for drumset, Logic for Trivia )
 
 
