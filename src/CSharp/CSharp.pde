@@ -232,9 +232,6 @@ void draw() {
       text(options[i], width / 2, 150 + (i * 40));
     }
   
-  }
-  else if(screen == '6'){
-    
   } else if (screen == '6') {
     buttons[8].display();
     buttons[8].hover(mouseX, mouseY);
