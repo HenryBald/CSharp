@@ -1,12 +1,5 @@
- import processing.sound.*;
-import ddf.minim.*;
+import processing.sound.*;
 // William, Kirubashini, Henry, and Santhosh
-
-// for recording audio
-Minim minim;
-AudioRecorder recorder;
-AudioInput in;
-
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
@@ -16,7 +9,7 @@ PImage logoImage, mainCursor, background;
 Button[] buttons = new Button[10];
 float l, r, result;
 char op, screen;
-boolean left, time4Drums, metOnScreen, recorded;
+boolean left, time4Drums, metOnScreen;
 String explanation = "";
 String feedback = "";
 Metronome m1;
@@ -36,8 +29,6 @@ void setup() {
   beTime = new Timer(250);
   beTime.start();
   m1 = new Metronome();
-  minim = new Minim(this);
-  recorder = minim.createRecorder(in, "myrecording.wav");
 
   surface.setTitle("CSharp - Online Music Creator");
   background = loadImage("CSharpStartScreen.png");
@@ -77,7 +68,7 @@ void setup() {
   buttons[1] = new Button(705, 380, 300, 184, 120, "EXIT", false, "exit", "start", false);
   buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
   buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
-  buttons[4] = new Button(680, 345, 220, 100, 100,  " ", false, "keyboard", "selectPage", true);
+  buttons[4] = new Button(300, 500, 220, 100, 100,  "what button", false, "keyboard", "selectPage", true);
   buttons[5] = new Button(500, 200, 300, 50, 40,  "Begin", false, "Trivia", "selectPage", false);
   buttons[6] = new Button(375, 340, 150, 100, 100,  " ", false, "keyboard", "selectPage", true);
   buttons[4] = new Button(680, 345, 220, 100, 100, " ", false, "keyboard", "selectPage", true);
@@ -178,10 +169,12 @@ void draw() {
       screen = '4';
       buttons[4].isClicked = false;
       background = loadImage("KeyboardGUI.png");
-    //if(buttons[6].isClicked && mousePressed){
-    //  screen = '6';
-    //  buttons[6].isClicked = false;
-    //}
+    }
+    if(buttons[6].isClicked && mousePressed){
+      screen = '6';
+      buttons[6].isClicked = false;
+    }
+    else if(buttons[3].isClicked && mousePressed){
     } else if (buttons[3].isClicked && mousePressed) {
       screen = '3';
       buttons[3].isClicked = false;
