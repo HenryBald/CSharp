@@ -4,7 +4,7 @@ class eGuitar {
   float dampener = 1;
   
   eGuitar() {
-  egbuttons[0] = new Button(180, 500, 73, 85, 25, "E2", true, "playsNote", "eGuitar", true);
+    egbuttons[0] = new Button(180, 500, 73, 85, 25, "E2", true, "playsNote", "eGuitar", true);
   }
   void neededStuffOrSomething() {
     egbuttons[0].display();
