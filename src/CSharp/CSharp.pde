@@ -1,5 +1,12 @@
 import processing.sound.*;
+import ddf.minim.*;
 // William, Kirubashini, Henry, and Santhosh
+
+// for recording audio
+Minim minim;
+AudioRecorder recorder;
+AudioInput in;
+
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
@@ -9,7 +16,7 @@ PImage logoImage, mainCursor, background;
 Button[] buttons = new Button[10];
 float l, r, result;
 char op, screen;
-boolean left, time4Drums, metOnScreen;
+boolean left, time4Drums, metOnScreen, recorded;
 String explanation = "";
 String feedback = "";
 Metronome m1;
@@ -29,6 +36,8 @@ void setup() {
   beTime = new Timer(250);
   beTime.start();
   m1 = new Metronome();
+  minim = new Minim(this);
+  recorder = minim.createRecorder(in, "myrecording.wav");
 
   surface.setTitle("CSharp - Online Music Creator");
   background = loadImage("CSharpStartScreen.png");
