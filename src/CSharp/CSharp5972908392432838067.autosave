@@ -2,33 +2,30 @@ import processing.sound.*;
 // William, Kirubashini, Henry, and Santhosh
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
-ArrayList<Button> triviaButtons = new ArrayList<Button>();
+ArrayList<Button> triviaButtons = new ArrayList<Button>(); 
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background;
-Button[] buttons = new Button[10];
+Button[] buttons = new Button[7];
 float l, r, result;
 char op, screen;
-boolean left, time4Drums, metOnScreen;
+boolean left, time4Drums;
 String explanation = "";
 String feedback = "";
-Metronome m1;
 Timer beTime;
-//Sound effects that affect
-int gainVar = 0, reverbVar = 0, delayVar = 0;
-Effect[] effects = new Effect[1];
 //guitar sound files
 SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, egE3, egEb3, egFs2, egFs3, egF2, egF3, egGs2, egGs3, egG2, egG3;
 //piano sound files
 SoundFile hellothere;
 eGuitar theEGuitarYipee = new eGuitar();
+Drumset theDrums= new Drumset();
+
 
 void setup() {
   size(1024, 540);
   surface.setResizable(true);
   beTime = new Timer(250);
   beTime.start();
-  m1 = new Metronome();
 
   surface.setTitle("CSharp - Online Music Creator");
   background = loadImage("CSharpStartScreen.png");
@@ -40,7 +37,7 @@ void setup() {
   logoImage.resize(440, 237);
   mainCursor = loadImage("4881475.png");
   mainCursor.resize(50, 50);
-  surface.setCursor(mainCursor, 25, 25);
+  surface.setCursor(mainCursor, mouseX, mouseY);
   screen = '1';
   l = 0.0;
   r = 0.0;
@@ -48,22 +45,20 @@ void setup() {
   op = ' ';
   left = true;
   time4Drums = false;
-  //Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
-  // the second part of the first question just reads out loud weird
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("Whnhjhhhhr a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+//Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
+// the second part of the first question just reads out loud weird
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("Whnhjhhhhr a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
+  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1,new String[]{"Whole Note","Eight Note","Half Note","Sixteenth Note"} ));
 
 
   //buttons core
-  //buttons[#] = new Button(xPos, yPos, width, height, textSize, "text to display", does it play a note?, "what page it goes to(if it is a note, just say plays note)", "what page it is displaying on", is it a selection button (clear until hover, then glows)?);
-  //none of these buttons should be note buttons, those go in the constructors of their respective instrument class
   buttons[0] = new Button(315, 380, 300, 184, 120, "PLAY", false, "selectPage", "start", false);
   buttons[1] = new Button(705, 380, 300, 184, 120, "EXIT", false, "exit", "start", false);
   buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
@@ -71,15 +66,9 @@ void setup() {
   buttons[4] = new Button(680, 345, 220, 100, 100,  " ", false, "keyboard", "selectPage", true);
   buttons[5] = new Button(500, 200, 300, 50, 40,  "Begin", false, "Trivia", "selectPage", false);
   buttons[6] = new Button(375, 340, 150, 100, 100,  " ", false, "keyboard", "selectPage", true);
-  buttons[4] = new Button(680, 345, 220, 100, 100, " ", false, "keyboard", "selectPage", true);
-  buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
-  buttons[6] = new Button(878, 49, 284, 99, 40, " ", false, "selectPage", "keyboard", true);
-  buttons[7] = new Button(945, 270, 110, 200, 100, " ", false, "effectsPage", "selectPage", true);
-  buttons[8] = new Button(33, 35, 65, 40, 100, " ", false, "selectPage", "settingsPage", true);
-  buttons[9] = new Button(600, 254, 258, 80, 100, " ", false, "keyboard", "keyboard", true);
 
-
-  //sounds core
+  
+//sounds core
   //eletric guitar sounds
   egE2 = new SoundFile(this, "egE2.mp3");
   egF2 = new SoundFile(this, "egF2.mp3");
@@ -148,24 +137,17 @@ void draw() {
     buttons[2].hover(mouseX, mouseY);
     buttons[3].hover(mouseX, mouseY);
     buttons[4].hover(mouseX, mouseY);
+    buttons[6].hover(mouseX,mouseY);
     buttons[2].mousePressed(mouseX, mouseY);
     buttons[3].mousePressed(mouseX, mouseY);
     buttons[4].mousePressed(mouseX, mouseY);
     buttons[6].mousePressed(mouseX,mouseY);
-    buttons[7].display();
-    buttons[2].hover(mouseX, mouseY);
-    buttons[3].hover(mouseX, mouseY);
-    buttons[4].hover(mouseX, mouseY);
-    buttons[7].hover(mouseX, mouseY);
-    buttons[2].mousePressed(mouseX, mouseY);
-    buttons[3].mousePressed(mouseX, mouseY);
-    buttons[4].mousePressed(mouseX, mouseY);
-    buttons[7].mousePressed(mouseX, mouseY);
     if (buttons[2].isClicked && mousePressed) {
       screen = '1';
       buttons[2].isClicked = false;
       background = loadImage("CSharpStartScreen.png");
-    } else if (buttons[4].isClicked && mousePressed) {
+    }
+    if (buttons[4].isClicked && mousePressed) {
       screen = '4';
       buttons[4].isClicked = false;
       background = loadImage("KeyboardGUI.png");
@@ -173,113 +155,78 @@ void draw() {
     if(buttons[6].isClicked && mousePressed){
       screen = '6';
       buttons[6].isClicked = false;
+      background = loadImage("Drums (1).png");
     }
     else if(buttons[3].isClicked && mousePressed){
-    } else if (buttons[3].isClicked && mousePressed) {
       screen = '3';
       buttons[3].isClicked = false;
       background = loadImage("Trivias.png");
-    } else if (buttons[7].isClicked && mousePressed) {
-      screen = '6';
-      buttons[7].isClicked = false;
-      background = loadImage("cSharpSettingsPage.png");
+     
     }
-  } else if (screen == '3') {
-    background = loadImage("Trivias.png");
+
+    } else if (screen == '3') {
+     background = loadImage("Trivias.png");
     buttons[5].display();
     buttons[5].hover(mouseX, mouseY);
     buttons[5].mousePressed(mouseX, mouseY);
     PFont font;
     font = createFont("SpongeTitle.ttf", 25);
     textFont(font);
-
+    
     textAlign(CENTER);
-    text("Welcome to the trivia game: \n This is where you can unlock new instruments", width/2, 100);
-
-
-    if (buttons[5].isClicked && mousePressed) {
-      screen = '5';
-      buttons[5].isClicked = false;
-    }
-  } else if (screen == '4') {
-    background = loadImage("KeyboardGUI.png");
-    theEGuitarYipee.neededStuffOrSomething();
-    buttons[6].display();
-    buttons[6].hover(mouseX, mouseY);
-    buttons[6].mousePressed(mouseX, mouseY);
-    buttons[9].display();
-    buttons[9].hover(mouseX, mouseY);
-    buttons[9].mousePressed(mouseX, mouseY);
-    if (buttons[9].isClicked && mousePressed && metOnScreen == false) {
-      displayMet();
-      buttons[9].isClicked = false;
-    } else if (buttons[9].isClicked && mousePressed && metOnScreen == true) {
-      metOnScreen = false;
-      buttons[9].isClicked = false;
-    }
-    if (buttons[6].isClicked && mousePressed) {
-      screen = '2';
-      buttons[6].isClicked = false;
+    text("Welcome to the trivia game: \n This is where you can unlock new instruments", width/2,100);
+  
+ 
+ if (buttons[5].isClicked && mousePressed) {
+     screen = '5';
+     buttons[5].isClicked = false;
+ }
+     
+  }
+    else if(screen == '4'){
       background = loadImage("KeyboardGUI.png");
+      if(keyPressed){
+        if(key == CODED) {
+      println("keyCode =" + keyCode);
+        } else {
+          println("key = " + key);
+        }
+      }
+      theEGuitarYipee.keyPressed();
+      theEGuitarYipee.keyReleased();
+      theEGuitarYipee.mousePressed();
+      theEGuitarYipee.mouseReleased();
     }
-  } else if (screen == '5') {
-    background(255);
-
+    else if(screen == '5'){
+   background(255);
+   
     text(questions.get(currentQuestion).question, width / 2, 100);
-
+    
     String[] options = questions.get(currentQuestion).options;
     for (int i = 0; i < options.length; i++) {
-      text(options[i], width / 2, 150 + (i * 40));
+        text(options[i], width / 2, 150 + (i * 40)); 
     }
   
-  } else if (screen == '6') {
-    buttons[8].display();
-    buttons[8].hover(mouseX, mouseY);
-    buttons[8].mousePressed(mouseX, mouseY);
-    if (buttons[8].isClicked && mousePressed) {
-      screen = '2';
-      buttons[8].isClicked = false;
-      background = loadImage("selectionScreen1.png");
-    }
   }
-  if (metOnScreen) {
-    m1.display();
+  else if(screen == '6'){
+  background = loadImage("Drums (1).png");
+
   }
 }
 
 void mousePressed() {
-  if (screen == '4') {
-    theEGuitarYipee.mousePressed();
-  }
-}
 
-void mouseReleased() {
-  if (screen == '4') {
-    theEGuitarYipee.mouseReleased();
-  }
-}
-
-void keyPressed() {
-  if (screen == '4') {
-    theEGuitarYipee.keyPressed();
-  }
-}
-
-void keyReleased() {
-  if (screen == '4') {
-    theEGuitarYipee.keyReleased();
-  }
 }
 
 void checkAnswer(int chosenOption) {
   Trivia currentTrivia = questions.get(currentQuestion);
-  // if user gets the correct answer the message feedback will be outputted
+// if user gets the correct answer the message feedback will be outputted
   if (chosenOption == currentTrivia.correctAnswer) {
-    feedback = "Great Job!";
-    // adds to the int currentQuestion so it can move to next question
+     feedback = "Great Job!";
+  // adds to the int currentQuestion so it can move to next question
     currentQuestion++;
     // to check if user inputted wrong choice
-  } else if (chosenOption != currentTrivia.correctAnswer) {
+  } else if(chosenOption != currentTrivia.correctAnswer) {
     // the explanation will be outputted
     explanation = currentTrivia.explanation;
     currentQuestion++;
@@ -290,6 +237,9 @@ void checkAnswer(int chosenOption) {
 //println("Left:" + l + " Right:" + r + " Result:" + result + " Op:" + op + "L:" + left);
 
 void playNote() {
+}
+
+void mouseReleased() {
 }
 
 void stopNote() {
@@ -306,9 +256,4 @@ void removeAffect() {
 void selectInstrument() {
 }
 void swicthInstrument() {
-}
-
-void displayMet()
-{
-  metOnScreen = true;
 }
