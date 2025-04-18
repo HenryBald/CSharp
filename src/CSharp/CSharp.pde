@@ -169,12 +169,10 @@ void draw() {
       screen = '4';
       buttons[4].isClicked = false;
       background = loadImage("KeyboardGUI.png");
-    }
-    if(buttons[6].isClicked && mousePressed){
-      screen = '6';
-      buttons[6].isClicked = false;
-    }
-    else if(buttons[3].isClicked && mousePressed){
+    //if(buttons[6].isClicked && mousePressed){
+    //  screen = '6';
+    //  buttons[6].isClicked = false;
+    //}
     } else if (buttons[3].isClicked && mousePressed) {
       screen = '3';
       buttons[3].isClicked = false;
