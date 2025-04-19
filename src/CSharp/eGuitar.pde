@@ -117,35 +117,30 @@ class eGuitar {
       egE3.play();
       dampener -= 0.1;
       }
-      else if(!egF3.isPlaying() && (key == '[')){
+      else if(!egF3.isPlaying() && (key == '[' || key == '{')){
       egF3.play();
       dampener -= 0.1;
       }
-      else if(!egG3.isPlaying() && (key == ']')){
+      else if(!egG3.isPlaying() && (key == ']' || key == '}')){
       egG3.play();
       dampener -= 0.1;
       }
-      else if(!egA3.isPlaying() && (key == '|')){
-      egA3.play();
-      dampener -= 0.1;
-      }
-      else if(!egB3.isPlaying() && (key == 'q' || key == 'Q')){
-      egB3.play();
-      dampener -= 0.1;
-      }
-      else if(!egBb3.isPlaying() && (key == '1')){
-      egBb3.play();
-      dampener -= 0.1;
-      }
-      else if(!egGs3.isPlaying() && (key == '+'|| key == '=')){
-      egGs3.play();
-      dampener -= 0.1;
-      }
-      else if(!egFs3.isPlaying() && (key == '-' || key == '_')){
+      //else if(!egA3.isPlaying() && (key == '|')){
+      //egA3.play();
+      //dampener -= 0.1;
+      //}
+      //else if(!egB3.isPlaying() && (key == 'q' || key == 'Q')){
+      //egB3.play();
+      //dampener -= 0.1;
+      //}
+      //else if(!egBb3.isPlaying() && (key == '1' || key == '!')){
+      //egBb3.play();
+      //dampener -= 0.1;
+      //}
+      else if(!egFs3.isPlaying() && (key == '+'|| key == '=')){
       egFs3.play();
       dampener -= 0.1;
       }
-
   }
   void keyReleased(){
    if (egE2.isPlaying() && (key == 'e' || key == 'E')){
