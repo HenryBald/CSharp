@@ -16,7 +16,7 @@ PImage logoImage, mainCursor, background;
 Button[] buttons = new Button[10];
 float l, r, result;
 char op, screen;
-boolean left, time4Drums, metOnScreen, recorded;
+boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay;
 String explanation = "";
 String feedback = "";
 Metronome m1;
@@ -57,6 +57,7 @@ void setup() {
   op = ' ';
   left = true;
   time4Drums = false;
+  buttonsAreOkay = true;
   //Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
   // the second part of the first question just reads out loud weird
   questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
@@ -77,9 +78,8 @@ void setup() {
   buttons[1] = new Button(705, 380, 300, 184, 120, "EXIT", false, "exit", "start", false);
   buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
   buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
-  buttons[4] = new Button(680, 345, 220, 100, 100,  " ", false, "keyboard", "selectPage", true);
-  buttons[5] = new Button(500, 200, 300, 50, 40,  "Begin", false, "Trivia", "selectPage", false);
-  buttons[6] = new Button(375, 340, 150, 100, 100,  " ", false, "keyboard", "selectPage", true);
+  //buttons[4] = new Button(680, 345, 220, 100, 100,  " ", false, "keyboard", "selectPage", true);
+  //buttons[5] = new Button(500, 200, 300, 50, 40,  "Begin", false, "Trivia", "selectPage", false);
   buttons[4] = new Button(680, 345, 220, 100, 100, " ", false, "keyboard", "selectPage", true);
   buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
   buttons[6] = new Button(878, 49, 284, 99, 40, " ", false, "selectPage", "keyboard", true);
@@ -155,10 +155,11 @@ void draw() {
     buttons[1].hover(mouseX, mouseY);
     buttons[0].mousePressed(mouseX, mouseY);
     buttons[1].mousePressed(mouseX, mouseY);
-    if (buttons[0].isClicked && mousePressed) {
+    if (buttons[0].isClicked && mousePressed && buttonsAreOkay) {
       screen = '2';
       buttons[0].isClicked = false;
-    } else if (buttons[1].isClicked && mousePressed) {
+      buttonsAreOkay = false;
+    } else if (buttons[1].isClicked && mousePressed && buttonsAreOkay) {
       exit();
     }
     //Always make sure to turn it to false after mousePressed, but after changing the screen and stuff
@@ -184,26 +185,26 @@ void draw() {
     buttons[3].mousePressed(mouseX, mouseY);
     buttons[4].mousePressed(mouseX, mouseY);
     buttons[7].mousePressed(mouseX, mouseY);
-    if (buttons[2].isClicked && mousePressed) {
+    if (buttons[2].isClicked && mousePressed && buttonsAreOkay) {
       screen = '1';
       buttons[2].isClicked = false;
       background = loadImage("CSharpStartScreen.png");
-    } else if (buttons[4].isClicked && mousePressed) {
+      buttonsAreOkay = false;
+    } else if (buttons[4].isClicked && mousePressed && buttonsAreOkay) {
       screen = '4';
       buttons[4].isClicked = false;
       background = loadImage("KeyboardGUI.png");
-    //if(buttons[6].isClicked && mousePressed){
-    //  screen = '6';
-    //  buttons[6].isClicked = false;
-    //}
-    } else if (buttons[3].isClicked && mousePressed) {
+      buttonsAreOkay = false;
+    } else if (buttons[3].isClicked && mousePressed && buttonsAreOkay) {
       screen = '3';
       buttons[3].isClicked = false;
       background = loadImage("Trivias.png");
-    } else if (buttons[7].isClicked && mousePressed) {
+      buttonsAreOkay = false;
+    } else if (buttons[7].isClicked && mousePressed && buttonsAreOkay) {
       screen = '6';
       buttons[7].isClicked = false;
       background = loadImage("cSharpSettingsPage.png");
+      buttonsAreOkay = false;
     }
   } else if (screen == '3') {
     background = loadImage("Trivias.png");
@@ -218,9 +219,10 @@ void draw() {
     text("Welcome to the trivia game: \n This is where you can unlock new instruments", width/2, 100);
 
 
-    if (buttons[5].isClicked && mousePressed) {
+    if (buttons[5].isClicked && mousePressed && buttonsAreOkay) {
       screen = '5';
       buttons[5].isClicked = false;
+      buttonsAreOkay = false;
     }
   } else if (screen == '4') {
     background = loadImage("KeyboardGUI.png");
@@ -238,10 +240,11 @@ void draw() {
       metOnScreen = false;
       buttons[9].isClicked = false;
     }
-    if (buttons[6].isClicked && mousePressed) {
+    if (buttons[6].isClicked && mousePressed && buttonsAreOkay) {
       screen = '2';
       buttons[6].isClicked = false;
-      background = loadImage("KeyboardGUI.png");
+      background = loadImage("selectionScreen1.png");
+      buttonsAreOkay = false;
     }
   } else if (screen == '5') {
     background(255);
@@ -257,10 +260,11 @@ void draw() {
     buttons[8].display();
     buttons[8].hover(mouseX, mouseY);
     buttons[8].mousePressed(mouseX, mouseY);
-    if (buttons[8].isClicked && mousePressed) {
+    if (buttons[8].isClicked && mousePressed && buttonsAreOkay) {
       screen = '2';
       buttons[8].isClicked = false;
       background = loadImage("selectionScreen1.png");
+      buttonsAreOkay = false;
     }
   }
   if (metOnScreen) {
@@ -275,6 +279,7 @@ void mousePressed() {
 }
 
 void mouseReleased() {
+  buttonsAreOkay = true;
   if (screen == '4') {
     theEGuitarYipee.mouseReleased();
   }
