@@ -16,7 +16,9 @@ class eGuitar {
     egbuttons[9] = new Button(845, 500, 73, 85, 25, "G3", true, "playsNote", "eGuitar", true);
     egbuttons[10] = new Button(920, 500, 73, 85, 25, "A3", true, "playsNote", "eGuitar", true);
     egbuttons[11] = new Button(995, 500, 73, 85, 25, "B3", true, "playsNote", "eGuitar", true);
-    egbuttons[12] = new Button(960, 380, 67, 170, 25, "B3", true, "playsNote", "eGuitar", true);
+    egbuttons[12] = new Button(960, 380, 67, 170, 25, "Bb\nA#", true, "playsNote", "eGuitar", true);
+    egbuttons[13] = new Button(885, 380, 67, 170, 25, "Ab\nG#", true, "playsNote", "eGuitar", true);
+    egbuttons[14] = new Button(810, 380, 67, 170, 25, "Gb\nF#", true, "playsNote", "eGuitar", true);
 
   }
   void neededStuffOrSomething() {
@@ -68,6 +70,18 @@ class eGuitar {
     egbuttons[11].hover(mouseX, mouseY);
     egbuttons[11].mousePressed(mouseX, mouseY);
     egB3.amp(dampener);
+    egbuttons[12].display();
+    egbuttons[12].hover(mouseX, mouseY);
+    egbuttons[12].mousePressed(mouseX, mouseY);
+    egBb3.amp(dampener);
+    egbuttons[13].display();
+    egbuttons[13].hover(mouseX, mouseY);
+    egbuttons[13].mousePressed(mouseX, mouseY);
+    egGs3.amp(dampener);
+    egbuttons[14].display();
+    egbuttons[14].hover(mouseX, mouseY);
+    egbuttons[14].mousePressed(mouseX, mouseY);
+    egFs3.amp(dampener);
     
   }
   void keyPressed(){
@@ -119,6 +133,18 @@ class eGuitar {
       egB3.play();
       dampener -= 0.1;
       }
+      else if(!egBb3.isPlaying() && (key == '1')){
+      egBb3.play();
+      dampener -= 0.1;
+      }
+      else if(!egGs3.isPlaying() && (key == '+'|| key == '=')){
+      egGs3.play();
+      dampener -= 0.1;
+      }
+      else if(!egFs3.isPlaying() && (key == '-' || key == '_')){
+      egFs3.play();
+      dampener -= 0.1;
+      }
 
   }
   void keyReleased(){
@@ -166,8 +192,16 @@ class eGuitar {
       egA3.stop();
       dampener = 1;
       }
-    else if(egB3.isPlaying() && (key == 'q' || key == 'Q')){
-      egB3.stop();
+    else if(egBb3.isPlaying() && (key == '1')){
+      egBb3.stop();
+      dampener = 1;
+      }
+    else if(egGs3.isPlaying() && (key == '+' || key == '=')){
+      egGs3.stop();
+      dampener = 1;
+      }
+    else if(egFs3.isPlaying() && (key == '-' || key == '_')){
+      egFs3.stop();
       dampener = 1;
       }
   }
@@ -224,6 +258,18 @@ class eGuitar {
       egB3.play();
       dampener -= 0.01;
     }
+    else if(!egBb3.isPlaying() && egbuttons[12].isClicked){ 
+      egBb3.play();
+      dampener -= 0.01;
+    }
+     else if(!egGs3.isPlaying() && egbuttons[13].isClicked){ 
+      egGs3.play();
+      dampener -= 0.01;
+    }
+     else if(!egFs3.isPlaying() && egbuttons[14].isClicked){ 
+      egFs3.play();
+      dampener -= 0.01;
+    }
   }
   void mouseReleased(){
     if(!egbuttons[0].isClicked || !mousePressed){
@@ -272,6 +318,18 @@ class eGuitar {
    }
    if(!egbuttons[11].isClicked || !mousePressed){
       egB3.stop();
+      dampener = 1;
+   } 
+   if(!egbuttons[12].isClicked || !mousePressed){
+      egBb3.stop();
+      dampener = 1;
+   }
+    if(!egbuttons[13].isClicked || !mousePressed){
+      egGs3.stop();
+      dampener = 1;
+   }
+    if(!egbuttons[14].isClicked || !mousePressed){
+      egFs3.stop();
       dampener = 1;
    }
   }
