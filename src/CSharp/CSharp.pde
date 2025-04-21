@@ -12,8 +12,8 @@ ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
-PImage logoImage, mainCursor, background;
-Button[] buttons = new Button[10];
+PImage logoImage, mainCursor, background, Drums;
+Button[] buttons = new Button[11];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay;
@@ -49,6 +49,8 @@ void setup() {
   logoImage.resize(440, 237);
   mainCursor = loadImage("4881475.png");
   mainCursor.resize(50, 50);
+  Drums = loadImage("Drums.png");
+  Drums.resize(640,360);
   surface.setCursor(mainCursor, 25, 25);
   screen = '1';
   l = 0.0;
@@ -86,6 +88,7 @@ void setup() {
   buttons[7] = new Button(945, 270, 110, 200, 100, " ", false, "effectsPage", "selectPage", true);
   buttons[8] = new Button(33, 35, 65, 40, 100, " ", false, "selectPage", "settingsPage", true);
   buttons[9] = new Button(600, 254, 258, 80, 100, " ", false, "keyboard", "keyboard", true);
+  buttons[10] = new Button(380, 350, 150, 80, 100, " ", false, "Drumset", "keyboard", true);
 
 
   //sounds core
@@ -169,22 +172,20 @@ void draw() {
     buttons[3].display();
     buttons[4].display();
     buttons[6].display();
-    buttons[2].hover(mouseX, mouseY);
-    buttons[3].hover(mouseX, mouseY);
-    buttons[4].hover(mouseX, mouseY);
-    buttons[2].mousePressed(mouseX, mouseY);
-    buttons[3].mousePressed(mouseX, mouseY);
-    buttons[4].mousePressed(mouseX, mouseY);
-    buttons[6].mousePressed(mouseX,mouseY);
     buttons[7].display();
+    buttons[10].display();
     buttons[2].hover(mouseX, mouseY);
     buttons[3].hover(mouseX, mouseY);
     buttons[4].hover(mouseX, mouseY);
+    buttons[6].hover(mouseX, mouseY);
     buttons[7].hover(mouseX, mouseY);
+    buttons[10].hover(mouseX,mouseY);
     buttons[2].mousePressed(mouseX, mouseY);
     buttons[3].mousePressed(mouseX, mouseY);
     buttons[4].mousePressed(mouseX, mouseY);
+    buttons[6].mousePressed(mouseX, mouseY);
     buttons[7].mousePressed(mouseX, mouseY);
+    buttons[10].mousePressed(mouseX,mouseY);
     if (buttons[2].isClicked && mousePressed && buttonsAreOkay) {
       screen = '1';
       buttons[2].isClicked = false;
@@ -204,6 +205,10 @@ void draw() {
       screen = '6';
       buttons[7].isClicked = false;
       background = loadImage("cSharpSettingsPage.png");
+      buttonsAreOkay = false;
+    } else if(buttons[10].isClicked && mousePressed && buttonsAreOkay){
+      screen = '7';
+      background = loadImage("coolStage.png");
       buttonsAreOkay = false;
     }
   } else if (screen == '3') {
@@ -257,6 +262,7 @@ void draw() {
     }
   
   } else if (screen == '6') {
+//the effects screen
     buttons[8].display();
     buttons[8].hover(mouseX, mouseY);
     buttons[8].mousePressed(mouseX, mouseY);
@@ -266,6 +272,12 @@ void draw() {
       background = loadImage("selectionScreen1.png");
       buttonsAreOkay = false;
     }
+  }
+  else if (screen == '7'){
+// this is the drumset screen 
+   background = loadImage("coolStage.png");
+   image(Drums, 192, 90);
+
   }
   if (metOnScreen) {
     m1.display();

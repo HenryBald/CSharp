@@ -12,6 +12,7 @@ class Drumset {
   //triangle = new SoundFile(this,"");
   //cowbell = new SoundFile(this,"");
   }
+  
 void keyPressed(){
 if (key == 0 || keyCode == 96 || keyCode == 48){
     //snare.play();
