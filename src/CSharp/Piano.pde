@@ -4,16 +4,16 @@ class Piano {
   float dampener = 1;
   
   Piano() {
-    pbuttons[0] = new Button(555, 500, 73, 85, 25, "C3", true, "playsNote", "puitar", true);
-    pbuttons[2] = new Button(620, 500, 73, 85, 25, "D3", true, "playsNote", "puitar", true);
-    pbuttons[4] = new Button(695, 500, 73, 85, 25, "E3", true, "playsNote", "puitar", true);
-    pbuttons[5] = new Button(770, 500, 73, 85, 25, "F3", true, "playsNote", "puitar", true);
-    pbuttons[6] = new Button(845, 500, 73, 85, 25, "F#3", true, "playsNote", "puitar", true);
-    pbuttons[7] = new Button(920, 500, 73, 85, 25, "G3", true, "playsNote", "puitar", true);
-    pbuttons[8] = new Button(995, 500, 73, 85, 25, "Gs3", true, "playsNote", "puitar", true);
-    pbuttons[9] = new Button(960, 380, 67, 170, 25, "A3", true, "playsNote", "puitar", true);
-    pbuttons[10] = new Button(885, 380, 67, 170, 25, "Bb3", true, "playsNote", "puitar", true);
-    pbuttons[11] = new Button(810, 380, 67, 170, 25, "pB3", true, "playsNote", "puitar", true);
+    pbuttons[0] = new Button(30, 500, 73, 85, 25, "C3", true, "playsNote", "puitar", true);
+    pbuttons[2] = new Button(545, 500, 73, 85, 25, "D3", true, "playsNote", "puitar", true);
+    pbuttons[4] = new Button(620, 500, 73, 85, 25, "E3", true, "playsNote", "puitar", true);
+    pbuttons[5] = new Button(695, 500, 73, 85, 25, "F3", true, "playsNote", "puitar", true);
+    pbuttons[6] = new Button(730, 380, 73, 85, 25, "F#3", true, "playsNote", "puitar", true);
+    pbuttons[7] = new Button(845, 500, 73, 85, 25, "G3", true, "playsNote", "puitar", true);
+    pbuttons[8] = new Button(920, 380, 73, 85, 25, "Gs3", true, "playsNote", "puitar", true);
+    pbuttons[9] = new Button(885, 500, 67, 170, 25, "A3", true, "playsNote", "puitar", true);
+    pbuttons[10] = new Button(810, 380, 67, 170, 25, "Bb3", true, "playsNote", "puitar", true);
+    pbuttons[11] = new Button(735, 500, 67, 170, 25, "pB3", true, "playsNote", "puitar", true);
 
   }
   void pianoRefresher() {
@@ -106,6 +106,7 @@ class Piano {
       }
   }
   void mousePressed(){
+    mainCursor = loadImage("fingerTwo.png");
     if(!pC3.isPlaying() && pbuttons[0].isClicked){ 
       pC3.play();
       dampener -= 0.01;
@@ -146,6 +147,7 @@ class Piano {
     }
   }
   void mouseReleased(){
+    mainCursor = loadImage("fingerOne.png");
     if(!pbuttons[0].isClicked || !mousePressed){
       pC3.stop();
       dampener = 1;

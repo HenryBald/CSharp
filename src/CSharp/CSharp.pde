@@ -147,6 +147,7 @@ void setup() {
 void draw() {
   background.resize(width, height);
   background(background);
+  mainCursor.resize(50, 50);
   if (screen == '1') {
     if (beTime.isFinished()) {
       backgroundeffects.add(new BackgroundEffect());
@@ -178,6 +179,7 @@ void draw() {
     //Always make sure to turn it to false after mousePressed, but after changing the screen and stuff
   } else if (screen == '2') {
     background = loadImage("selectionScreen1.png");
+    mainCursor = loadImage("4881475.png");
     buttons[2].display();
     buttons[3].display();
     buttons[4].display();
@@ -323,6 +325,7 @@ void draw() {
   } else if (screen == '8') {
     background = loadImage("KeyboardGUI.png");
     thePianoYipee.pianoRefresher();
+    //mainCursor = loadImage("fingerOne.png");
     buttons[6].display();
     buttons[6].hover(mouseX, mouseY);
     buttons[6].mousePressed(mouseX, mouseY);
