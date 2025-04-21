@@ -238,12 +238,14 @@ void draw() {
     buttons[9].display();
     buttons[9].hover(mouseX, mouseY);
     buttons[9].mousePressed(mouseX, mouseY);
-    if (buttons[9].isClicked && mousePressed && metOnScreen == false) {
+    if (buttons[9].isClicked && mousePressed && metOnScreen == false && buttonsAreOkay) {
       displayMet();
       buttons[9].isClicked = false;
-    } else if (buttons[9].isClicked && mousePressed && metOnScreen == true) {
+      buttonsAreOkay = false;
+    } else if (buttons[9].isClicked && mousePressed && metOnScreen == true && buttonsAreOkay) {
       metOnScreen = false;
       buttons[9].isClicked = false;
+      buttonsAreOkay = false;
     }
     if (buttons[6].isClicked && mousePressed && buttonsAreOkay) {
       screen = '2';
