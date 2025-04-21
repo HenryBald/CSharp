@@ -29,7 +29,15 @@ SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, e
 //piano sound files
 SoundFile pC3, pCs3, pD3, pEb3, pE3, pF3, pFs3, pG3, pGs3, pA3, pBb3, pB3, pC4;
 eGuitar theEGuitarYipee = new eGuitar();
+Piano thePianoYipee = new Piano();
 Drumset theDrumsetYipee = new Drumset();
+//scroller
+float scx, scy;
+int scrollDiam = 75;
+boolean overScroll = false;
+boolean locked = false;
+float xOffset = 0.0;
+float yOffset = 0.0;
 
 void setup() {
   size(1024, 540);
@@ -61,6 +69,7 @@ void setup() {
   left = true;
   time4Drums = false;
   buttonsAreOkay = true;
+   scy = 160;
   //Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
   // the second part of the first question just reads out loud weird
   questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
@@ -81,17 +90,15 @@ void setup() {
   buttons[1] = new Button(705, 380, 300, 184, 120, "EXIT", false, "exit", "start", false);
   buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
   buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
-  //buttons[4] = new Button(680, 345, 220, 100, 100,  " ", false, "keyboard", "selectPage", true);
-  //buttons[5] = new Button(500, 200, 300, 50, 40,  "Begin", false, "Trivia", "selectPage", false);
   buttons[4] = new Button(680, 345, 220, 100, 100, " ", false, "keyboard", "selectPage", true);
   buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
   buttons[6] = new Button(878, 49, 284, 99, 40, " ", false, "selectPage", "keyboard", true);
   buttons[7] = new Button(945, 270, 110, 200, 100, " ", false, "effectsPage", "selectPage", true);
   buttons[8] = new Button(33, 35, 65, 40, 100, " ", false, "selectPage", "settingsPage", true);
   buttons[9] = new Button(600, 254, 258, 80, 100, " ", false, "keyboard", "keyboard", true);
-  buttons[10] = new Button(380, 350, 150, 80, 100, " ", false, "Drumset", "keyboard", true);
-  buttons[11] = new Button(777, 445, 150, 200, 200, " ", false, "Drumset", "keyboard", true);
-  buttons[12] = new Button(878, 247, 284, 99, 40, " ", false, "selectPage", "keyboard", false);
+  buttons[10] = new Button(380, 350, 150, 80, 100, " ", false, "Drumset", "selectionScreen", true);
+  buttons[11] = new Button(760, 485, 175, 100, 200, " ", false, "Guitar", "selectionsScreen", true);
+  buttons[12] = new Button(878, 247, 284, 99, 40, " ", false, "Recording", "keyboard", false);
 
 
   //sounds core
@@ -191,14 +198,14 @@ void draw() {
     buttons[6].mousePressed(mouseX, mouseY);
     buttons[7].mousePressed(mouseX, mouseY);
     buttons[10].mousePressed(mouseX,mouseY);
-     buttons[11].mousePressed(mouseX,mouseY);
+    buttons[11].mousePressed(mouseX,mouseY);
     if (buttons[2].isClicked && mousePressed && buttonsAreOkay) {
       screen = '1';
       buttons[2].isClicked = false;
       background = loadImage("CSharpStartScreen.png");
       buttonsAreOkay = false;
     } else if (buttons[4].isClicked && mousePressed && buttonsAreOkay) {
-      screen = '4';
+      screen = '8';
       buttons[4].isClicked = false;
       background = loadImage("KeyboardGUI.png");
       buttonsAreOkay = false;
@@ -266,14 +273,27 @@ void draw() {
       buttons[6].isClicked = false;
       background = loadImage("selectionScreen1.png");
       buttonsAreOkay = false;
+      metOnScreen = false;
     }
-    if (buttons[12].isClicked && mousePressed && !recorder.isRecording()) {
+    if (buttons[12].isClicked && mousePressed && !recorder.isRecording() && buttonsAreOkay) {
       recorder.beginRecord();
       buttonsAreOkay = false;
-    } else if (buttons[12].isClicked && mousePressed && recorder.isRecording()) {
+    } else if (buttons[12].isClicked && mousePressed && recorder.isRecording() && buttonsAreOkay) {
       recorder.endRecord();
       buttonsAreOkay = false;
     }
+    if (mouseX > scx-scrollDiam && mouseX < scx+scrollDiam && mouseY > scy-scrollDiam && mouseY < scy+scrollDiam) {
+      overScroll = true;
+      if(!locked) {
+        stroke(100);
+        fill(203, 35, 29);
+      }
+    } else {
+      stroke(153);
+      fill(237, 31, 31);
+      overScroll = false;
+    }
+      circle(63, scy, 70);
   } else if (screen == '5') {
     background(255);
 
@@ -295,12 +315,58 @@ void draw() {
       background = loadImage("selectionScreen1.png");
       buttonsAreOkay = false;
     }
-  }
-  else if (screen == '7'){
+  } else if (screen == '7'){
 // this is the drumset screen 
    background = loadImage("coolStage.png");
    image(Drums, 192, 90);
 
+  } else if (screen == '8') {
+    background = loadImage("KeyboardGUI.png");
+    thePianoYipee.pianoRefresher();
+    buttons[6].display();
+    buttons[6].hover(mouseX, mouseY);
+    buttons[6].mousePressed(mouseX, mouseY);
+    buttons[9].display();
+    buttons[9].hover(mouseX, mouseY);
+    buttons[9].mousePressed(mouseX, mouseY);
+    buttons[12].display();
+    buttons[12].hover(mouseX, mouseY);
+    buttons[12].mousePressed(mouseX, mouseY);
+    if (buttons[9].isClicked && mousePressed && metOnScreen == false && buttonsAreOkay) {
+      displayMet();
+      buttons[9].isClicked = false;
+      buttonsAreOkay = false;
+    } else if (buttons[9].isClicked && mousePressed && metOnScreen == true && buttonsAreOkay) {
+      metOnScreen = false;
+      buttons[9].isClicked = false;
+      buttonsAreOkay = false;
+    }
+    if (buttons[6].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '2';
+      buttons[6].isClicked = false;
+      background = loadImage("selectionScreen1.png");
+      buttonsAreOkay = false;
+      metOnScreen = false;
+    }
+    if (buttons[12].isClicked && mousePressed && !recorder.isRecording() && buttonsAreOkay) {
+      recorder.beginRecord();
+      buttonsAreOkay = false;
+    } else if (buttons[12].isClicked && mousePressed && recorder.isRecording() && buttonsAreOkay) {
+      recorder.endRecord();
+      buttonsAreOkay = false;
+    }
+    if (mouseX > scx-scrollDiam && mouseX < scx+scrollDiam && mouseY > scy-scrollDiam && mouseY < scy+scrollDiam) {
+      overScroll = true;
+      if(!locked) {
+        stroke(100);
+        fill(203, 35, 29);
+      }
+    } else {
+      stroke(153);
+      fill(237, 31, 31);
+      overScroll = false;
+    }
+      circle(63, scy, 70);
   }
   if (metOnScreen) {
     m1.display();
@@ -308,27 +374,57 @@ void draw() {
 }
 
 void mousePressed() {
+  if(overScroll) {
+    locked = true;
+    fill(203, 35, 29);
+  } else {
+    locked = false;
+  }
+  xOffset = mouseX-scx;
+  yOffset = mouseY-scy;
   if (screen == '4') {
     theEGuitarYipee.mousePressed();
+  } else if (screen == '8') {
+    thePianoYipee.mousePressed();
   }
 }
 
 void mouseReleased() {
+  locked = false;
   buttonsAreOkay = true;
   if (screen == '4') {
     theEGuitarYipee.mouseReleased();
+  } else if (screen == '8') {
+    thePianoYipee.mouseReleased();
+  }
+}
+
+void mouseDragged() {
+  if(locked) {
+    scx = mouseX-xOffset;
+    scy = mouseY-yOffset;
+    if(scy <= 89){
+      scy = 90;
+    }
+    if(scy >= 251){
+      scy = 250;
+    }
   }
 }
 
 void keyPressed() {
   if (screen == '4') {
     theEGuitarYipee.keyPressed();
+  } else if (screen == '8') {
+    thePianoYipee.keyPressed();
   }
 }
 
 void keyReleased() {
   if (screen == '4') {
     theEGuitarYipee.keyReleased();
+  } else if (screen == '8') {
+    thePianoYipee.keyReleased();
   }
 }
 

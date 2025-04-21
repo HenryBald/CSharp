@@ -16,7 +16,7 @@ class Piano {
     pbuttons[11] = new Button(810, 380, 67, 170, 25, "pB3", true, "playsNote", "puitar", true);
 
   }
-  void neededStuffOrSomething() {
+  void pianoRefresher() {
     pbuttons[0].display();
     pbuttons[0].hover(mouseX, mouseY);
     pbuttons[0].mousePressed(mouseX, mouseY);
