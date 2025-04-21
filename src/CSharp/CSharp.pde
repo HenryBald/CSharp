@@ -13,7 +13,7 @@ ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background, Drums;
-Button[] buttons = new Button[12];
+Button[] buttons = new Button[13];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay;
@@ -90,6 +90,7 @@ void setup() {
   buttons[9] = new Button(600, 254, 258, 80, 100, " ", false, "keyboard", "keyboard", true);
   buttons[10] = new Button(380, 350, 150, 80, 100, " ", false, "Drumset", "keyboard", true);
   buttons[11] = new Button(777, 445, 150, 200, 200, " ", false, "Drumset", "keyboard", true);
+  buttons[12] = new Button(878, 247, 284, 99, 40, " ", false, "selectPage", "keyboard", false);
 
 
   //sounds core
@@ -247,6 +248,9 @@ void draw() {
     buttons[9].display();
     buttons[9].hover(mouseX, mouseY);
     buttons[9].mousePressed(mouseX, mouseY);
+    buttons[12].display();
+    buttons[12].hover(mouseX, mouseY);
+    buttons[12].mousePressed(mouseX, mouseY);
     if (buttons[9].isClicked && mousePressed && metOnScreen == false && buttonsAreOkay) {
       displayMet();
       buttons[9].isClicked = false;
@@ -260,6 +264,13 @@ void draw() {
       screen = '2';
       buttons[6].isClicked = false;
       background = loadImage("selectionScreen1.png");
+      buttonsAreOkay = false;
+    }
+    if (buttons[12].isClicked && mousePressed && !recorder.isRecording()) {
+      recorder.beginRecord();
+      buttonsAreOkay = false;
+    } else if (buttons[12].isClicked && mousePressed && recorder.isRecording()) {
+      recorder.endRecord();
       buttonsAreOkay = false;
     }
   } else if (screen == '5') {
