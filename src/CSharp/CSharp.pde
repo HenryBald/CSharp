@@ -29,6 +29,13 @@ SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, e
 //piano sound files
 SoundFile pC3, pCs3, pD3, pEb3, pE3, pF3, pFs3, pG3, pGs3, pA3, pBb3, pB3, pC4;
 eGuitar theEGuitarYipee = new eGuitar();
+//scroller
+float scx, scy;
+int scrollDiam = 75;
+boolean overScroll = false;
+boolean locked = false;
+float xOffset = 0.0; 
+float yOffset = 0.0; 
 
 void setup() {
   size(1024, 540);
@@ -60,6 +67,7 @@ void setup() {
   left = true;
   time4Drums = false;
   buttonsAreOkay = true;
+  scy = 160;
   //Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
   // the second part of the first question just reads out loud weird
   questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
@@ -251,6 +259,18 @@ void draw() {
       background = loadImage("selectionScreen1.png");
       buttonsAreOkay = false;
     }
+      if (mouseX > scx-scrollDiam && mouseX < scx+scrollDiam && mouseY > scy-scrollDiam && mouseY < scy+scrollDiam) {
+      overScroll = true;  
+      if(!locked) { 
+        stroke(100); 
+        fill(203, 35, 29);
+      }
+    } else {
+      stroke(153);
+      fill(237, 31, 31);
+      overScroll = false;
+    }
+      circle(63, scy, 70);
   } else if (screen == '5') {
     background(255);
 
@@ -285,15 +305,37 @@ void draw() {
 }
 
 void mousePressed() {
+  if(overScroll) { 
+    locked = true; 
+    fill(203, 35, 29);
+  } else {
+    locked = false;
+  }
+  xOffset = mouseX-scx; 
+  yOffset = mouseY-scy; 
   if (screen == '4') {
     theEGuitarYipee.mousePressed();
   }
 }
 
 void mouseReleased() {
+  locked = false;
   buttonsAreOkay = true;
   if (screen == '4') {
     theEGuitarYipee.mouseReleased();
+  }
+}
+
+void mouseDragged() {
+  if(locked) {
+    scx = mouseX-xOffset; 
+    scy = mouseY-yOffset; 
+    if(scy <= 89){
+      scy = 90;
+    }
+    if(scy >= 251){
+      scy = 250;
+    }
   }
 }
 
