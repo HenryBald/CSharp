@@ -13,7 +13,7 @@ ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background, Drums;
-Button[] buttons = new Button[11];
+Button[] buttons = new Button[12];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay;
@@ -89,6 +89,7 @@ void setup() {
   buttons[8] = new Button(33, 35, 65, 40, 100, " ", false, "selectPage", "settingsPage", true);
   buttons[9] = new Button(600, 254, 258, 80, 100, " ", false, "keyboard", "keyboard", true);
   buttons[10] = new Button(380, 350, 150, 80, 100, " ", false, "Drumset", "keyboard", true);
+  buttons[11] = new Button(777, 445, 150, 200, 200, " ", false, "Drumset", "keyboard", true);
 
 
   //sounds core
@@ -174,18 +175,21 @@ void draw() {
     buttons[6].display();
     buttons[7].display();
     buttons[10].display();
+    buttons[11].display();
     buttons[2].hover(mouseX, mouseY);
     buttons[3].hover(mouseX, mouseY);
     buttons[4].hover(mouseX, mouseY);
     buttons[6].hover(mouseX, mouseY);
     buttons[7].hover(mouseX, mouseY);
     buttons[10].hover(mouseX,mouseY);
+    buttons[11].hover(mouseX,mouseY);
     buttons[2].mousePressed(mouseX, mouseY);
     buttons[3].mousePressed(mouseX, mouseY);
     buttons[4].mousePressed(mouseX, mouseY);
     buttons[6].mousePressed(mouseX, mouseY);
     buttons[7].mousePressed(mouseX, mouseY);
     buttons[10].mousePressed(mouseX,mouseY);
+     buttons[11].mousePressed(mouseX,mouseY);
     if (buttons[2].isClicked && mousePressed && buttonsAreOkay) {
       screen = '1';
       buttons[2].isClicked = false;
@@ -194,6 +198,11 @@ void draw() {
     } else if (buttons[4].isClicked && mousePressed && buttonsAreOkay) {
       screen = '4';
       buttons[4].isClicked = false;
+      background = loadImage("KeyboardGUI.png");
+      buttonsAreOkay = false;
+    } else if (buttons[11].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '4';
+      buttons[11].isClicked = false;
       background = loadImage("KeyboardGUI.png");
       buttonsAreOkay = false;
     } else if (buttons[3].isClicked && mousePressed && buttonsAreOkay) {
