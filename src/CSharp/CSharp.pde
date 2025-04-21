@@ -29,6 +29,7 @@ SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, e
 //piano sound files
 SoundFile pC3, pCs3, pD3, pEb3, pE3, pF3, pFs3, pG3, pGs3, pA3, pBb3, pB3, pC4;
 eGuitar theEGuitarYipee = new eGuitar();
+Drumset theDrumsetYipee = new Drumset();
 
 void setup() {
   size(1024, 540);
