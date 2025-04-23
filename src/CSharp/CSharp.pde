@@ -5,7 +5,7 @@ import ddf.minim.*;
 // for recording audio
 Minim minim;
 AudioRecorder recorder;
-AudioInput in;
+AudioInput out;
 
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
@@ -46,7 +46,8 @@ void setup() {
   beTime.start();
   m1 = new Metronome();
   minim = new Minim(this);
-  recorder = minim.createRecorder(in, "myrecording.wav");
+  out = minim.getLineOut(Minim.MONO, 2048);
+  recorder = minim.createRecorder(out, "myrecording.wav");
 
   surface.setTitle("CSharp - Online Music Creator");
   background = loadImage("CSharpStartScreen.png");
@@ -147,7 +148,7 @@ void setup() {
 void draw() {
   background.resize(width, height);
   background(background);
-  mainCursor.resize(50, 50);
+
   if (screen == '1') {
     if (beTime.isFinished()) {
       backgroundeffects.add(new BackgroundEffect());
