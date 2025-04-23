@@ -5,7 +5,7 @@ class Button {
   color c1, c2, c3, c4;
   String val, hiddenTag, pageOn;
   boolean on, isClicked, isNote, selectyThing;
-
+//
   // Constructor
   Button(int x, int y, int w, int h, int size, String val, boolean isNote, String hiddenTag, String pageOn, boolean selectyThing) {
     this.x = x;
