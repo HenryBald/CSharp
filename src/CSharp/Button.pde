@@ -17,7 +17,7 @@ class Button {
   //Also we probably will want the buttons clear, exept to the second color, which can be a black with low alpha value for rollover, that way we can just customize the looks of the button in the GUI, not in each specific button
     c1 = color(255, 255, 255);
     c2 = color(#808080);
-    c3 = color(241, 232, 255, 25);
+    c3 = color(241, 232, 250, 25);
     c4 = color(130, 0);
     //c4 = color(154, 18, 175, 40);
     this.val = val;
