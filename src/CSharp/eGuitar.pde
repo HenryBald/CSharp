@@ -1,4 +1,4 @@
-//William and santhosh
+//William,Santhosh
 class eGuitar {
   Button[] egbuttons = new Button[20];
   float dampener = 1;
@@ -19,11 +19,6 @@ class eGuitar {
     egbuttons[12] = new Button(960, 380, 67, 170, 25, "Bb\nA#", true, "playsNote", "eGuitar", true);
     egbuttons[13] = new Button(885, 380, 67, 170, 25, "Ab\nG#", true, "playsNote", "eGuitar", true);
     egbuttons[14] = new Button(810, 380, 67, 170, 25, "Gb\nF#", true, "playsNote", "eGuitar", true);
-    egbuttons[15] = new Button(660, 380, 67, 170, 25, "Eb\nD#", true, "playsNote", "eGuitar", true);
-    egbuttons[16] = new Button(585, 380, 67, 170, 25, "Db\nE#", true, "playsNote", "eGuitar", true);
-    egbuttons[17] = new Button(445, 380, 67, 170, 25, "Bb\nG#", true, "playsNote", "eGuitar", true);
-    egbuttons[18] = new Button(370, 380, 67, 170, 25, "Ab\nG#", true, "playsNote", "eGuitar", true);
-    egbuttons[19] = new Button(295, 380, 67, 170, 25, "Gb\nF#", true, "playsNote", "eGuitar", true);
 
   }
   void neededStuffOrSomething() {
@@ -87,27 +82,6 @@ class eGuitar {
     egbuttons[14].hover(mouseX, mouseY);
     egbuttons[14].mousePressed(mouseX, mouseY);
     egFs3.amp(dampener);
-    egbuttons[15].display();
-    egbuttons[15].hover(mouseX, mouseY);
-    egbuttons[15].mousePressed(mouseX, mouseY);
-    egEb3.amp(dampener);
-    egbuttons[16].display();
-    egbuttons[16].hover(mouseX, mouseY);
-    egbuttons[16].mousePressed(mouseX, mouseY);
-    egCs3.amp(dampener);
-    egbuttons[17].display();
-    egbuttons[17].hover(mouseX, mouseY);
-    egbuttons[17].mousePressed(mouseX, mouseY);
-    egBb2.amp(dampener);
-    egbuttons[18].display();
-    egbuttons[18].hover(mouseX, mouseY);
-    egbuttons[18].mousePressed(mouseX, mouseY);
-    egGs2.amp(dampener);
-    egbuttons[19].display();
-    egbuttons[19].hover(mouseX, mouseY);
-    egbuttons[19].mousePressed(mouseX, mouseY);
-    egFs2.amp(dampener);
-    
     
   }
   void keyPressed(){
@@ -167,26 +141,6 @@ class eGuitar {
       egFs3.play();
       dampener -= 0.1;
       }
-      else if(!egEb3.isPlaying() && (key == '0'|| key == ')')){
-      egEb3.play();
-      dampener -= 0.1;
-      }
-      else if(!egCs3.isPlaying() && (key == '9'|| key == '(')){
-      egCs3.play();
-      dampener -= 0.1;
-      }
-      else if(!egBb2.isPlaying() && (key == '7'|| key == '&')){
-      egBb2.play();
-      dampener -= 0.1;
-      }
-      else if(!egGs2.isPlaying() && (key == '6'|| key == '^')){
-      egGs2.play();
-      dampener -= 0.1;
-      }
-      else if(!egFs2.isPlaying() && (key == '5'|| key == '%')){
-      egFs2.play();
-      dampener -= 0.1;
-      }
   }
   void keyReleased(){
    if (egE2.isPlaying() && (key == 'e' || key == 'E')){
@@ -243,26 +197,6 @@ class eGuitar {
       }
     else if(egFs3.isPlaying() && (key == '-' || key == '_')){
       egFs3.stop();
-      dampener = 1;
-      }
-      else if(egEb3.isPlaying() && (key == '0' || key == ')')){
-      egEb3.stop();
-      dampener = 1;
-      }
-      else if(egCs3.isPlaying() && (key == '9' || key == '(')){
-      egCs3.stop();
-      dampener = 1;
-      }
-      else if(egBb2.isPlaying() && (key == '7' || key == '&')){
-      egBb2.stop();
-      dampener = 1;
-      }
-      else if(egGs2.isPlaying() && (key == '6' || key == '^')){
-      egGs2.stop();
-      dampener = 1;
-      }
-      else if(egFs2.isPlaying() && (key == '5' || key == '%')){
-      egFs2.stop();
       dampener = 1;
       }
   }
@@ -331,26 +265,6 @@ class eGuitar {
       egFs3.play();
       dampener -= 0.01;
     }
-    else if(!egEb3.isPlaying() && egbuttons[15].isClicked){ 
-      egEb3.play();
-      dampener -= 0.01;
-    }
-     else if(!egCs3.isPlaying() && egbuttons[16].isClicked){ 
-      egCs3.play();
-      dampener -= 0.01;
-    }
-     else if(!egBb2.isPlaying() && egbuttons[17].isClicked){ 
-      egBb2.play();
-      dampener -= 0.01;
-    }
-    else if(!egGs2.isPlaying() && egbuttons[18].isClicked){ 
-      egGs2.play();
-      dampener -= 0.01;
-    }
-    else if(!egFs2.isPlaying() && egbuttons[19].isClicked){ 
-      egFs2.play();
-      dampener -= 0.01;
-    }
   }
   void mouseReleased(){
     if(!egbuttons[0].isClicked || !mousePressed){
@@ -411,26 +325,6 @@ class eGuitar {
    }
     if(!egbuttons[14].isClicked || !mousePressed){
       egFs3.stop();
-      dampener = 1;
-   }
-    if(!egbuttons[15].isClicked || !mousePressed){
-      egEb3.stop();
-      dampener = 1;
-   }
-    if(!egbuttons[16].isClicked || !mousePressed){
-      egCs3.stop();
-      dampener = 1;
-   }
-    if(!egbuttons[17].isClicked || !mousePressed){
-      egBb2.stop();
-      dampener = 1;
-   }
-    if(!egbuttons[18].isClicked || !mousePressed){
-      egGs2.stop();
-      dampener = 1;
-   }
-    if(!egbuttons[19].isClicked || !mousePressed){
-      egFs2.stop();
       dampener = 1;
    }
   }
