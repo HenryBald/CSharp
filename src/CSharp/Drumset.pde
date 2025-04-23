@@ -1,16 +1,10 @@
 // Assigned to Santhosh
 //import processing.sound.*;
-//SoundFile snare, base, hiHat, crashSymbol, splashSymbol, triangle, cowbell;
 class Drumset {
+ Button[] Drumbuttons = new Button[10];
   Drumset() {
   
-  //snare = new SoundFile(this, "");
-  //base = new SoundFile(this, "");
-  //hiHat= new SoundFile(this,"");
-  //crashSymbol = new SoundFile(this,"");
-  //splashSymbol = new SoundFile(this,"");
-  //triangle = new SoundFile(this,"");
-  //cowbell = new SoundFile(this,"");
+ 
   }
   
 void keyPressed(){

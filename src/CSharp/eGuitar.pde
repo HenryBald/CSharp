@@ -1,4 +1,4 @@
-//William
+//William,Santhosh
 class eGuitar {
   Button[] egbuttons = new Button[20];
   float dampener = 1;
