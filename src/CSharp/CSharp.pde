@@ -324,7 +324,7 @@ void draw() {
 
   } else if (screen == '8') {
     background = loadImage("KeyboardGUI.png");
-    thePianoYipee.neededStuffOrSomething();
+    thePianoYipee.pianoRefresher();
     //mainCursor = loadImage("fingerOne.png");
     buttons[6].display();
     buttons[6].hover(mouseX, mouseY);
