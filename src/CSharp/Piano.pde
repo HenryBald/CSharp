@@ -2,9 +2,11 @@
 class Piano {
   Button[] pbuttons = new Button[20];
   float dampener = 1;
+  boolean beginNote;
   
   Piano() {
     pbuttons[0] = new Button(33, 500, 73, 85, 25, "C3", true, "playsNote", "puitar", true);
+    pbuttons[1] = new Button(75, 380, 67, 170, 25, "Cs3", true, "playsNote", "puitar", true);
     pbuttons[2] = new Button(110, 500, 73, 85, 25, "D3", true, "playsNote", "puitar", true);
     pbuttons[4] = new Button(185, 500, 73, 85, 25, "E3", true, "playsNote", "puitar", true);
     pbuttons[5] = new Button(260, 500, 73, 85, 25, "F3", true, "playsNote", "puitar", true);
@@ -21,6 +23,10 @@ class Piano {
     pbuttons[0].hover(mouseX, mouseY);
     pbuttons[0].mousePressed(mouseX, mouseY);
     pC3.amp(dampener);
+    pbuttons[1].display();
+    pbuttons[1].hover(mouseX, mouseY);
+    pbuttons[1].mousePressed(mouseX, mouseY);
+    pCs3.amp(dampener);
     pbuttons[2].display();
     pbuttons[2].hover(mouseX, mouseY);
     pbuttons[2].mousePressed(mouseX, mouseY);
@@ -62,6 +68,14 @@ class Piano {
      if(!pC3.isPlaying() && (key == 'q' || key == 'Q')){
       pC3.play();
       dampener -= 0.1;
+      } else if(!pCs3.isPlaying() && (key == '2' || key == '@')){
+        if(beginNote) {
+          beginNote = false;
+          pCs3StartTest.play();
+        } else {
+          pCs3.play();
+          dampener -= 0.1;
+        }
       } else if(!pD3.isPlaying() && (key == 'w' || key == 'W')){
       pD3.play();
       dampener -= 0.1;
@@ -80,10 +94,16 @@ class Piano {
       }
   }
   void keyReleased(){
+   beginNote = true;
    if(pC3.isPlaying() && (key == 'q' || key == 'Q')){
       pC3.stop();
       dampener = 1;
-      }
+    }
+   else if(pCs3.isPlaying() && (key == '2' || key == '@')){
+     pCs3StartTest.stop();
+     pCs3.stop();
+     dampener = 1;
+   }
    else if(pD3.isPlaying() && (key == 'w' || key == 'W')){
       pD3.stop();
       dampener = 1;
@@ -109,6 +129,9 @@ class Piano {
     mainCursor = loadImage("fingerTwo.png");
     if(!pC3.isPlaying() && pbuttons[0].isClicked){ 
       pC3.play();
+      dampener -= 0.01;
+    } else if(!pCs3.isPlaying() && pbuttons[1].isClicked){ 
+      pCs3.play();
       dampener -= 0.01;
     } else if(!pD3.isPlaying() && pbuttons[2].isClicked){ 
       pD3.play();
@@ -150,6 +173,10 @@ class Piano {
     mainCursor = loadImage("fingerOne.png");
     if(!pbuttons[0].isClicked || !mousePressed){
       pC3.stop();
+      dampener = 1;
+    }
+    if(!pbuttons[1].isClicked || !mousePressed){
+      pCs3.stop();
       dampener = 1;
     }
      if(!pbuttons[2].isClicked || !mousePressed){

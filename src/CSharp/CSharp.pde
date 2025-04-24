@@ -27,7 +27,7 @@ Effect[] effects = new Effect[1];
 //guitar sound files
 SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, egE3, egEb3, egFs2, egFs3, egF2, egF3, egGs2, egGs3, egG2, egG3;
 //piano sound files
-SoundFile pC3, pCs3, pD3, pEb3, pE3, pF3, pFs3, pG3, pGs3, pA3, pBb3, pB3, pC4;
+SoundFile pC3, pCs3StartTest, pCs3, pD3, pEb3, pE3, pF3, pFs3, pG3, pGs3, pA3, pBb3, pB3, pC4;
 eGuitar theEGuitarYipee = new eGuitar();
 Piano thePianoYipee = new Piano();
 Drumset theDrumsetYipee = new Drumset();
@@ -128,6 +128,7 @@ void setup() {
   
   //piano sounds
   pC3 = new SoundFile(this, "pC3.mp3");
+  pCs3StartTest = new SoundFile(this, "pCs3StartTest.mp3");
   pCs3 = new SoundFile(this, "pCs3.mp3");
   pD3 = new SoundFile(this, "pD3.mp3");
   pEb3 = new SoundFile(this, "pEb3.mp3");
