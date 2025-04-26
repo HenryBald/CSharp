@@ -46,7 +46,7 @@ void setup() {
   beTime.start();
   m1 = new Metronome();
   minim = new Minim(this);
-  out = minim.getLineOut(Minim.MONO, 2048);
+ // out = minim.getLineOut(Minim.MONO, 2048);
   recorder = minim.createRecorder(out, "myrecording.wav");
 
   surface.setTitle("CSharp - Online Music Creator");
@@ -323,7 +323,8 @@ void draw() {
 // this is the drumset screen 
    background = loadImage("coolStage.png");
    image(Drums, 192, 90);
-
+   theDrumsetYipee.drumsRefresh();
+   
   } else if (screen == '8') {
     background = loadImage("KeyboardGUI.png");
     thePianoYipee.pianoRefresher();
@@ -392,6 +393,9 @@ void mousePressed() {
   } else if (screen == '8') {
     thePianoYipee.mousePressed();
   }
+  else if( screen == '7'){
+    theDrumsetYipee.mousePressed();
+  }
 }
 
 void mouseReleased() {
@@ -401,6 +405,9 @@ void mouseReleased() {
     theEGuitarYipee.mouseReleased();
   } else if (screen == '8') {
     thePianoYipee.mouseReleased();
+  }
+  else if ( screen == '7'){
+  theDrumsetYipee.mouseReleased();
   }
 }
 
@@ -423,6 +430,9 @@ void keyPressed() {
   } else if (screen == '8') {
     thePianoYipee.keyPressed();
   }
+  else if ( screen == '7'){
+    theDrumsetYipee.keyPressed();
+  }
 }
 
 void keyReleased() {
@@ -430,6 +440,9 @@ void keyReleased() {
     theEGuitarYipee.keyReleased();
   } else if (screen == '8') {
     thePianoYipee.keyReleased();
+  }
+  else if ( screen == '7' ){
+     theDrumsetYipee.keyReleased(); 
   }
 }
 
