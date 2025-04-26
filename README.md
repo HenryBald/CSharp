@@ -1,12 +1,12 @@
 # CSharp
 
 ## Group Members
-* Henry Baldwin (Logic, UI Design, Extra Sound Bits, Team Leader)
-* Reed Stringham (Logic, UI Design, Background Effects Logic and Design,) 
-* Kirubashinilakshana Senthilnathan (Logic, UI Design)
-* Zoe Leclair (UI Design)
-* William Barney (Oh my goodness how amni the onlynone not credited for UI i did tons of UI && Some Logic && Sound Man [Recording Sound Bits and Making Effects Class])
-* Santhosh  (Logic and UI for drumset, Logic for Trivia )
+* Henry Baldwin (Logic, UI Design, Team Leader)
+* Reed Stringham (Logo design, Background Effects Logic and design) 
+* Kirubashinilakshana Senthilnathan (Logic for button class)
+* Zoe Leclair ()
+* William Barney (Oh my goodness how amni the onlynone not credited for UI i did tons of UI && Some Logic && Sound Man [Recording Sound Bits and Making Effects Class],)
+* Santhosh  (Logic and UI for drumset, Trivia UI)
 
 
 ## Outline for CSharp - Santhosh 
