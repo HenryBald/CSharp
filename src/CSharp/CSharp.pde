@@ -29,7 +29,7 @@ SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, e
 //piano sound files
 SoundFile pC3, pCs3StartTest, pCs3, pD3, pEb3, pE3, pF3, pFs3, pG3, pGs3, pA3, pBb3, pB3, pC4;
 
-SoundFile dS1, dB2, dC3, dT4, dC5, dH6;
+SoundFile dS1, dB2, dC3, dT4, dC5, dH6, dR7, dR8, dS9;
 eGuitar theEGuitarYipee = new eGuitar();
 Piano thePianoYipee = new Piano();
 Drumset theDrumsetYipee = new Drumset();
@@ -151,9 +151,12 @@ void setup() {
   dS1 = new SoundFile(this, "snare.mp3");
   dB2 = new SoundFile(this, "base.mp3");
   dC3 = new SoundFile(this, "crash.mp3");
-  dT4 =  new SoundFile(this, "triangle.mp3");
-  dC5 =  new SoundFile(this, "cowbell.mp3");
-  dH6 =  new SoundFile(this, "hihat.mp3");
+  dT4 = new SoundFile(this, "triangle.mp3");
+  dC5 = new SoundFile(this, "cowbell.mp3");
+  dH6 = new SoundFile(this, "hihat.mp3");
+  dR7 = new SoundFile(this, "ride.mp3");
+  dR8 = new SoundFile(this, "snareRoll.mp3");
+  dS9 = new SoundFile(this, "sideStick.mp3");
 }
 
 
