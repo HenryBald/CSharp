@@ -4,7 +4,7 @@ class Drumset {
  Button[] Drumbuttons = new Button[10];
  float dampener = -1;
   Drumset() {
-  Drumbuttons[0] = new Button(33, 500, 73, 85, 25, "base", true, "playsNote", "drums", true);
+  Drumbuttons[0] = new Button(370, 315, 100, 100, 25, "snare", true, "playsNote", "drums", true);
 
   
  
@@ -13,22 +13,32 @@ class Drumset {
     Drumbuttons[0].display();
     Drumbuttons[0].hover(mouseX, mouseY);
     Drumbuttons[0].mousePressed(mouseX, mouseY);
+    dS1.amp(dampener);
+
    }
   
 void keyPressed(){
- if(!pC3.isPlaying() && (key == 'q' || key == 'Q')){
-      pC3.play();
+ if(!dS1.isPlaying() && (key == 'q' || key == 'Q')){
+      dS1.play();
       dampener -= 0.1;
 }
 }
 void keyReleased(){
- if (key == 0 || keyCode == 96 || keyCode == 48){
-    //snare.stop();
+   if(dS1.isPlaying() && (key == 'q' || key == 'Q')){
+      dS1.stop();
+      dampener = 1;
     }
 }
 void mousePressed(){
-
+    if(!dS1.isPlaying() && Drumbuttons[0].isClicked){ 
+      dS1.play();
+      dampener -= 0.01;
+}
 }
 void mouseReleased(){
+  if(!Drumbuttons[0].isClicked || !mousePressed){
+      dS1.stop();
+      dampener = 1;
+    }
 }
 }
