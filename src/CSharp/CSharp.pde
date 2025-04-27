@@ -12,8 +12,8 @@ ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
-PImage logoImage, mainCursor, background, Drums;
-Button[] buttons = new Button[13];
+PImage logoImage, mainCursor, background, Drums, instructions;
+Button[] buttons = new Button[14];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay;
@@ -29,7 +29,7 @@ SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, e
 //piano sound files
 SoundFile pC3, pCs3StartTest, pCs3, pD3, pEb3, pE3, pF3, pFs3, pG3, pGs3, pA3, pBb3, pB3, pC4;
 
-SoundFile dS1;
+SoundFile dS1, dB2, dC3, dT4, dC5, dH6;
 eGuitar theEGuitarYipee = new eGuitar();
 Piano thePianoYipee = new Piano();
 Drumset theDrumsetYipee = new Drumset();
@@ -61,6 +61,7 @@ void setup() {
   mainCursor.resize(50, 50);
   Drums = loadImage("Drums.png");
   Drums.resize(640,360);
+  instructions = loadImage("instructions.png");
   surface.setCursor(mainCursor, 25, 25);
   screen = '1';
   l = 0.0;
@@ -103,6 +104,7 @@ void setup() {
   buttons[10] = new Button(380, 350, 150, 80, 100, " ", false, "Drumset", "selectionScreen", true);
   buttons[11] = new Button(760, 485, 175, 100, 200, " ", false, "Guitar", "selectionsScreen", true);
   buttons[12] = new Button(878, 247, 284, 99, 40, " ", false, "Recording", "keyboard", false);
+  buttons[13] = new Button(900, 80, 300, 75, 100, " ", false, "instrcutionsForDrums", "selectionScreen", true);
 
 
   //sounds core
@@ -145,7 +147,13 @@ void setup() {
   pB3 = new SoundFile(this, "pB3.mp3");
   pC4 = new SoundFile(this, "pC4.mp3");
   
+  // drum sounds
   dS1 = new SoundFile(this, "snare.mp3");
+  dB2 = new SoundFile(this, "base.mp3");
+  dC3 = new SoundFile(this, "crash.mp3");
+  dT4 =  new SoundFile(this, "triangle.mp3");
+  dC5 =  new SoundFile(this, "cowbell.mp3");
+  dH6 =  new SoundFile(this, "hihat.mp3");
 }
 
 
@@ -340,8 +348,18 @@ void draw() {
 // this is the drumset screen 
    background = loadImage("coolStage.png");
    image(Drums, 192, 90);
+   image(instructions, 735, 0 );
    theDrumsetYipee.drumsRefresh();
-   
+   buttons[13].display();
+   buttons[13].hover(mouseX, mouseY);
+   buttons[13].mousePressed(mouseX, mouseY);
+   if(buttons[13].isClicked && mousePressed && buttonsAreOkay){
+     screen = '9';
+  buttons[13].isClicked = false; // ✅ reset the click flag
+  buttonsAreOkay = false;  
+
+   }
+
   } else if (screen == '8') {
     background = loadImage("KeyboardGUI.png");
     thePianoYipee.pianoRefresher();
@@ -394,6 +412,18 @@ void draw() {
   if (metOnScreen) {
     m1.display();
   }
+
+else if (screen == '9'){
+   background(255);
+   PFont font;
+   font = createFont("SpongeTitle.ttf", 25);
+   textFont(font);
+   textAlign(CENTER);
+   text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
+   text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
+   text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode",500, 400);
+
+}
 }
 
 void mousePressed() {
