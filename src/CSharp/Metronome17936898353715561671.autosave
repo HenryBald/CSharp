@@ -16,26 +16,6 @@ class Metronome {
     metImage = loadImage("Metronome.png");
     metImage.resize(w, h);
   }
-
-
-  boolean hoverDown(int mx, int my) {
-    if (mx > x-(w-318)/2 && mx < x+(w+45)/2 && my > y-(h-180)/2 && my < y+(h-35)/2) {
-      onDown = true;
-      return onDown;
-    } else {
-      onDown = false;
-      return onDown;
-    }
-  }
-
-  void display () {
-    image(metImage, x, 71);
-    if (onUp) {
-      rect(500, 500, 500, 500);
-    }
-    if (onDown) {
-      rect(250, 250, 250, 250);
-    }
   void display () {
     image(metImage, width/2, 71);
   }
