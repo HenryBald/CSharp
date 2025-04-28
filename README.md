@@ -1,19 +1,18 @@
 # CSharp
 
 ## Group Members
-* Henry Baldwin (Logic, UI Design, Team Leader)
+* Henry Baldwin (Logic, UI Design, Team Leader, metronome UI and logic )
 * Reed Stringham (Logo design, Background Effects Logic and design) 
 * Kirubashinilakshana Senthilnathan (Logic for button class)
-* Zoe Leclair ()
-* William Barney (Oh my goodness how amni the onlynone not credited for UI i did tons of UI && Some Logic && Sound Man [Recording Sound Bits and Making Effects Class],)
-* Santhosh  (Logic and UI for drumset, Trivia UI)
+* Zoe Leclair (UI design)
+* William Barney (UI && some logic && Sound Man [Recording Sound Bits and Making Effects Class, buttons for sounds])
+* Santhosh  (Logic and UI for drumset, buttons for sounds)
 
 
 ## Outline for CSharp - Santhosh 
-Our idea for a application is a music creation app that allows the user to recreate sounds of a instrument of their choice which will be be implemmented homescreen and we will have a few options for instruments such as one for percussion, piano, and guitar which are options located in the homescreen and when the user hovers over anand clicks on one of the instrument it will take them to a new place that has the instrument and intructions on how to make the sound.
-- We think we can implement the sound aspect of this using keycodes such as the ones used in the calculator app so each key represents a sound
-- For example a piano that inputs each sound when you press the specific key.
-- We also think that all the UI's are going to be madel in a pixel form to keep the visual mathcing with the logo.
+(REWOKRED)
+We created a music creator app which essentially lets the user click or press they mouse keys to recreate sounds of an instrument. The user can choose various different instruments in the homescreen; the options are drumset, piano, and guitar. There are detailed instructions on each instrument that can help the user if the instrument they chosen are unfamiliar such as explaining what and octive is in a piano and guitar. Then we have added special buttons on the settings that can 
+
 
 
 ## Class Diagram for Classes - Santhosh 

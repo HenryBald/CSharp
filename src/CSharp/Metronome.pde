@@ -11,7 +11,7 @@ class Metronome {
     y = 71;
     w = 162;
     h = 140;
-    metImage = loadImage("Metronome.png");
+    metImage = loadImage("metronome.png");
     metImage.resize(w, h);
   }
 
