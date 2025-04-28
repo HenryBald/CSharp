@@ -440,6 +440,7 @@ void draw() {
   if (metOnScreen) {
     m1.display();
     m1.hoverUp(mouseX, mouseY);
+    m1.hoverDown(mouseX, mouseY);
   } else if (screen == '9') {
     background(255);
     PFont font;
