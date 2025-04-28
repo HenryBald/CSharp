@@ -7,9 +7,10 @@ class Metronome {
 
   Metronome() {
     metImage = loadImage("Metronome.png");
+    metImage.resize(162,140);
   }
   void display () {
-    image(metImage, width/2, height/2);
+    image(metImage, width/2, 71);
   }
   void setBPM() {
   }
