@@ -7,9 +7,9 @@ class Drumset {
   Drumbuttons[0] = new Button(370, 315, 100, 100, 25, "snare", true, "playsNote", "drums", true);
   Drumbuttons[1] = new Button(517, 315, 160, 160, 25, "base", true, "playsNote", "drums", true);
   Drumbuttons[2] = new Button(370, 125, 180, 75, 25, "crash symbol", true, "playsNote", "drums", true);
-  Drumbuttons[3] = new Button(800, 265, 50, 35, 25, "triangle", true, "playsNote", "drums", true);
-  Drumbuttons[4] = new Button(710, 280, 35, 25, 25, "cowbell", true, "playsNote", "drums", true);
-  Drumbuttons[5] = new Button(710, 280, 35, 25, 25, "hi-hat", true, "playsNote", "drums", true);
+  Drumbuttons[3] = new Button(800, 265, 50, 35, 10, "triangle", true, "playsNote", "drums", true);
+  Drumbuttons[4] = new Button(710, 280, 35, 25, 10, "cowbell", true, "playsNote", "drums", true);
+  Drumbuttons[5] = new Button(290, 220, 150, 50, 25, "hi-hat", true, "playsNote", "drums", true);
   Drumbuttons[6] = new Button(665, 138, 180, 50, 25, "Ride Cymbal", true, "playsNote", "drums", true);
   Drumbuttons[7] = new Button(0, 0, 35, 25, 25, "", true, "playsNote", "drums", true);
   Drumbuttons[8] = new Button(0, 0, 35, 25, 25, "", true, "playsNote", "drums", true);
