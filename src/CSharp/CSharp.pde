@@ -7,13 +7,14 @@ Minim minim;
 AudioRecorder recorder;
 AudioInput out;
 
+Sound vol;
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background, Drums, instructions;
-Button[] buttons = new Button[15];
+Button[] buttons = new Button[16];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay;
@@ -46,7 +47,7 @@ void setup() {
   beTime.start();
   m1 = new Metronome();
   minim = new Minim(this);
- // out = minim.getLineOut(Minim.MONO, 2048);
+  // out = minim.getLineOut(Minim.MONO, 2048);
   recorder = minim.createRecorder(out, "myrecording.wav");
 
   surface.setTitle("CSharp - Online Music Creator");
@@ -57,12 +58,12 @@ void setup() {
   background = loadImage("CSharpStartScreen.png");
   logoImage = loadImage("NewC#.png");
   logoImage.resize(440, 237);
-  mainCursor = loadImage("4881475.png");
-  mainCursor.resize(50, 50);
+  //mainCursor = loadImage("4881475.png");
+  //mainCursor.resize(50, 50);
   Drums = loadImage("Drums.png");
-  Drums.resize(640,360);
+  Drums.resize(640, 360);
   instructions = loadImage("instructions.png");
-  surface.setCursor(mainCursor, 25, 25);
+  //surface.setCursor(mainCursor, 25, 25);
   screen = '1';
   l = 0.0;
   r = 0.0;
@@ -105,7 +106,8 @@ void setup() {
   buttons[11] = new Button(760, 485, 175, 100, 200, " ", false, "Guitar", "selectionsScreen", true);
   buttons[12] = new Button(878, 247, 284, 99, 40, " ", false, "Recording", "keyboard", false);
   buttons[13] = new Button(900, 80, 300, 75, 100, " ", false, "instrcutionsForDrums", "selectionScreen", true);
-  buttons[14] = new Button(878, 49, 284, 99, 40, " ", false, "selectPage", "keyboard", true);
+  buttons[14] = new Button(100, 80, 300, 75, 100, " ", false, "exitBackToDrums", "selectionScreen", true);
+  buttons[15] = new Button(878, 49, 284, 99, 40, " ", false, "selectPage", "keyboard", true);
 
   //sounds core
   //eletric guitar sounds
@@ -130,7 +132,7 @@ void setup() {
   egBb3 = new SoundFile(this, "egBb3.mp3");
   egB3 = new SoundFile(this, "egB3.mp3");
   egC4 = new SoundFile(this, "egC4.mp3");
-  
+
   //piano sounds
   pC3 = new SoundFile(this, "pC3.mp3");
   pCs3StartTest = new SoundFile(this, "pCs3StartTest.mp3");
@@ -146,7 +148,7 @@ void setup() {
   pBb3 = new SoundFile(this, "pBb3.mp3");
   pB3 = new SoundFile(this, "pB3.mp3");
   pC4 = new SoundFile(this, "pC4.mp3");
-  
+
   // drum sounds
   dS1 = new SoundFile(this, "snare.mp3");
   dB2 = new SoundFile(this, "base.mp3");
@@ -157,6 +159,8 @@ void setup() {
   dR7 = new SoundFile(this, "ride.mp3");
   dR8 = new SoundFile(this, "snareRoll.mp3");
   dS9 = new SoundFile(this, "sideStick.mp3");
+  
+  vol = new Sound(this);
 }
 
 
@@ -165,7 +169,7 @@ void setup() {
 void draw() {
   background.resize(width, height);
   background(background);
-
+  
   if (screen == '1') {
     if (beTime.isFinished()) {
       backgroundeffects.add(new BackgroundEffect());
@@ -197,7 +201,7 @@ void draw() {
     //Always make sure to turn it to false after mousePressed, but after changing the screen and stuff
   } else if (screen == '2') {
     background = loadImage("selectionScreen1.png");
-    mainCursor = loadImage("4881475.png");
+    //mainCursor = loadImage("4881475.png");
     buttons[2].display();
     buttons[3].display();
     buttons[4].display();
@@ -209,15 +213,15 @@ void draw() {
     buttons[4].hover(mouseX, mouseY);
     buttons[6].hover(mouseX, mouseY);
     buttons[7].hover(mouseX, mouseY);
-    buttons[10].hover(mouseX,mouseY);
-    buttons[11].hover(mouseX,mouseY);
+    buttons[10].hover(mouseX, mouseY);
+    buttons[11].hover(mouseX, mouseY);
     buttons[2].mousePressed(mouseX, mouseY);
     buttons[3].mousePressed(mouseX, mouseY);
     buttons[4].mousePressed(mouseX, mouseY);
     buttons[6].mousePressed(mouseX, mouseY);
     buttons[7].mousePressed(mouseX, mouseY);
-    buttons[10].mousePressed(mouseX,mouseY);
-    buttons[11].mousePressed(mouseX,mouseY);
+    buttons[10].mousePressed(mouseX, mouseY);
+    buttons[11].mousePressed(mouseX, mouseY);
     if (buttons[2].isClicked && mousePressed && buttonsAreOkay) {
       screen = '1';
       buttons[2].isClicked = false;
@@ -243,7 +247,7 @@ void draw() {
       buttons[7].isClicked = false;
       background = loadImage("cSharpSettingsPage.png");
       buttonsAreOkay = false;
-    } else if(buttons[10].isClicked && mousePressed && buttonsAreOkay){
+    } else if (buttons[10].isClicked && mousePressed && buttonsAreOkay) {
       screen = '7';
       background = loadImage("coolStage.png");
       buttonsAreOkay = false;
@@ -278,9 +282,9 @@ void draw() {
     buttons[12].display();
     buttons[12].hover(mouseX, mouseY);
     buttons[12].mousePressed(mouseX, mouseY);
-    buttons[14].display();
-    buttons[14].hover(mouseX, mouseY);
-    buttons[14].mousePressed(mouseX, mouseY);
+    buttons[15].display();
+    buttons[15].hover(mouseX, mouseY);
+    buttons[15].mousePressed(mouseX, mouseY);
     if (buttons[9].isClicked && mousePressed && metOnScreen == false && buttonsAreOkay) {
       displayMet();
       buttons[9].isClicked = false;
@@ -297,9 +301,9 @@ void draw() {
       buttonsAreOkay = false;
       metOnScreen = false;
     }
-    if (buttons[14].isClicked && mousePressed && buttonsAreOkay) {
+    if (buttons[15].isClicked && mousePressed && buttonsAreOkay) {
       screen = '1';
-      buttons[14].isClicked = false;
+      buttons[15].isClicked = false;
       background = loadImage("CSharpStartScreen.png");
       buttonsAreOkay = false;
       metOnScreen = false;
@@ -313,7 +317,7 @@ void draw() {
     }
     if (mouseX > scx-75 && mouseX < scx+75 && mouseY > scy-75 && mouseY < scy+75) {
       overScroll = true;
-      if(locked) {
+      if (locked) {
         stroke(100);
         fill(203, 35, 29);
       }
@@ -322,7 +326,7 @@ void draw() {
       fill(237, 31, 31);
       overScroll = false;
     }
-      circle(scx, scy, 70);
+    circle(scx, scy, 70);
   } else if (screen == '5') {
     background(255);
 
@@ -332,9 +336,8 @@ void draw() {
     for (int i = 0; i < options.length; i++) {
       text(options[i], width / 2, 150 + (i * 40));
     }
-  
   } else if (screen == '6') {
-//the effects screen
+    //the effects screen
     buttons[8].display();
     buttons[8].hover(mouseX, mouseY);
     buttons[8].mousePressed(mouseX, mouseY);
@@ -346,7 +349,7 @@ void draw() {
     }
     if (mouseX > scx2-35 && mouseX < scx2+35 && mouseY > scy2-35 && mouseY < scy2+35) {
       overScroll2 = true;
-      if(locked2) {
+      if (locked2) {
         stroke(10);
         fill(203, 35, 29);
       }
@@ -356,22 +359,20 @@ void draw() {
       overScroll2 = false;
     }
     circle(scx2, scy2, 35);
-  } else if (screen == '7'){
-// this is the drumset screen 
-   background = loadImage("coolStage.png");
-   image(Drums, 192, 90);
-   image(instructions, 735, 0 );
-   theDrumsetYipee.drumsRefresh();
-   buttons[13].display();
-   buttons[13].hover(mouseX, mouseY);
-   buttons[13].mousePressed(mouseX, mouseY);
-   if(buttons[13].isClicked && mousePressed && buttonsAreOkay){
-     screen = '9';
-  buttons[13].isClicked = false; // ✅ reset the click flag
-  buttonsAreOkay = false;  
-
-   }
-
+  } else if (screen == '7') {
+    // this is the drumset screen
+    background = loadImage("coolStage.png");
+    image(Drums, 192, 90);
+    image(instructions, 735, 0 );
+    theDrumsetYipee.drumsRefresh();
+    buttons[13].display();
+    buttons[13].hover(mouseX, mouseY);
+    buttons[13].mousePressed(mouseX, mouseY);
+    if (buttons[13].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '9';
+      buttons[13].isClicked = false; // ✅ reset the click flag
+      buttonsAreOkay = false;
+    }
   } else if (screen == '8') {
     background = loadImage("KeyboardGUI.png");
     thePianoYipee.pianoRefresher();
@@ -385,9 +386,9 @@ void draw() {
     buttons[12].display();
     buttons[12].hover(mouseX, mouseY);
     buttons[12].mousePressed(mouseX, mouseY);
-    buttons[14].display();
-    buttons[14].hover(mouseX, mouseY);
-    buttons[14].mousePressed(mouseX, mouseY);
+    buttons[15].display();
+    buttons[15].hover(mouseX, mouseY);
+    buttons[15].mousePressed(mouseX, mouseY);
     if (buttons[9].isClicked && mousePressed && metOnScreen == false && buttonsAreOkay) {
       displayMet();
       buttons[9].isClicked = false;
@@ -404,9 +405,9 @@ void draw() {
       buttonsAreOkay = false;
       metOnScreen = false;
     }
-    if (buttons[14].isClicked && mousePressed && buttonsAreOkay) {
+    if (buttons[15].isClicked && mousePressed && buttonsAreOkay) {
       screen = '1';
-      buttons[14].isClicked = false;
+      buttons[15].isClicked = false;
       background = loadImage("CSharpStartScreen.png");
       buttonsAreOkay = false;
       metOnScreen = false;
@@ -420,7 +421,7 @@ void draw() {
     }
     if (mouseX > scx-75 && mouseX < scx+75 && mouseY > scy-75 && mouseY < scy+75) {
       overScroll = true;
-      if(locked) {
+      if (locked) {
         stroke(100);
         fill(203, 35, 29);
       }
@@ -429,13 +430,33 @@ void draw() {
       fill(237, 31, 31);
       overScroll = false;
     }
+
+    circle(scx, scy, 70);
+
       circle(scx, scy, 70);
+      
+
   }
   if (metOnScreen) {
     m1.display();
+    m1.hoverUp(mouseX, mouseY);
+  } else if (screen == '9') {
+    background(255);
+    PFont font;
+    font = createFont("SpongeTitle.ttf", 25);
+    textFont(font);
+    textAlign(CENTER);
+    text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
+    text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
+    text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode", 500, 400);
   }
 
+
+
 else if (screen == '9'){
+   buttons[14].display();
+   buttons[14].hover(mouseX, mouseY);
+   buttons[14].mousePressed(mouseX, mouseY);
    background(255);
    PFont font;
    font = createFont("SpongeTitle.ttf", 25);
@@ -444,18 +465,21 @@ else if (screen == '9'){
    text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
    text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
    text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode",500, 400);
+  if(buttons[14].isClicked && mousePressed && buttonsAreOkay){
+     
+  }
+ }
 
-}
 }
 
 void mousePressed() {
-  if(overScroll) {
+  if (overScroll) {
     locked = false;
     fill(237, 31, 31);
   } else {
     locked = true;
   }
-  if(overScroll2) {
+  if (overScroll2) {
     locked2 = false;
     fill(237, 31, 31);
   } else {
@@ -467,8 +491,7 @@ void mousePressed() {
     theEGuitarYipee.mousePressed();
   } else if (screen == '8') {
     thePianoYipee.mousePressed();
-  }
-  else if( screen == '7'){
+  } else if ( screen == '7') {
     theDrumsetYipee.mousePressed();
   }
 }
@@ -476,34 +499,36 @@ void mousePressed() {
 void mouseReleased() {
   locked = true;
   locked2 = true;
+  float volumeNum = norm(scy, 250, 90);
+  vol.volume(volumeNum);
+  
   buttonsAreOkay = true;
   if (screen == '4') {
     theEGuitarYipee.mouseReleased();
   } else if (screen == '8') {
     thePianoYipee.mouseReleased();
-  }
-  else if ( screen == '7'){
-  theDrumsetYipee.mouseReleased();
+  } else if ( screen == '7') {
+    theDrumsetYipee.mouseReleased();
   }
 }
 
 void mouseDragged() {
-  if(!locked) {
-    if(scy < 89){
+  if (!locked) {
+    if (scy < 89) {
       locked = true;
       scy = 90;
-    } else if(scy > 251){
+    } else if (scy > 251) {
       locked = true;
       scy = 250;
     } else {
       scy = mouseY-yOffset;
     }
   }
-  if(!locked2) {
-    if(scy2 < 197){
+  if (!locked2) {
+    if (scy2 < 197) {
       locked2 = true;
       scy2 = 197;
-    } else if(scy2 > 440){
+    } else if (scy2 > 440) {
       locked2 = true;
       scy2 = 440;
     } else {
@@ -517,8 +542,7 @@ void keyPressed() {
     theEGuitarYipee.keyPressed();
   } else if (screen == '8') {
     thePianoYipee.keyPressed();
-  }
-  else if ( screen == '7'){
+  } else if ( screen == '7') {
     theDrumsetYipee.keyPressed();
   }
 }
@@ -528,9 +552,8 @@ void keyReleased() {
     theEGuitarYipee.keyReleased();
   } else if (screen == '8') {
     thePianoYipee.keyReleased();
-  }
-  else if ( screen == '7' ){
-     theDrumsetYipee.keyReleased(); 
+  } else if ( screen == '7' ) {
+    theDrumsetYipee.keyReleased();
   }
 }
 
