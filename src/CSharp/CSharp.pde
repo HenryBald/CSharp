@@ -14,7 +14,7 @@ ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background, Drums, instructions;
-Button[] buttons = new Button[16];
+Button[] buttons = new Button[17];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay;
@@ -107,7 +107,8 @@ void setup() {
   buttons[12] = new Button(878, 247, 284, 99, 40, " ", false, "Recording", "keyboard", false);
   buttons[13] = new Button(900, 80, 300, 75, 100, " ", false, "instrcutionsForDrums", "selectionScreen", true);
   buttons[14] = new Button(100, 80, 300, 75, 100, " ", false, "exitBackToDrums", "selectionScreen", true);
-  buttons[15] = new Button(878, 49, 284, 99, 40, " ", false, "selectPage", "keyboard", true);
+  buttons[15] = new Button(878, 49, 284, 99, 40, " ", false, "startPage", "keyboard", true);
+  buttons[16] = new Button(878, 150, 284, 99, 40, " ", false, "settings", "keyboard", true);
 
   //sounds core
   //eletric guitar sounds
