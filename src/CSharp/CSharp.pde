@@ -14,7 +14,7 @@ ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background, Drums, instructions;
-Button[] buttons = new Button[15];
+Button[] buttons = new Button[16];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay;
@@ -98,7 +98,7 @@ void setup() {
   buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
   buttons[4] = new Button(680, 345, 220, 100, 100, " ", false, "keyboard", "selectPage", true);
   buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
-  buttons[6] = new Button(878, 49, 284, 99, 40, " ", false, "selectPage", "keyboard", true);
+  buttons[6] = new Button(294, 252, 340, 80, 40, " ", false, "selectPage", "keyboard", true);
   buttons[7] = new Button(945, 270, 110, 200, 100, " ", false, "effectsPage", "selectPage", true);
   buttons[8] = new Button(33, 35, 65, 40, 100, " ", false, "selectPage", "settingsPage", true);
   buttons[9] = new Button(600, 254, 258, 80, 100, " ", false, "keyboard", "keyboard", true);
@@ -107,7 +107,7 @@ void setup() {
   buttons[12] = new Button(878, 247, 284, 99, 40, " ", false, "Recording", "keyboard", false);
   buttons[13] = new Button(900, 80, 300, 75, 100, " ", false, "instrcutionsForDrums", "selectionScreen", true);
   buttons[14] = new Button(100, 80, 300, 75, 100, " ", false, "exitBackToDrums", "selectionScreen", true);
-
+  buttons[15] = new Button(878, 49, 284, 99, 40, " ", false, "selectPage", "keyboard", true);
 
   //sounds core
   //eletric guitar sounds
@@ -205,7 +205,6 @@ void draw() {
     buttons[2].display();
     buttons[3].display();
     buttons[4].display();
-    buttons[6].display();
     buttons[7].display();
     buttons[10].display();
     buttons[11].display();
@@ -283,6 +282,9 @@ void draw() {
     buttons[12].display();
     buttons[12].hover(mouseX, mouseY);
     buttons[12].mousePressed(mouseX, mouseY);
+    buttons[15].display();
+    buttons[15].hover(mouseX, mouseY);
+    buttons[15].mousePressed(mouseX, mouseY);
     if (buttons[9].isClicked && mousePressed && metOnScreen == false && buttonsAreOkay) {
       displayMet();
       buttons[9].isClicked = false;
@@ -296,6 +298,13 @@ void draw() {
       screen = '2';
       buttons[6].isClicked = false;
       background = loadImage("selectionScreen1.png");
+      buttonsAreOkay = false;
+      metOnScreen = false;
+    }
+    if (buttons[15].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '1';
+      buttons[15].isClicked = false;
+      background = loadImage("CSharpStartScreen.png");
       buttonsAreOkay = false;
       metOnScreen = false;
     }
@@ -377,6 +386,9 @@ void draw() {
     buttons[12].display();
     buttons[12].hover(mouseX, mouseY);
     buttons[12].mousePressed(mouseX, mouseY);
+    buttons[15].display();
+    buttons[15].hover(mouseX, mouseY);
+    buttons[15].mousePressed(mouseX, mouseY);
     if (buttons[9].isClicked && mousePressed && metOnScreen == false && buttonsAreOkay) {
       displayMet();
       buttons[9].isClicked = false;
@@ -390,6 +402,13 @@ void draw() {
       screen = '2';
       buttons[6].isClicked = false;
       background = loadImage("selectionScreen1.png");
+      buttonsAreOkay = false;
+      metOnScreen = false;
+    }
+    if (buttons[15].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '1';
+      buttons[15].isClicked = false;
+      background = loadImage("CSharpStartScreen.png");
       buttonsAreOkay = false;
       metOnScreen = false;
     }
