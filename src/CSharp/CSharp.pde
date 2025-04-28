@@ -411,12 +411,12 @@ void draw() {
       fill(237, 31, 31);
       overScroll = false;
     }
-<<<<<<< HEAD
+
     circle(scx, scy, 70);
-=======
+
       circle(scx, scy, 70);
       
->>>>>>> a9bf5d4c92262dd0a2c217f3a572410b81b528e9
+
   }
   if (metOnScreen) {
     m1.display();
@@ -431,8 +431,8 @@ void draw() {
     text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
     text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode", 500, 400);
   }
-<<<<<<< HEAD
-=======
+
+
 
 else if (screen == '9'){
    buttons[14].display();
@@ -450,7 +450,7 @@ else if (screen == '9'){
      
   }
  }
->>>>>>> a9bf5d4c92262dd0a2c217f3a572410b81b528e9
+
 }
 
 void mousePressed() {
