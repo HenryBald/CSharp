@@ -346,6 +346,7 @@ void draw() {
     buttons[8].display();
     buttons[8].hover(mouseX, mouseY);
     buttons[8].mousePressed(mouseX, mouseY);
+    effects[0] = new Effect();
     if (buttons[8].isClicked && mousePressed && buttonsAreOkay) {
       screen = '2';
       buttons[8].isClicked = false;
