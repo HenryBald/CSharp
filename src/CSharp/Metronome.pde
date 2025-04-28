@@ -12,7 +12,7 @@ class Metronome {
     w = 162;
     h = 140;
     bpm = 120;
-    metImage = loadImage("metronome.png");
+    metImage = loadImage("Metronome.png");
     metImage.resize(w, h);
   }
 
