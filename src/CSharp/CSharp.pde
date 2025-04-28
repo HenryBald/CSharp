@@ -7,13 +7,14 @@ Minim minim;
 AudioRecorder recorder;
 AudioInput out;
 
+Sound vol;
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 // Ignore layerImage
 PImage logoImage, mainCursor, background, Drums, instructions;
-Button[] buttons = new Button[14];
+Button[] buttons = new Button[15];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay;
@@ -105,6 +106,7 @@ void setup() {
   buttons[11] = new Button(760, 485, 175, 100, 200, " ", false, "Guitar", "selectionsScreen", true);
   buttons[12] = new Button(878, 247, 284, 99, 40, " ", false, "Recording", "keyboard", false);
   buttons[13] = new Button(900, 80, 300, 75, 100, " ", false, "instrcutionsForDrums", "selectionScreen", true);
+  buttons[14] = new Button(100, 80, 300, 75, 100, " ", false, "exitBackToDrums", "selectionScreen", true);
 
 
   //sounds core
@@ -157,6 +159,8 @@ void setup() {
   dR7 = new SoundFile(this, "ride.mp3");
   dR8 = new SoundFile(this, "snareRoll.mp3");
   dS9 = new SoundFile(this, "sideStick.mp3");
+  
+  vol = new Sound(this);
 }
 
 
@@ -165,7 +169,7 @@ void setup() {
 void draw() {
   background.resize(width, height);
   background(background);
-
+  
   if (screen == '1') {
     if (beTime.isFinished()) {
       backgroundeffects.add(new BackgroundEffect());
@@ -407,7 +411,12 @@ void draw() {
       fill(237, 31, 31);
       overScroll = false;
     }
+<<<<<<< HEAD
     circle(scx, scy, 70);
+=======
+      circle(scx, scy, 70);
+      
+>>>>>>> a9bf5d4c92262dd0a2c217f3a572410b81b528e9
   }
   if (metOnScreen) {
     m1.display();
@@ -422,6 +431,26 @@ void draw() {
     text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
     text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode", 500, 400);
   }
+<<<<<<< HEAD
+=======
+
+else if (screen == '9'){
+   buttons[14].display();
+   buttons[14].hover(mouseX, mouseY);
+   buttons[14].mousePressed(mouseX, mouseY);
+   background(255);
+   PFont font;
+   font = createFont("SpongeTitle.ttf", 25);
+   textFont(font);
+   textAlign(CENTER);
+   text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
+   text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
+   text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode",500, 400);
+  if(buttons[14].isClicked && mousePressed && buttonsAreOkay){
+     
+  }
+ }
+>>>>>>> a9bf5d4c92262dd0a2c217f3a572410b81b528e9
 }
 
 void mousePressed() {
@@ -451,6 +480,9 @@ void mousePressed() {
 void mouseReleased() {
   locked = true;
   locked2 = true;
+  float volumeNum = norm(scy, 250, 90);
+  vol.volume(volumeNum);
+  
   buttonsAreOkay = true;
   if (screen == '4') {
     theEGuitarYipee.mouseReleased();
