@@ -7,6 +7,7 @@ Minim minim;
 AudioRecorder recorder;
 AudioInput out;
 
+Sound vol;
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
@@ -157,6 +158,8 @@ void setup() {
   dR7 = new SoundFile(this, "ride.mp3");
   dR8 = new SoundFile(this, "snareRoll.mp3");
   dS9 = new SoundFile(this, "sideStick.mp3");
+  
+  vol = new Sound(this);
 }
 
 
@@ -165,7 +168,7 @@ void setup() {
 void draw() {
   background.resize(width, height);
   background(background);
-
+  
   if (screen == '1') {
     if (beTime.isFinished()) {
       backgroundeffects.add(new BackgroundEffect());
@@ -411,6 +414,7 @@ void draw() {
       overScroll = false;
     }
       circle(scx, scy, 70);
+      
   }
   if (metOnScreen) {
     m1.display();
@@ -457,6 +461,9 @@ void mousePressed() {
 void mouseReleased() {
   locked = true;
   locked2 = true;
+  float volumeNum = norm(scy, 250, 90);
+  vol.volume(volumeNum);
+  
   buttonsAreOkay = true;
   if (screen == '4') {
     theEGuitarYipee.mouseReleased();
