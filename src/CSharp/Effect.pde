@@ -7,6 +7,8 @@ class Effect extends CSharp {
     
   }
   void apply(){
+    float gainNum = norm(scy2, 440, 190);
+    gain.gain(gainNum);
     gain = this.gain;
     reverb = this.reverb;
     delay = this.delay;
