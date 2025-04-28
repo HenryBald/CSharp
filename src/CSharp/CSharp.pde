@@ -108,7 +108,7 @@ void setup() {
   buttons[13] = new Button(900, 80, 300, 75, 100, " ", false, "instrcutionsForDrums", "selectionScreen", true);
   buttons[14] = new Button(100, 80, 300, 75, 100, " ", false, "exitBackToDrums", "selectionScreen", true);
   buttons[15] = new Button(878, 49, 284, 99, 40, " ", false, "startPage", "keyboard", true);
-  buttons[16] = new Button(878, 150, 284, 99, 40, " ", false, "settings", "keyboard", true);
+  buttons[16] = new Button(878, 150, 284, 99, 40, " ", false, "effectsPage", "keyboard", true);
 
   //sounds core
   //eletric guitar sounds
@@ -286,6 +286,10 @@ void draw() {
     buttons[15].display();
     buttons[15].hover(mouseX, mouseY);
     buttons[15].mousePressed(mouseX, mouseY);
+    buttons[16].display();
+    buttons[16].hover(mouseX, mouseY);
+    buttons[16].mousePressed(mouseX, mouseY);
+
     if (buttons[9].isClicked && mousePressed && metOnScreen == false && buttonsAreOkay) {
       displayMet();
       buttons[9].isClicked = false;
