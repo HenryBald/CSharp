@@ -11,6 +11,7 @@ class Metronome {
     y = 71;
     w = 162;
     h = 140;
+    bpm = 120;
     metImage = loadImage("metronome.png");
     metImage.resize(w, h);
   }
@@ -43,13 +44,14 @@ class Metronome {
     if (onDown) {
       rect(250, 250, 250, 250);
     }
+    text(bpm, x+w/2,y+h/2);
   }
 
 
   void setBPM() {
   }
-}
-void play() {
-}
-void stop() {
+  void play() {
+  }
+  void stop() {
+  }
 }
