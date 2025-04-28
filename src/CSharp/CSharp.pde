@@ -106,7 +106,7 @@ void setup() {
   buttons[11] = new Button(760, 485, 175, 100, 200, " ", false, "Guitar", "selectionsScreen", true);
   buttons[12] = new Button(878, 247, 284, 99, 40, " ", false, "Recording", "keyboard", false);
   buttons[13] = new Button(900, 80, 300, 75, 100, " ", false, "instrcutionsForDrums", "selectionScreen", true);
-  buttons[14] = new Button(100, 80, 300, 75, 100, " ", false, "exitBackToDrums", "selectionScreen", true);
+  buttons[14] = new Button(100, 80, 300, 75, 100, " Exit", false, "exitBackToDrums", "selectionScreen", false);
 
 
   //sounds core
@@ -422,10 +422,10 @@ void draw() {
   }
 
 else if (screen == '9'){
+   background(255);
    buttons[14].display();
    buttons[14].hover(mouseX, mouseY);
    buttons[14].mousePressed(mouseX, mouseY);
-   background(255);
    PFont font;
    font = createFont("SpongeTitle.ttf", 25);
    textFont(font);
@@ -434,7 +434,9 @@ else if (screen == '9'){
    text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
    text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode",500, 400);
   if(buttons[14].isClicked && mousePressed && buttonsAreOkay){
-     
+     screen = '7';
+     buttons[14].isClicked = false;
+     buttonsAreOkay = false;
   }
  }
 }
