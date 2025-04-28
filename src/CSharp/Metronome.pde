@@ -9,12 +9,12 @@ class Metronome {
     metImage = loadImage("Metronome.png");
     metImage.resize(162,140);
 
-    x = width/2;
-    y = 71;
-    w = 162;
-    h = 140;
-    metImage = loadImage("Metronome.png");
-    metImage.resize(w, h);
+    //x = width/2;
+    //y = 71;
+    //w = 162;
+    //h = 140;
+    //metImage = loadImage("Metronome.png");
+    //metImage.resize(w, h);
   }
   void display () {
     image(metImage, width/2, 71);
