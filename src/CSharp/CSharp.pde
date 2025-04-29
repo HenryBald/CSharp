@@ -315,8 +315,8 @@ void draw() {
       metOnScreen = false;
     }
     if (buttons[16].isClicked && mousePressed && buttonsAreOkay) {
-      screen = '10';
-      buttons[16].isClicked = false;
+      screen = 'e'; // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
+      buttons[15].isClicked = false;
       background = loadImage("effectsPage.png");
       buttonsAreOkay = false;
       metOnScreen = false;
@@ -433,7 +433,7 @@ void draw() {
       metOnScreen = false;
     }
     if (buttons[16].isClicked && mousePressed && buttonsAreOkay) {
-      screen = '10';
+      screen = 'e'; // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
       buttons[15].isClicked = false;
       background = loadImage("effectsPage.png");
       buttonsAreOkay = false;
@@ -463,8 +463,6 @@ void draw() {
       circle(scx, scy, 70);
       
 
-  } else if (screen == '10') {
-    background = loadImage("effectsPage.png");
   }
   if (metOnScreen) {
     m1.display();
@@ -485,6 +483,10 @@ void draw() {
     if(buttons[14].isClicked && mousePressed && buttonsAreOkay){
 
     }
+  } else if (screen == 'e') {
+    // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
+    background = loadImage("effectsPage.png");
+    
   }
 } void mousePressed() {
   if (overScroll) {
