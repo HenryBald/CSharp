@@ -314,6 +314,13 @@ void draw() {
       buttonsAreOkay = false;
       metOnScreen = false;
     }
+    if (buttons[16].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '10';
+      buttons[16].isClicked = false;
+      background = loadImage("effectsPage.png");
+      buttonsAreOkay = false;
+      metOnScreen = false;
+    }
     if (buttons[12].isClicked && mousePressed && !recorder.isRecording() && buttonsAreOkay) {
       recorder.beginRecord();
       buttonsAreOkay = false;
@@ -343,7 +350,7 @@ void draw() {
       text(options[i], width / 2, 150 + (i * 40));
     }
   } else if (screen == '6') {
-    //the effects screen
+    //the settings screen
     buttons[8].display();
     buttons[8].hover(mouseX, mouseY);
     buttons[8].mousePressed(mouseX, mouseY);
@@ -399,6 +406,9 @@ void draw() {
     buttons[15].display();
     buttons[15].hover(mouseX, mouseY);
     buttons[15].mousePressed(mouseX, mouseY);
+    buttons[16].display();
+    buttons[16].hover(mouseX, mouseY);
+    buttons[16].mousePressed(mouseX, mouseY);
     if (buttons[9].isClicked && mousePressed && metOnScreen == false && buttonsAreOkay) {
       displayMet();
       buttons[9].isClicked = false;
@@ -419,6 +429,13 @@ void draw() {
       screen = '1';
       buttons[15].isClicked = false;
       background = loadImage("CSharpStartScreen.png");
+      buttonsAreOkay = false;
+      metOnScreen = false;
+    }
+    if (buttons[16].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '10';
+      buttons[15].isClicked = false;
+      background = loadImage("effectsPage.png");
       buttonsAreOkay = false;
       metOnScreen = false;
     }
@@ -446,12 +463,17 @@ void draw() {
       circle(scx, scy, 70);
       
 
+  } else if (screen == '10') {
+    background = loadImage("effectsPage.png");
   }
   if (metOnScreen) {
     m1.display();
     m1.hoverUp(mouseX, mouseY);
     m1.hoverDown(mouseX, mouseY);
   } else if (screen == '9') {
+    buttons[14].display();
+    buttons[14].hover(mouseX, mouseY);
+    buttons[14].mousePressed(mouseX, mouseY);
     background(255);
     PFont font;
     font = createFont("SpongeTitle.ttf", 25);
@@ -459,31 +481,12 @@ void draw() {
     textAlign(CENTER);
     text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
     text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
-    text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode", 500, 400);
+    text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode",500, 400);
+    if(buttons[14].isClicked && mousePressed && buttonsAreOkay){
+
+    }
   }
-
-
-
-else if (screen == '9'){
-   buttons[14].display();
-   buttons[14].hover(mouseX, mouseY);
-   buttons[14].mousePressed(mouseX, mouseY);
-   background(255);
-   PFont font;
-   font = createFont("SpongeTitle.ttf", 25);
-   textFont(font);
-   textAlign(CENTER);
-   text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
-   text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
-   text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode",500, 400);
-  if(buttons[14].isClicked && mousePressed && buttonsAreOkay){
-     
-  }
- }
-
-}
-
-void mousePressed() {
+} void mousePressed() {
   if (overScroll) {
     locked = false;
     fill(237, 31, 31);
