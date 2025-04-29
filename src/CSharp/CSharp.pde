@@ -317,7 +317,6 @@ void draw() {
     if (buttons[16].isClicked && mousePressed && buttonsAreOkay) {
       screen = 'e'; // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
       buttons[15].isClicked = false;
-      background = loadImage("effectsPage.png");
       buttonsAreOkay = false;
       metOnScreen = false;
     }
@@ -435,7 +434,6 @@ void draw() {
     if (buttons[16].isClicked && mousePressed && buttonsAreOkay) {
       screen = 'e'; // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
       buttons[15].isClicked = false;
-      background = loadImage("effectsPage.png");
       buttonsAreOkay = false;
       metOnScreen = false;
     }
