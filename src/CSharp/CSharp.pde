@@ -8,11 +8,12 @@ AudioRecorder recorder;
 AudioInput out;
 
 Sound vol;
+SoundFile soundPlaying;
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
-// Ignore layerImage
+//Ignore layerImage
 PImage logoImage, mainCursor, background, Drums, instructions;
 Button[] buttons = new Button[17];
 float l, r, result;
@@ -365,8 +366,8 @@ void draw() {
       overScroll2 = false;
     }
     circle(scx2, scy2, 35);
-    
     effects[0].apply();
+    effects[0].neededStuffOrSomething();
     
   } else if (screen == '7') {
     // this is the drumset screen
