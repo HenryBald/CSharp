@@ -172,6 +172,8 @@ void setup() {
   dH1 = new SoundFile(this, "highTom.mp3");
   dL2 = new SoundFile(this, "lowTom.mp3");
 
+  metTick = new SoundFile(this, "metronomeclick.mp3");
+
   vol = new Sound(this);
 }
 
