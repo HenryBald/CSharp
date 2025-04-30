@@ -64,6 +64,9 @@ class Button {
   void mousePressed(int mx, int my) {
     if(mx > x-w/2 && mx < x+w/2 && my > y-h/2 && my < y+h/2) {
       isClicked = true;
+      if(mousePressed) {
+        println(hiddenTag + " " + pageOn);
+      }
     } else {
       isClicked = false;
     }
