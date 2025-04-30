@@ -332,8 +332,8 @@ void draw() {
       metOnScreen = false;
     }
     if (buttons[16].isClicked && mousePressed && buttonsAreOkay) {
-      screen = 'e'; // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
-      buttons[15].isClicked = false;
+      screen = '6'; // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
+      buttons[16].isClicked = false;
       buttonsAreOkay = false;
       metOnScreen = false;
     }
@@ -367,6 +367,7 @@ void draw() {
     }
   } else if (screen == '6') {
     //the settings screen
+    background = loadImage("effectsPage.png");
     buttons[8].display();
     buttons[8].hover(mouseX, mouseY);
     buttons[8].mousePressed(mouseX, mouseY);
@@ -477,8 +478,8 @@ void draw() {
       metOnScreen = false;
     }
     if (buttons[16].isClicked && mousePressed && buttonsAreOkay) {
-      screen = 'e'; // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
-      buttons[15].isClicked = false;
+      screen = '6'; // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
+      buttons[16].isClicked = false;
       buttonsAreOkay = false;
       metOnScreen = false;
     }
@@ -527,9 +528,6 @@ void draw() {
     if (buttons[14].isClicked && mousePressed && buttonsAreOkay) {
       screen = '7';
     }
-  } else if (screen == 'e') {
-    // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
-    background = loadImage("effectsPage.png");
   }
 }
 void mousePressed() {
