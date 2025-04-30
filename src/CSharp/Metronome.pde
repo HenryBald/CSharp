@@ -1,7 +1,6 @@
 // Henry Baldwin
 class Metronome {
   int bpm, x, y, w, h;
-  SoundFile tick;
   Timer metTimer;
   PImage metImage;
   boolean onUp, onDown, isClickedUp;
@@ -12,9 +11,7 @@ class Metronome {
     w = 162;
     h = 140;
     bpm = 120;
-    metImage = loadImage("Metronome.png");
-    metImage.resize(w, h);
-  }
+    metImage = loadImage("Metronome.png");  }
 
   boolean hoverUp(int mx, int my) {
     if (mx > x-(w-258)/2 && mx < x+(w-13)/2 && my > y-(h-180)/2 && my < y+(h-35)/2) {
@@ -39,27 +36,22 @@ class Metronome {
   void display () {
     image(metImage, x, 71);
     if (onUp) {
-      rect(500, 500, 500, 500);
       if (mousePressed) {
         bpm+=1;
         mousePressed=false;
       }
     }
     if (onDown) {
-      rect(250, 250, 250, 250);
+      if (mousePressed) {
+        bpm-=1;
+        mousePressed=false;
+      }
     }
     text(bpm, x+w/2, y+h/2);
   }
 
-
-  void mousePressed() {
-    if (onUp) {
-      isClickedUp = true;
-    } else {
-      isClickedUp = false;
-    }
-  }
   void play() {
+    
   }
   void stop() {
   }

@@ -8,7 +8,7 @@ AudioRecorder recorder;
 AudioInput out;
 
 Sound vol;
-SoundFile soundPlaying;
+SoundFile soundPlaying, metTick;
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
