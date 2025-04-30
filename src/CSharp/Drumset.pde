@@ -1,7 +1,7 @@
 // Assigned to Santhosh
 //import processing.sound.*;
 class Drumset {
- Button[] Drumbuttons = new Button[10];
+ Button[] Drumbuttons = new Button[12];
  float dampener = -1;
   Drumset() {
   Drumbuttons[0] = new Button(370, 315, 100, 100, 25, "snare", true, "playsNote", "drums", true);
@@ -13,9 +13,9 @@ class Drumset {
   Drumbuttons[6] = new Button(665, 138, 180, 50, 25, "Ride Cymbal", true, "playsNote", "drums", true);
   Drumbuttons[7] = new Button(0, 0, 35, 25, 25, "", true, "playsNote", "drums", true);
   Drumbuttons[8] = new Button(0, 0, 35, 25, 25, "", true, "playsNote", "drums", true);
-//Drumbuttons[9] =
-//Drumbuttons[10] =
-//Drumbutton[11] =
+  Drumbuttons[9] = new Button(655, 330, 75, 110, 25, "floorTom", true, "playsNote", "drums", true);
+  Drumbuttons[10] = new Button(435, 200, 110, 55, 25, "highTom", true, "playsNote", "drums", true);
+  Drumbuttons[11] = new Button(590, 200, 110, 55, 25, "lowTom", true, "playsNote", "drums", true);
   
  
   }
@@ -56,6 +56,19 @@ class Drumset {
     Drumbuttons[8].hover(mouseX, mouseY);
     Drumbuttons[8].mousePressed(mouseX, mouseY);
     dS9.amp(dampener);
+    Drumbuttons[9].display();
+    Drumbuttons[9].hover(mouseX, mouseY);
+    Drumbuttons[9].mousePressed(mouseX, mouseY);
+    dF0.amp(dampener);
+    Drumbuttons[10].display();
+    Drumbuttons[10].hover(mouseX, mouseY);
+    Drumbuttons[10].mousePressed(mouseX, mouseY);
+    dH1.amp(dampener);
+    Drumbuttons[11].display();
+    Drumbuttons[11].hover(mouseX, mouseY);
+    Drumbuttons[11].mousePressed(mouseX, mouseY);
+    dL2.amp(dampener);
+    
 
    }
   
@@ -96,6 +109,18 @@ if(!dS9.isPlaying() && (key == '7' || key == '&')){
       dS9.play();
       dampener -= 0.1;
 }
+if(!dF0.isPlaying() && (key == 'i' || key == 'I')){
+      dF0.play();
+      dampener -= 0.1;
+}
+if(!dH1.isPlaying() && (key == 'o' || key == 'O')){
+      dH1.play();
+      dampener -= 0.1;
+}
+if(!dL2.isPlaying() && (key == 'p' || key == 'P')){
+      dL2.play();
+      dampener -= 0.1;
+}
 }
 void keyReleased(){
    if(dS1.isPlaying() && (key == 'q' || key == 'Q')){
@@ -134,6 +159,18 @@ void keyReleased(){
       dS9.stop();
       dampener = 1;
     }
+    if(dF0.isPlaying() && (key == 'i' || key == 'I')){
+      dF0.stop();
+      dampener = 1;
+    }
+    if(dH1.isPlaying() && (key == 'o' || key == 'O')){
+      dH1.stop();
+      dampener = 1;
+    }
+    if(dL2.isPlaying() && (key == 'p' || key == 'P')){
+      dL2.stop();
+      dampener = 1;
+    }
 }
 void mousePressed(){
     if(!dS1.isPlaying() && Drumbuttons[0].isClicked){ 
@@ -164,6 +201,18 @@ if(!dR7.isPlaying() && Drumbuttons[6].isClicked){
       dR7.play();
       dampener -= 0.01;
 }
+if(!dF0.isPlaying() && Drumbuttons[9].isClicked){ 
+      dF0.play();
+      dampener -= 0.01;
+}
+if(!dH1.isPlaying() && Drumbuttons[10].isClicked){ 
+      dH1.play();
+      dampener -= 0.01;
+}
+if(!dL2.isPlaying() && Drumbuttons[11].isClicked){ 
+      dL2.play();
+      dampener -= 0.01;
+}
 }
 void mouseReleased(){
   if(!Drumbuttons[0].isClicked || !mousePressed){
@@ -192,6 +241,18 @@ void mouseReleased(){
     }
     if(!Drumbuttons[6].isClicked || !mousePressed){
       dR7.stop();
+      dampener = 1;
+    }
+     if(!Drumbuttons[9].isClicked || !mousePressed){
+      dF0.stop();
+      dampener = 1;
+    }
+     if(!Drumbuttons[10].isClicked || !mousePressed){
+      dH1.stop();
+      dampener = 1;
+    }
+     if(!Drumbuttons[11].isClicked || !mousePressed){
+      dL2.stop();
       dampener = 1;
     }
     
