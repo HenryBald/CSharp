@@ -108,13 +108,12 @@ void setup() {
   buttons[11] = new Button(760, 485, 175, 100, 200, " ", false, "Guitar", "selectionsScreen", true);
   buttons[12] = new Button(878, 247, 284, 99, 40, " ", false, "Recording", "keyboard", false);
   buttons[13] = new Button(900, 80, 300, 75, 100, " ", false, "instrcutionsForDrums", "selectionScreen", true);
-  buttons[14] = new Button(100, 80, 300, 75, 100, " ", false, "exitBackToDrums", "selectionScreen", true);
+  buttons[14] = new Button(100, 80, 300, 75, 100, "exitBackToDrums", false, "exitBackToDrums", "selectionScreen", false);
   buttons[15] = new Button(878, 49, 284, 99, 40, " ", false, "startPage", "keyboard", true);
   buttons[16] = new Button(878, 150, 284, 99, 40, " ", false, "effectsPage", "keyboard", true);
   buttons[17] = new Button(660, 280, 70, 20, 100, " ", false, "backGroundfxswitchON", "settingsPage", true);
   buttons[18] = new Button(743, 288, 70, 20, 100, " ", false, "backGroundfxswitchOFF", "settingsPage", true);
   buttons[19] = new Button(125, 105, 400, 20, 20, "Change Insrument", false, "Drumset", "selectPage", true);
-
 
   //sounds core
   //eletric guitar sounds
@@ -212,7 +211,7 @@ void draw() {
     background = loadImage("selectionScreen1.png");
     //mainCursor = loadImage("4881475.png");
     buttons[2].display();
-    buttons[3].display();
+   // buttons[3].display();
     buttons[4].display();
     buttons[7].display();
     buttons[10].display();
@@ -503,19 +502,21 @@ void draw() {
     m1.hoverUp(mouseX, mouseY);
     m1.hoverDown(mouseX, mouseY);
   } else if (screen == '9') {
-    buttons[14].display();
-    buttons[14].hover(mouseX, mouseY);
-    buttons[14].mousePressed(mouseX, mouseY);
-    background(255);
-    PFont font;
-    font = createFont("SpongeTitle.ttf", 25);
-    textFont(font);
-    textAlign(CENTER);
+    background(200);
+    //PFont font;
+    //font = createFont("SpongeTitle.ttf", 25);
+    //textFont(font);
+    //textAlign(CENTER);
+    textSize(30);
     text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
     text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
     text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode",500, 400);
+    buttons[14].display();
+    buttons[14].hover(mouseX, mouseY);
+    buttons[14].mousePressed(mouseX, mouseY);
+    
     if(buttons[14].isClicked && mousePressed && buttonsAreOkay){
-
+    screen = '7';
     }
   } else if (screen == 'e') {
     // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
