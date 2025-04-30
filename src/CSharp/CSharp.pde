@@ -506,6 +506,7 @@ void draw() {
     m1.display();
     m1.hoverUp(mouseX, mouseY);
     m1.hoverDown(mouseX, mouseY);
+    m1.play();
   } else if (screen == '9') {
     background(200);
     //PFont font;
