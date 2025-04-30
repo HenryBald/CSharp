@@ -15,7 +15,7 @@ class Metronome {
     bpmInMilliseconds = new Timer(60000/bpm);
     bpmInMilliseconds.start();
     beTime.start();
-    metImage = loadImage("Metronome.png");
+    metImage = loadImage("metronome.png");
   }
 
   boolean hoverUp(int mx, int my) {
