@@ -13,7 +13,9 @@ class Drumset {
   Drumbuttons[6] = new Button(665, 138, 180, 50, 25, "Ride Cymbal", true, "playsNote", "drums", true);
   Drumbuttons[7] = new Button(0, 0, 35, 25, 25, "", true, "playsNote", "drums", true);
   Drumbuttons[8] = new Button(0, 0, 35, 25, 25, "", true, "playsNote", "drums", true);
-
+//Drumbuttons[9] =
+//Drumbuttons[10] =
+//Drumbutton[11] =
   
  
   }

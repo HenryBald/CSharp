@@ -64,6 +64,7 @@ void setup() {
   Drums = loadImage("Drums.png");
   Drums.resize(640, 360);
   instructions = loadImage("instructions.png");
+  
   //surface.setCursor(mainCursor, 25, 25);
   screen = '1';
   l = 0.0;
@@ -210,7 +211,7 @@ void draw() {
     background = loadImage("selectionScreen1.png");
     //mainCursor = loadImage("4881475.png");
     buttons[2].display();
-    buttons[3].display();
+   // buttons[3].display();
     buttons[4].display();
     buttons[7].display();
     buttons[10].display();
