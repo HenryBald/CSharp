@@ -75,8 +75,8 @@ void setup() {
   buttonsAreOkay = true;
   scy = 160;
   scx = 63;
-  scy2 = 410;
-  scx2 = 98;
+  scy2 = 435;
+  scx2 = 497;
   backfxOff = false;
   //Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
   // the second part of the first question just reads out loud weird
@@ -102,7 +102,7 @@ void setup() {
   buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
   buttons[6] = new Button(294, 252, 340, 80, 40, " ", false, "selectPage", "keyboard", true);
   buttons[7] = new Button(945, 270, 110, 200, 100, " ", false, "effectsPage", "selectPage", true);
-  buttons[8] = new Button(33, 35, 65, 40, 100, " ", false, "selectPage", "settingsPage", true);
+  buttons[8] = new Button(85, 150, 75, 120, 100, " ", false, "selectPage", "settingsPage", true);
   buttons[9] = new Button(600, 254, 258, 80, 100, " ", false, "keyboard", "keyboard", true);
   buttons[10] = new Button(380, 350, 150, 80, 100, " ", false, "Drumset", "selectionScreen", true);
   buttons[11] = new Button(760, 485, 175, 100, 200, " ", false, "Guitar", "selectionsScreen", true);
@@ -111,8 +111,8 @@ void setup() {
   buttons[14] = new Button(100, 80, 300, 75, 100, "exitBackToDrums", false, "exitBackToDrums", "selectionScreen", false);
   buttons[15] = new Button(878, 49, 284, 99, 40, " ", false, "startPage", "keyboard", true);
   buttons[16] = new Button(878, 150, 284, 99, 40, " ", false, "effectsPage", "keyboard", true);
-  buttons[17] = new Button(660, 280, 70, 20, 100, " ", false, "backGroundfxswitchON", "settingsPage", true);
-  buttons[18] = new Button(743, 288, 70, 20, 100, " ", false, "backGroundfxswitchOFF", "settingsPage", true);
+  buttons[17] = new Button(785, 345, 120, 50, 100, " ", false, "backGroundfxswitchON", "settingsPage", true);
+  buttons[18] = new Button(945, 345, 120, 50, 100, " ", false, "backGroundfxswitchOFF", "settingsPage", true);
   buttons[19] = new Button(125, 20, 250, 40, 30, "Change Insrument", false, "Drumset", "selectPage", false);
 
   // Button 19 makese it so you can exit the drum page, we can make changes to make it look better - Kirubashini S
@@ -502,8 +502,6 @@ void draw() {
     }
 
     circle(scx, scy, 70);
-
-    circle(scx, scy, 70);
   }
   if (metOnScreen) {
     m1.display();
@@ -582,12 +580,12 @@ void mouseDragged() {
     }
   }
   if (!locked2) {
-    if (scy2 < 197) {
+    if (scy2 <226) {
       locked2 = true;
-      scy2 = 197;
-    } else if (scy2 > 440) {
+      scy2 = 227;
+    } else if (scy2 > 461) {
       locked2 = true;
-      scy2 = 440;
+      scy2 = 460;
     } else {
       scy2 = mouseY-yOffset2;
     }
