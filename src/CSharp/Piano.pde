@@ -16,6 +16,13 @@ class Piano {
     pbuttons[9] = new Button(400, 500, 73, 85, 25, "A3", true, "playsNote", "puitar", true);
     pbuttons[10] = new Button(435, 380, 67, 170, 25, "Bb3", true, "playsNote", "puitar", true);
     pbuttons[11] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
+   // This is where the wrong sounds for buttons are so will can add his new sounds
+    pbuttons[12] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
+    pbuttons[13] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
+    pbuttons[14] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
+    pbuttons[15] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
+    pbuttons[16] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
+    pbuttons[17] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
 
   }
   void pianoRefresher() {
@@ -63,6 +70,34 @@ class Piano {
     pbuttons[11].hover(mouseX, mouseY);
     pbuttons[11].mousePressed(mouseX, mouseY);
     pC4.amp(dampener);
+    pbuttons[12].display();
+    pbuttons[12].hover(mouseX, mouseY);
+    pbuttons[12].mousePressed(mouseX, mouseY);
+    pC4.amp(dampener);
+    pbuttons[13].display();
+    pbuttons[13].hover(mouseX, mouseY);
+    pbuttons[13].mousePressed(mouseX, mouseY);
+    pC4.amp(dampener);
+    pbuttons[14].display();
+    pbuttons[14].hover(mouseX, mouseY);
+    pbuttons[14].mousePressed(mouseX, mouseY);
+    pC4.amp(dampener);
+    pbuttons[15].display();
+    pbuttons[15].hover(mouseX, mouseY);
+    pbuttons[15].mousePressed(mouseX, mouseY);
+    pC4.amp(dampener);
+    pbuttons[15].display();
+    pbuttons[15].hover(mouseX, mouseY);
+    pbuttons[15].mousePressed(mouseX, mouseY);
+    pC4.amp(dampener);
+    pbuttons[16].display();
+    pbuttons[16].hover(mouseX, mouseY);
+    pbuttons[16].mousePressed(mouseX, mouseY);
+    pC4.amp(dampener);
+    pbuttons[17].display();
+    pbuttons[17].hover(mouseX, mouseY);
+    pbuttons[17].mousePressed(mouseX, mouseY);
+    pC4.amp(dampener);
   }
   void keyPressed(){
      if(!pC3.isPlaying() && (key == 'q' || key == 'Q')){
@@ -92,7 +127,58 @@ class Piano {
       pGs3.play();
       dampener -= 0.1;
       }
+      else if(!pA3.isPlaying() && (key == '6' || key == '^')){
+      pA3.play();
+      dampener -= 0.1;
+      }
+      else if(!pBb3.isPlaying() && (key == '6' || key == '^')){
+      pBb3.play();
+      dampener -= 0.1;
+      }
+      else if(!pB3.isPlaying() && (key == '6' || key == '^')){
+      pB3.play();
+      dampener -= 0.1;
+      }
+      else if(!pC4.isPlaying() && (key == '6' || key == '^')){
+      pC4.play();
+      dampener -= 0.1;
+      }
+       else if(!pD4Start.isPlaying() && (key == '2' || key == '@')){
+        if(beginNote) {
+          beginNote = false;
+          pCs3StartTest.play();
+        } else {
+          pCs3.play();
+          dampener -= 0.1;
+        }
+       }
+         else if(!pCs3.isPlaying() && (key == '2' || key == '@')){
+        if(beginNote) {
+          beginNote = false;
+          pCs3StartTest.play();
+        } else {
+          pCs3.play();
+          dampener -= 0.1;
+        }
+         }
+         else if(!pCs3.isPlaying() && (key == '2' || key == '@')){
+        if(beginNote) {
+          beginNote = false;
+          pCs3StartTest.play();
+        } else {
+          pCs3.play();
+          dampener -= 0.1;
+        }
+        } else if(!pC3.isPlaying() && (key == '7' || key == '8')){
+        if(beginNote) {
+          beginNote = false;
+          pCs3StartTest.play();
+        } else {
+          pCs3.play();
+          dampener -= 0.1;
+        }
   }
+         }
   void keyReleased(){
    beginNote = true;
    if(pC3.isPlaying() && (key == 'q' || key == 'Q')){
