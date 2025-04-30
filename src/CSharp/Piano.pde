@@ -120,14 +120,14 @@ class Piano {
       } else if(!pF3.isPlaying() && (key == 'r' || key == 'R')){
       pF3.play();
       dampener -= 0.1;
-      } else if(!pG3.isPlaying() && (key == '5'|| key == '%')){
+      } else if(!pG3.isPlaying() && (key == 't'|| key == 'T')){
       pG3.play();
       dampener -= 0.1;
-      } else if(!pGs3.isPlaying() && (key == 't' || key == 'T')){
+      } else if(!pGs3.isPlaying() && (key == '5' || key == '%')){
       pGs3.play();
       dampener -= 0.1;
       }
-      else if(!pA3.isPlaying() && (key == '6' || key == '^')){
+      else if(!pA3.isPlaying() && (key == 'y' || key == 'Y')){
       pA3.play();
       dampener -= 0.1;
       }
@@ -135,24 +135,24 @@ class Piano {
       pBb3.play();
       dampener -= 0.1;
       }
-      else if(!pB3.isPlaying() && (key == '6' || key == '^')){
+      else if(!pB3.isPlaying() && (key == 'u' || key == 'U')){
       pB3.play();
       dampener -= 0.1;
       }
-      else if(!pC4.isPlaying() && (key == '6' || key == '^')){
+      else if(!pC4.isPlaying() && (key == 'i' || key == 'I')){
       pC4.play();
       dampener -= 0.1;
       }
-       else if(!pD4Start.isPlaying() && (key == '2' || key == '@')){
+       else if(!pD4Start.isPlaying() && (key == 'o' || key == 'O')){
         if(beginNote) {
           beginNote = false;
-          pCs3StartTest.play();
+          pD4Start.play();
         } else {
-          pCs3.play();
+          pD4Start.play();
           dampener -= 0.1;
         }
        }
-         else if(!pCs3.isPlaying() && (key == '2' || key == '@')){
+         else if(!pCs3.isPlaying() && (key == '9' || key == '(')){
         if(beginNote) {
           beginNote = false;
           pCs3StartTest.play();
@@ -202,14 +202,47 @@ class Piano {
       pF3.stop();
       dampener = 1;
       }
-   else if(pG3.isPlaying() && (key == '5' || key == '%')){
+   else if(pG3.isPlaying() && (key == 't' || key == 'T')){
       pG3.stop();
       dampener = 1;
       }
-    else if(pGs3.isPlaying() && (key == 't' || key == 'T')){
+    else if(pGs3.isPlaying() && (key == '5' || key == '%')){
       pGs3.stop();
       dampener = 1;
       }
+    else if(pA3.isPlaying() && (key == 'y' || key == 'Y')){
+      pA3.stop();
+      dampener = 1;
+      }
+    else if(pB3.isPlaying() && (key == 'u' || key == 'U')){
+      pGs3.stop();
+      dampener = 1;
+      }
+    else if(pC4.isPlaying() && (key == 'i' || key == 'I')){
+      pC4.stop();
+      dampener = 1;
+      }
+       else if(pD4Start.isPlaying() && (key == '2' || key == '@')){
+     pD4Start.stop();
+     pD4Start.stop();
+     dampener = 1;
+   }
+    else if(pCs3.isPlaying() && (key == '2' || key == '@')){
+     pCs3StartTest.stop();
+     pCs3.stop();
+     dampener = 1;
+   }
+    else if(pCs3.isPlaying() && (key == '2' || key == '@')){
+     pCs3StartTest.stop();
+     pCs3.stop();
+     dampener = 1;
+   }
+    else if(pCs3.isPlaying() && (key == '2' || key == '@')){
+     pCs3StartTest.stop();
+     pCs3.stop();
+     dampener = 1;
+   }
+      
   }
   void mousePressed(){
     mainCursor = loadImage("fingerTwo.png");
