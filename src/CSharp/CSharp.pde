@@ -15,7 +15,7 @@ ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 //Ignore layerImage
 PImage logoImage, mainCursor, background, Drums, instructions;
-Button[] buttons = new Button[19];
+Button[] buttons = new Button[20];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay, backfxOff;
@@ -64,7 +64,6 @@ void setup() {
   Drums = loadImage("Drums.png");
   Drums.resize(640, 360);
   instructions = loadImage("instructions.png");
-  
   //surface.setCursor(mainCursor, 25, 25);
   screen = '1';
   l = 0.0;
@@ -114,6 +113,8 @@ void setup() {
   buttons[16] = new Button(878, 150, 284, 99, 40, " ", false, "effectsPage", "keyboard", true);
   buttons[17] = new Button(660, 280, 70, 20, 100, " ", false, "backGroundfxswitchON", "settingsPage", true);
   buttons[18] = new Button(743, 288, 70, 20, 100, " ", false, "backGroundfxswitchOFF", "settingsPage", true);
+  buttons[19] = new Button(125, 105, 400, 20, 20, "Change Insrument", false, "Drumset", "selectPage", true);
+
 
   //sounds core
   //eletric guitar sounds
@@ -211,7 +212,7 @@ void draw() {
     background = loadImage("selectionScreen1.png");
     //mainCursor = loadImage("4881475.png");
     buttons[2].display();
-   // buttons[3].display();
+    buttons[3].display();
     buttons[4].display();
     buttons[7].display();
     buttons[10].display();
@@ -402,8 +403,23 @@ void draw() {
     image(instructions, 735, 0 );
     theDrumsetYipee.drumsRefresh();
     buttons[13].display();
+    buttons[19].display();
+    
     buttons[13].hover(mouseX, mouseY);
+    buttons[19].hover(mouseX, mouseY);
+    
     buttons[13].mousePressed(mouseX, mouseY);
+    buttons[19].mousePressed(mouseX, mouseY);
+    
+     if (buttons[19].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '2';
+      buttons[19].isClicked = false; // ✅ reset the click flag
+      buttonsAreOkay = false;
+    }
+    
+    
+    
+    
     if (buttons[13].isClicked && mousePressed && buttonsAreOkay) {
       screen = '9';
       buttons[13].isClicked = false; // ✅ reset the click flag
