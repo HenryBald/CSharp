@@ -1,7 +1,7 @@
 // Assigned to Santhosh
 //import processing.sound.*;
 class Drumset {
- Button[] Drumbuttons = new Button[12];
+ Button[] Drumbuttons = new Button[15];
  float dampener = -1;
   Drumset() {
   Drumbuttons[0] = new Button(370, 315, 100, 100, 25, "snare", true, "playsNote", "drums", true);
@@ -16,7 +16,8 @@ class Drumset {
   Drumbuttons[9] = new Button(655, 330, 75, 110, 25, "floorTom", true, "playsNote", "drums", true);
   Drumbuttons[10] = new Button(435, 200, 110, 55, 25, "highTom", true, "playsNote", "drums", true);
   Drumbuttons[11] = new Button(590, 200, 110, 55, 25, "lowTom", true, "playsNote", "drums", true);
-  
+  Drumbuttons[12] = new Button(505, 130, 60, 40, 20, "Splash", true, "playsNote", "drums", true);
+
  
   }
    void drumsRefresh() {
@@ -68,6 +69,10 @@ class Drumset {
     Drumbuttons[11].hover(mouseX, mouseY);
     Drumbuttons[11].mousePressed(mouseX, mouseY);
     dL2.amp(dampener);
+    Drumbuttons[12].display();
+    Drumbuttons[12].hover(mouseX, mouseY);
+    Drumbuttons[12].mousePressed(mouseX, mouseY);
+    dS3.amp(dampener);
     
 
    }
@@ -121,6 +126,10 @@ if(!dL2.isPlaying() && (key == 'p' || key == 'P')){
       dL2.play();
       dampener -= 0.1;
 }
+if(!dS3.isPlaying() && (key == '{' || key == '[')){
+      dS3.play();
+      dampener -= 0.1;
+}
 }
 void keyReleased(){
    if(dS1.isPlaying() && (key == 'q' || key == 'Q')){
@@ -171,6 +180,10 @@ void keyReleased(){
       dL2.stop();
       dampener = 1;
     }
+    if(dS3.isPlaying() && (key == '{' || key == '[')){
+      dS3.stop();
+      dampener = 1;
+    }
 }
 void mousePressed(){
     if(!dS1.isPlaying() && Drumbuttons[0].isClicked){ 
@@ -213,6 +226,10 @@ if(!dL2.isPlaying() && Drumbuttons[11].isClicked){
       dL2.play();
       dampener -= 0.01;
 }
+if(!dS3.isPlaying() && Drumbuttons[12].isClicked){ 
+      dS3.play();
+      dampener -= 0.01;
+}
 }
 void mouseReleased(){
   if(!Drumbuttons[0].isClicked || !mousePressed){
@@ -253,6 +270,10 @@ void mouseReleased(){
     }
      if(!Drumbuttons[11].isClicked || !mousePressed){
       dL2.stop();
+      dampener = 1;
+    }
+     if(!Drumbuttons[12].isClicked || !mousePressed){
+      dS3.stop();
       dampener = 1;
     }
     
