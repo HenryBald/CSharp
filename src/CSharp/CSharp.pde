@@ -114,7 +114,7 @@ void setup() {
   buttons[17] = new Button(660, 280, 70, 20, 100, " ", false, "backGroundfxswitchON", "settingsPage", true);
   buttons[18] = new Button(743, 288, 70, 20, 100, " ", false, "backGroundfxswitchOFF", "settingsPage", true);
   buttons[19] = new Button(125, 105, 400, 20, 20, "Change Insrument", false, "Drumset", "selectPage", true);
-
+// Button 19 makese it so you can exit the drum page, we can make changes to make it look better - Kirubashini S
 
   //sounds core
   //eletric guitar sounds
