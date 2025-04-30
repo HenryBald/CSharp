@@ -31,7 +31,7 @@ SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, e
 //piano sound files
 SoundFile pC3, pCs3StartTest, pCs3, pD3, pEb3, pE3, pF3, pFs3, pG3, pGs3, pA3, pBb3, pB3, pC4;
 
-SoundFile dS1, dB2, dC3, dT4, dC5, dH6, dR7, dR8, dS9;
+SoundFile dS1, dB2, dC3, dT4, dC5, dH6, dR7, dR8, dS9, dF0, dH1, dL2;
 eGuitar theEGuitarYipee = new eGuitar();
 Piano thePianoYipee = new Piano();
 Drumset theDrumsetYipee = new Drumset();
@@ -115,7 +115,7 @@ void setup() {
   buttons[18] = new Button(743, 288, 70, 20, 100, " ", false, "backGroundfxswitchOFF", "settingsPage", true);
   buttons[19] = new Button(125, 105, 400, 20, 20, "Change Insrument", false, "Drumset", "selectPage", true);
 
-// Button 19 makese it so you can exit the drum page, we can make changes to make it look better - Kirubashini S
+  // Button 19 makese it so you can exit the drum page, we can make changes to make it look better - Kirubashini S
 
 
   //sounds core
@@ -168,7 +168,10 @@ void setup() {
   dR7 = new SoundFile(this, "ride.mp3");
   dR8 = new SoundFile(this, "snareRoll.mp3");
   dS9 = new SoundFile(this, "sideStick.mp3");
-  
+  dF0 = new SoundFile(this, "floorTom.mp3");
+  dH1 = new SoundFile(this, "highTom.mp3");
+  dL2 = new SoundFile(this, "lowTom.mp3");
+
   vol = new Sound(this);
 }
 
@@ -178,7 +181,7 @@ void setup() {
 void draw() {
   background.resize(width, height);
   background(background);
-  
+
   if (screen == '1') {
     if (beTime.isFinished()) {
       backgroundeffects.add(new BackgroundEffect());
@@ -186,7 +189,7 @@ void draw() {
     }
     for (int i = backgroundeffects.size() - 1; i >= 0; i--) {
       BackgroundEffect b = backgroundeffects.get(i);
-      if(!backfxOff){
+      if (!backfxOff) {
         b.display();
       }
       b.move();
@@ -214,7 +217,7 @@ void draw() {
     background = loadImage("selectionScreen1.png");
     //mainCursor = loadImage("4881475.png");
     buttons[2].display();
-   // buttons[3].display();
+    // buttons[3].display();
     buttons[4].display();
     buttons[7].display();
     buttons[10].display();
@@ -397,7 +400,6 @@ void draw() {
     circle(scx2, scy2, 35);
     effects[0].apply();
     effects[0].neededStuffOrSomething();
-    
   } else if (screen == '7') {
     // this is the drumset screen
     background = loadImage("coolStage.png");
@@ -406,22 +408,22 @@ void draw() {
     theDrumsetYipee.drumsRefresh();
     buttons[13].display();
     buttons[19].display();
-    
+
     buttons[13].hover(mouseX, mouseY);
     buttons[19].hover(mouseX, mouseY);
-    
+
     buttons[13].mousePressed(mouseX, mouseY);
     buttons[19].mousePressed(mouseX, mouseY);
-    
-     if (buttons[19].isClicked && mousePressed && buttonsAreOkay) {
+
+    if (buttons[19].isClicked && mousePressed && buttonsAreOkay) {
       screen = '2';
       buttons[19].isClicked = false; // ✅ reset the click flag
       buttonsAreOkay = false;
     }
-    
-    
-    
-    
+
+
+
+
     if (buttons[13].isClicked && mousePressed && buttonsAreOkay) {
       screen = '9';
       buttons[13].isClicked = false; // ✅ reset the click flag
@@ -496,9 +498,7 @@ void draw() {
 
     circle(scx, scy, 70);
 
-      circle(scx, scy, 70);
-      
-
+    circle(scx, scy, 70);
   }
   if (metOnScreen) {
     m1.display();
@@ -513,20 +513,20 @@ void draw() {
     textSize(30);
     text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
     text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
-    text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode",500, 400);
+    text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode", 500, 400);
     buttons[14].display();
     buttons[14].hover(mouseX, mouseY);
     buttons[14].mousePressed(mouseX, mouseY);
-    
-    if(buttons[14].isClicked && mousePressed && buttonsAreOkay){
-    screen = '7';
+
+    if (buttons[14].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '7';
     }
   } else if (screen == 'e') {
     // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
     background = loadImage("effectsPage.png");
-    
   }
-} void mousePressed() {
+}
+void mousePressed() {
   if (overScroll) {
     locked = false;
     fill(237, 31, 31);
@@ -555,7 +555,7 @@ void mouseReleased() {
   locked2 = true;
   float volumeNum = norm(scy, 250, 90);
   vol.volume(volumeNum);
-  
+
   buttonsAreOkay = true;
   if (screen == '4') {
     theEGuitarYipee.mouseReleased();
