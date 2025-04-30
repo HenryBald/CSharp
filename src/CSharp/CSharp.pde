@@ -336,13 +336,13 @@ void draw() {
       buttonsAreOkay = false;
       metOnScreen = false;
     }
-    if (buttons[12].isClicked && mousePressed && !recorder.isRecording() && buttonsAreOkay) {
-      recorder.beginRecord();
-      buttonsAreOkay = false;
-    } else if (buttons[12].isClicked && mousePressed && recorder.isRecording() && buttonsAreOkay) {
-      recorder.endRecord();
-      buttonsAreOkay = false;
-    }
+    //if (buttons[12].isClicked && mousePressed && !recorder.isRecording() && buttonsAreOkay) {
+    //  recorder.beginRecord();
+    //  buttonsAreOkay = false;
+    //} else if (buttons[12].isClicked && mousePressed && recorder.isRecording() && buttonsAreOkay) {
+    //  recorder.endRecord();
+    //  buttonsAreOkay = false;
+    //}8
     if (mouseX > scx-75 && mouseX < scx+75 && mouseY > scy-75 && mouseY < scy+75) {
       overScroll = true;
       if (locked) {
@@ -481,13 +481,13 @@ void draw() {
       buttonsAreOkay = false;
       metOnScreen = false;
     }
-    if (buttons[12].isClicked && mousePressed && !recorder.isRecording() && buttonsAreOkay) {
-      recorder.beginRecord();
-      buttonsAreOkay = false;
-    } else if (buttons[12].isClicked && mousePressed && recorder.isRecording() && buttonsAreOkay) {
-      recorder.endRecord();
-      buttonsAreOkay = false;
-    }
+    //if (buttons[12].isClicked && mousePressed && !recorder.isRecording() && buttonsAreOkay) {
+    //  recorder.beginRecord();
+    //  buttonsAreOkay = false;
+    //} else if (buttons[12].isClicked && mousePressed && recorder.isRecording() && buttonsAreOkay) {
+    //  recorder.endRecord();
+    //  buttonsAreOkay = false;
+    //}
     if (mouseX > scx-75 && mouseX < scx+75 && mouseY > scy-75 && mouseY < scy+75) {
       overScroll = true;
       if (locked) {
