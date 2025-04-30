@@ -152,12 +152,12 @@ class Piano {
           dampener -= 0.1;
         }
        }
-         else if(!pCs3.isPlaying() && (key == '9' || key == '(')){
+         else if(!pCs4Start.isPlaying() && (key == '9' || key == '(')){
         if(beginNote) {
           beginNote = false;
-          pCs3StartTest.play();
+          pCs4Start.play();
         } else {
-          pCs3.play();
+          pCs4.play();
           dampener -= 0.1;
         }
          }
