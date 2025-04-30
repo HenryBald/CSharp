@@ -4,7 +4,7 @@ class Metronome {
   SoundFile tick;
   Timer metTimer;
   PImage metImage;
-  boolean onUp, onDown;
+  boolean onUp, onDown, isClickedUp;
 
   Metronome() {
     x = width/2;
@@ -40,15 +40,24 @@ class Metronome {
     image(metImage, x, 71);
     if (onUp) {
       rect(500, 500, 500, 500);
+      if (mousePressed) {
+        bpm+=1;
+        mousePressed=false;
+      }
     }
     if (onDown) {
       rect(250, 250, 250, 250);
     }
-    text(bpm, x+w/2,y+h/2);
+    text(bpm, x+w/2, y+h/2);
   }
 
 
-  void setBPM() {
+  void mousePressed() {
+    if (onUp) {
+      isClickedUp = true;
+    } else {
+      isClickedUp = false;
+    }
   }
   void play() {
   }
