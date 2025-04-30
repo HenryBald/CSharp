@@ -15,10 +15,10 @@ ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 //Ignore layerImage
 PImage logoImage, mainCursor, background, Drums, instructions;
-Button[] buttons = new Button[17];
+Button[] buttons = new Button[19];
 float l, r, result;
 char op, screen;
-boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay;
+boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay, backfxOff;
 String explanation = "";
 String feedback = "";
 Metronome m1;
@@ -77,6 +77,7 @@ void setup() {
   scx = 63;
   scy2 = 410;
   scx2 = 98;
+  backfxOff = false;
   //Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
   // the second part of the first question just reads out loud weird
   questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
@@ -110,6 +111,8 @@ void setup() {
   buttons[14] = new Button(100, 80, 300, 75, 100, " ", false, "exitBackToDrums", "selectionScreen", true);
   buttons[15] = new Button(878, 49, 284, 99, 40, " ", false, "startPage", "keyboard", true);
   buttons[16] = new Button(878, 150, 284, 99, 40, " ", false, "effectsPage", "keyboard", true);
+  buttons[17] = new Button(660, 280, 70, 20, 100, " ", false, "backGroundfxswitchON", "settingsPage", true);
+  buttons[18] = new Button(743, 288, 70, 20, 100, " ", false, "backGroundfxswitchOFF", "settingsPage", true);
 
   //sounds core
   //eletric guitar sounds
@@ -179,7 +182,9 @@ void draw() {
     }
     for (int i = backgroundeffects.size() - 1; i >= 0; i--) {
       BackgroundEffect b = backgroundeffects.get(i);
-      b.display();
+      if(!backfxOff){
+        b.display();
+      }
       b.move();
       if (b.reachedBottom()) {
         backgroundeffects.remove(i);
@@ -353,11 +358,25 @@ void draw() {
     buttons[8].display();
     buttons[8].hover(mouseX, mouseY);
     buttons[8].mousePressed(mouseX, mouseY);
+    buttons[17].display();
+    buttons[17].hover(mouseX, mouseY);
+    buttons[17].mousePressed(mouseX, mouseY);
+    buttons[18].display();
+    buttons[18].hover(mouseX, mouseY);
+    buttons[18].mousePressed(mouseX, mouseY);
     effects[0] = new Effect();
     if (buttons[8].isClicked && mousePressed && buttonsAreOkay) {
       screen = '2';
       buttons[8].isClicked = false;
       background = loadImage("selectionScreen1.png");
+      buttonsAreOkay = false;
+    }
+    if (buttons[17].isClicked && mousePressed && buttonsAreOkay) {
+      backfxOff = false;
+      buttonsAreOkay = false;
+    }
+    if (buttons[18].isClicked && mousePressed && buttonsAreOkay) {
+      backfxOff = true;
       buttonsAreOkay = false;
     }
     if (mouseX > scx2-35 && mouseX < scx2+35 && mouseY > scy2-35 && mouseY < scy2+35) {
