@@ -34,6 +34,7 @@ class Metronome {
   }
 
   void display () {
+    metImage.resize(w,h);
     image(metImage, x, 71);
     if (onUp) {
       if (mousePressed) {
