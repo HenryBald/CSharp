@@ -216,7 +216,7 @@ class eGuitar {
     else if(!egA2.isPlaying() && egbuttons[3].isClicked){
       egA2.play();
       dampener -= 0.01;
-      soundPlaying = egA2;
+      soundPlaying = "egA2";
     }
     else if(!egB2.isPlaying() && egbuttons[4].isClicked){
       egB2.play();

@@ -1,25 +1,34 @@
 //William
-AllPass gain;
-Reverb reverb;
-Delay delay;
-class Effect extends CSharp {
-  Effect() {
-    gain = new AllPass(this);
+class Effect {
+  AllPass allPass;
+  Reverb reverb;
+  Delay delay;
+  float gainNum, whoop;
+  SoundFile letsAffect;
+  PApplet p;
+  
+  Effect(PApplet p) {
+  this.p = p;
+  allPass = new AllPass(p);
+  reverb = new Reverb(p);
+  delay = new Delay(p);
+  gainNum = 0.1;
+  whoop = 0.01;
   }
-  void apply(){
-    float gainNum = norm(scy2, 440, 190);
-    gain.gain(gainNum);
-    //gain = this.gain;
-    reverb = this.reverb;
-    delay = this.delay;
-  }
+  
   void neededStuffOrSomething(){
+    gainNum = norm(whoop, 460, 227);
+    allPass.gain(gainNum);
+  }
+  
+  void initiate(){
     if(soundPlaying != null){
-      gain.process(soundPlaying);
+      letsAffect = new SoundFile(p, soundPlaying);
+      allPass.process(letsAffect);
     }
   }
   void removeEffect(){
-    gain.stop();
+    allPass.stop();
     reverb.stop();
     delay.stop();
   }

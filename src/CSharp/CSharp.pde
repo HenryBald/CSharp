@@ -8,7 +8,9 @@ AudioRecorder recorder;
 AudioInput out;
 
 Sound vol;
-SoundFile soundPlaying, metTick;
+SoundFile metTick;
+String soundPlaying;
+
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
@@ -23,9 +25,7 @@ String explanation = "";
 String feedback = "";
 Metronome m1;
 Timer beTime;
-//Sound effects that affect
-int gainVar = 0, reverbVar = 0, delayVar = 0;
-Effect[] effects = new Effect[1];
+
 //guitar sound files
 SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, egE3, egEb3, egFs2, egFs3, egF2, egF3, egGs2, egGs3, egG2, egG3;
 //piano sound files
@@ -35,6 +35,7 @@ SoundFile dS1, dB2, dC3, dT4, dC5, dH6, dR7, dR8, dS9, dF0, dH1, dL2, dS3;
 eGuitar theEGuitarYipee = new eGuitar();
 Piano thePianoYipee = new Piano();
 Drumset theDrumsetYipee = new Drumset();
+Effect theEffectsYipee = new Effect(this);
 //scroller
 float scx, scy, scx2, scy2;
 boolean overScroll = false, overScroll2 = false;
@@ -188,7 +189,7 @@ void setup() {
 void draw() {
   background.resize(width, height);
   background(background);
-
+  
   if (screen == '1') {
     if (beTime.isFinished()) {
       backgroundeffects.add(new BackgroundEffect());
@@ -379,7 +380,6 @@ void draw() {
     buttons[18].display();
     buttons[18].hover(mouseX, mouseY);
     buttons[18].mousePressed(mouseX, mouseY);
-    effects[0] = new Effect();
     if (buttons[8].isClicked && mousePressed && buttonsAreOkay) {
       screen = '2';
       buttons[8].isClicked = false;
@@ -406,8 +406,9 @@ void draw() {
       overScroll2 = false;
     }
     circle(scx2, scy2, 35);
-    effects[0].apply();
-    effects[0].neededStuffOrSomething();
+    
+    //theEffectsYipee.neededStuffOrSomething();
+    
   } else if (screen == '7') {
     // this is the drumset screen
     background = loadImage("coolStage.png");
@@ -428,10 +429,7 @@ void draw() {
       buttons[19].isClicked = false; // ✅ reset the click flag
       buttonsAreOkay = false;
     }
-
-
-
-
+    
     if (buttons[13].isClicked && mousePressed && buttonsAreOkay) {
       screen = '9';
       buttons[13].isClicked = false; // ✅ reset the click flag
@@ -529,6 +527,8 @@ void draw() {
       screen = '7';
     }
   }
+  theEffectsYipee.neededStuffOrSomething();
+  theEffectsYipee.initiate();
 }
 void mousePressed() {
   if (overScroll) {
@@ -591,6 +591,7 @@ void mouseDragged() {
       scy2 = 460;
     } else {
       scy2 = mouseY-yOffset2;
+      theEffectsYipee.whoop = scy2;
     }
   }
 }
