@@ -7,7 +7,7 @@ Minim minim;
 AudioRecorder recorder;
 AudioInput in;
 
-Sound vol;
+AudioOutput vol;
 SoundFile metTick;
 
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
@@ -17,7 +17,7 @@ int currentQuestion = 0;
 //Ignore layerImage
 PImage logoImage, mainCursor, background, Drums, instructions;
 Button[] buttons = new Button[20];
-float l, r, result;
+float l, r, result, volumeNum;
 char op, screen;
 boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay, backfxOff;
 String explanation = "";
@@ -26,11 +26,11 @@ Metronome m1;
 Timer beTime;
 
 //guitar sound files
-SoundFile egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, egE3, egEb3, egFs2, egFs3, egF2, egF3, egGs2, egGs3, egG2, egG3;
+AudioPlayer egA2, egA3, egB2, egB3, egBb2, egBb3, egCs3, egC3, egC4, egD3, egE2, egE3, egEb3, egFs2, egFs3, egF2, egF3, egGs2, egGs3, egG2, egG3;
 //piano sound files
-SoundFile pC3, pCs3StartTest, pCs3, pD3, pEb3, pE3, pF3, pFs3, pG3, pGs3, pA3, pBb3, pB3, pC4, pD4Start, pCs4Start, pCs4;
+AudioPlayer pC3, pCs3StartTest, pCs3, pD3, pEb3, pE3, pF3, pFs3, pG3, pGs3, pA3, pBb3, pB3, pC4, pD4Start, pCs4Start, pCs4;
 
-SoundFile dS1, dB2, dC3, dT4, dC5, dH6, dR7, dR8, dS9, dF0, dH1, dL2, dS3;
+AudioPlayer dS1, dB2, dC3, dT4, dC5, dH6, dR7, dR8, dS9, dF0, dH1, dL2, dS3;
 eGuitar theEGuitarYipee = new eGuitar();
 Piano thePianoYipee = new Piano();
 Drumset theDrumsetYipee = new Drumset();
@@ -120,67 +120,66 @@ void setup() {
 
   //sounds core
   //eletric guitar sounds
-  egE2 = new SoundFile(this, "egE2.mp3");
-  egF2 = new SoundFile(this, "egF2.mp3");
-  egFs2 = new SoundFile(this, "egFs2.mp3");
-  egG2 = new SoundFile(this, "egG2.mp3");
-  egGs2 = new SoundFile(this, "egGs2.mp3");
-  egA2 = new SoundFile(this, "egA2.mp3");
-  egBb2 = new SoundFile(this, "egBb2.mp3");
-  egB2 = new SoundFile(this, "egB2.mp3");
-  egC3 = new SoundFile(this, "egC3.mp3");
-  egCs3 = new SoundFile(this, "egCs3.mp3");
-  egD3 = new SoundFile(this, "egD3.mp3");
-  egEb3 = new SoundFile(this, "egEb3.mp3");
-  egE3 = new SoundFile(this, "egE3.mp3");
-  egF3 = new SoundFile(this, "egF3.mp3");
-  egFs3 = new SoundFile(this, "egFs3.mp3");
-  egG3 = new SoundFile(this, "egG3.mp3");
-  egGs3 = new SoundFile(this, "egGs3.mp3");
-  egA3 = new SoundFile(this, "egA3.mp3");
-  egBb3 = new SoundFile(this, "egBb3.mp3");
-  egB3 = new SoundFile(this, "egB3.mp3");
-  egC4 = new SoundFile(this, "egC4.mp3");
+  egE2 = minim.loadFile("egE2.mp3");
+  egF2 = minim.loadFile("egF2.mp3");
+  egFs2 = minim.loadFile("egFs2.mp3");
+  egG2 = minim.loadFile("egG2.mp3");
+  egGs2 = minim.loadFile("egGs2.mp3");
+  egA2 = minim.loadFile("egA2.mp3");
+  egBb2 = minim.loadFile("egBb2.mp3");
+  egB2 = minim.loadFile("egB2.mp3");
+  egC3 = minim.loadFile("egC3.mp3");
+  egCs3 = minim.loadFile("egCs3.mp3");
+  egD3 = minim.loadFile("egD3.mp3");
+  egEb3 = minim.loadFile("egEb3.mp3");
+  egE3 = minim.loadFile("egE3.mp3");
+  egF3 = minim.loadFile("egF3.mp3");
+  egFs3 = minim.loadFile("egFs3.mp3");
+  egG3 = minim.loadFile("egG3.mp3");
+  egGs3 = minim.loadFile("egGs3.mp3");
+  egA3 = minim.loadFile("egA3.mp3");
+  egBb3 = minim.loadFile("egBb3.mp3");
+  egB3 = minim.loadFile("egB3.mp3");
+  egC4 = minim.loadFile("egC4.mp3");
 
   //piano sounds
-  pC3 = new SoundFile(this, "pC3.mp3");
-  pCs3StartTest = new SoundFile(this, "pCs3StartTest.mp3");
-  pCs3 = new SoundFile(this, "pCs3.mp3");
-  pD3 = new SoundFile(this, "pD3.mp3");
-  pEb3 = new SoundFile(this, "pEb3.mp3");
-  pE3 = new SoundFile(this, "pE3.mp3");
-  pF3 = new SoundFile(this, "pF3.mp3");
-  pFs3 = new SoundFile(this, "pFs3.mp3");
-  pG3 = new SoundFile(this, "pG3.mp3");
-  pGs3 = new SoundFile(this, "pGs3.mp3");
-  pA3 = new SoundFile(this, "pA3.mp3");
-  pBb3 = new SoundFile(this, "pBb3.mp3");
-  pB3 = new SoundFile(this, "pB3.mp3");
-  pC4 = new SoundFile(this, "pC4.mp3");
-  pCs4 = new SoundFile(this, "pCs4.mp3");
-  pD4Start = new SoundFile(this, "pD4Start.mp3");
-  pCs4Start = new SoundFile(this, "pCs4Start.mp3");
+  pC3 = minim.loadFile("pC3.mp3");
+  pCs3StartTest = minim.loadFile("pCs3StartTest.mp3");
+  pCs3 = minim.loadFile("pCs3.mp3");
+  pD3 = minim.loadFile("pD3.mp3");
+  pEb3 = minim.loadFile("pEb3.mp3");
+  pE3 = minim.loadFile("pE3.mp3");
+  pF3 = minim.loadFile("pF3.mp3");
+  pFs3 = minim.loadFile("pFs3.mp3");
+  pG3 = minim.loadFile("pG3.mp3");
+  pGs3 = minim.loadFile("pGs3.mp3");
+  pA3 = minim.loadFile("pA3.mp3");
+  pBb3 = minim.loadFile("pBb3.mp3");
+  pB3 = minim.loadFile("pB3.mp3");
+  pC4 = minim.loadFile("pC4.mp3");
+  pCs4 = minim.loadFile("pCs4.mp3");
+  pD4Start = minim.loadFile("pD4Start.mp3");
+  pCs4Start = minim.loadFile("pCs4Start.mp3");
 
   // drum sounds
-  dS1 = new SoundFile(this, "snare.mp3");
-  dB2 = new SoundFile(this, "base.mp3");
-  dC3 = new SoundFile(this, "crash.mp3");
-  dT4 = new SoundFile(this, "triangle.mp3");
-  dC5 = new SoundFile(this, "cowbell.mp3");
-  dH6 = new SoundFile(this, "hihat.mp3");
-  dR7 = new SoundFile(this, "ride.mp3");
-  dR8 = new SoundFile(this, "snareRoll.mp3");
-  dS9 = new SoundFile(this, "sideStick.mp3");
-  dF0 = new SoundFile(this, "floorTom.mp3");
-  dH1 = new SoundFile(this, "highTom.mp3");
-  dL2 = new SoundFile(this, "lowTom.mp3");
-  dS3 = new SoundFile(this, "splash.mp3");
+  dS1 = minim.loadFile("snare.mp3");
+  dB2 = minim.loadFile("base.mp3");
+  dC3 = minim.loadFile("crash.mp3");
+  dT4 = minim.loadFile("triangle.mp3");
+  dC5 = minim.loadFile("cowbell.mp3");
+  dH6 = minim.loadFile("hihat.mp3");
+  dR7 = minim.loadFile("ride.mp3");
+  dR8 = minim.loadFile("snareRoll.mp3");
+  dS9 = minim.loadFile("sideStick.mp3");
+  dF0 = minim.loadFile("floorTom.mp3");
+  dH1 = minim.loadFile("highTom.mp3");
+  dL2 = minim.loadFile("lowTom.mp3");
+  dS3 = minim.loadFile("splash.mp3");
 
 
   metTick = new SoundFile(this, "metronomeclick.mp3");
 
-  vol = new Sound(this);
-  theEffectsYipee = new Effect();
+  vol = minim.getLineOut();
 }
 
 
@@ -556,8 +555,8 @@ void mousePressed() {
 void mouseReleased() {
   locked = true;
   locked2 = true;
-  float volumeNum = norm(scy, 250, 90);
-  vol.volume(volumeNum);
+  volumeNum = norm(scy, 250, 90);
+  vol.setVolume(volumeNum);
   theEffectsYipee.effectValues();
 
   buttonsAreOkay = true;

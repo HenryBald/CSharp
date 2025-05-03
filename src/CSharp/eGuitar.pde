@@ -4,7 +4,7 @@ class eGuitar {
   float dampener = 1;
   
   eGuitar() {
-    egbuttons[0] = new Button(180, 500, 73, 85, 25, "E2", true, "playsNote", "eGuitar", true); //<>//
+    egbuttons[0] = new Button(180, 500, 73, 85, 25, "E2", true, "playsNote", "eGuitar", true); //<>// //<>//
     egbuttons[1] = new Button(255, 500, 73, 85, 25, "F2", true, "playsNote", "eGuitar", true);
     egbuttons[2] = new Button(330, 500, 73, 85, 25, "G2", true, "playsNote", "eGuitar", true);
     egbuttons[3] = new Button(405, 500, 73, 85, 25, "A2", true, "playsNote", "eGuitar", true);
@@ -25,63 +25,63 @@ class eGuitar {
     egbuttons[0].display();
     egbuttons[0].hover(mouseX, mouseY);
     egbuttons[0].mousePressed(mouseX, mouseY);
-    egE2.amp(dampener);
+    egE2.setVolume(dampener);
     egbuttons[1].display();
     egbuttons[1].hover(mouseX, mouseY);
     egbuttons[1].mousePressed(mouseX, mouseY);
-    egF2.amp(dampener);
+    egF2.setVolume(dampener);
     egbuttons[2].display();
     egbuttons[2].hover(mouseX, mouseY);
     egbuttons[2].mousePressed(mouseX, mouseY);
-    egG2.amp(dampener);
+    egG2.setVolume(dampener);
     egbuttons[3].display();
     egbuttons[3].hover(mouseX, mouseY);
     egbuttons[3].mousePressed(mouseX, mouseY);
-    egA2.amp(dampener);
+    egA2.setVolume(dampener);
     egbuttons[4].display();
     egbuttons[4].hover(mouseX, mouseY);
     egbuttons[4].mousePressed(mouseX, mouseY);
-    egB2.amp(dampener);
+    egB2.setVolume(dampener);
     egbuttons[5].display();
     egbuttons[5].hover(mouseX, mouseY);
     egbuttons[5].mousePressed(mouseX, mouseY);
-    egC3.amp(dampener);
+    egC3.setVolume(dampener);
     egbuttons[6].display();
     egbuttons[6].hover(mouseX, mouseY);
     egbuttons[6].mousePressed(mouseX, mouseY);
-    egD3.amp(dampener);
+    egD3.setVolume(dampener);
     egbuttons[7].display();
     egbuttons[7].hover(mouseX, mouseY);
     egbuttons[7].mousePressed(mouseX, mouseY);
-    egE3.amp(dampener);
+    egE3.setVolume(dampener);
     egbuttons[8].display();
     egbuttons[8].hover(mouseX, mouseY);
     egbuttons[8].mousePressed(mouseX, mouseY);
-    egF3.amp(dampener);
+    egF3.setVolume(dampener);
     egbuttons[9].display();
     egbuttons[9].hover(mouseX, mouseY);
     egbuttons[9].mousePressed(mouseX, mouseY);
-    egG3.amp(dampener);
+    egG3.setVolume(dampener);
     egbuttons[10].display();
     egbuttons[10].hover(mouseX, mouseY);
     egbuttons[10].mousePressed(mouseX, mouseY);
-    egA3.amp(dampener);
+    egA3.setVolume(dampener);
     egbuttons[11].display();
     egbuttons[11].hover(mouseX, mouseY);
     egbuttons[11].mousePressed(mouseX, mouseY);
-    egB3.amp(dampener);
+    egB3.setVolume(dampener);
     egbuttons[12].display();
     egbuttons[12].hover(mouseX, mouseY);
     egbuttons[12].mousePressed(mouseX, mouseY);
-    egBb3.amp(dampener);
+    egBb3.setVolume(dampener);
     egbuttons[13].display();
     egbuttons[13].hover(mouseX, mouseY);
     egbuttons[13].mousePressed(mouseX, mouseY);
-    egGs3.amp(dampener);
+    egGs3.setVolume(dampener);
     egbuttons[14].display();
     egbuttons[14].hover(mouseX, mouseY);
     egbuttons[14].mousePressed(mouseX, mouseY);
-    egFs3.amp(dampener);
+    egFs3.setVolume(dampener);
     
   }
   void keyPressed(){
@@ -144,187 +144,188 @@ class eGuitar {
   }
   void keyReleased(){
    if (egE2.isPlaying() && (key == 'e' || key == 'E')){
-      egE2.stop();
+      egE2.pause();
       dampener = 1;
       }
    else if(egF2.isPlaying() && (key == 'r' || key == 'R')){
-      egF2.stop();
+      egF2.pause();
       dampener = 1;
       }
    else if(egG2.isPlaying() && (key == 't' || key == 'T')){
-      egG2.stop();
+      egG2.pause();
       dampener = 1;
       }
    else if(egA2.isPlaying() && (key == 'y' || key == 'Y')){
-      egA2.stop();
+      egA2.pause();
       dampener = 1;
       }
    else if(egB2.isPlaying() && (key == 'u' || key == 'U')){
-      egB2.stop();
+      egB2.pause();
       dampener = 1;
       }
    else if(egC3.isPlaying() && (key == 'i' || key == 'I')){
-      egC3.stop();
+      egC3.pause();
       dampener = 1;
       }
    else if(egD3.isPlaying() && (key == 'o' || key == 'O')){
-      egD3.stop();
+      egD3.pause();
       dampener = 1;
       }
    else if(egE3.isPlaying() && (key == 'p' || key == 'P')){
-      egE3.stop();
+      egE3.pause();
       dampener = 1;
       }
    else if(egF3.isPlaying() && (key == '[')){
-      egF3.stop();
+      egF3.pause();
       dampener = 1;
       }
    else if(egG3.isPlaying() && (key == ']')){
-      egG3.stop();
+      egG3.pause();
       dampener = 1;
       }
     else if(egA3.isPlaying() && (key == '|')){
-      egA3.stop();
+      egA3.pause();
       dampener = 1;
       }
     else if(egBb3.isPlaying() && (key == '1')){
-      egBb3.stop();
+      egBb3.pause();
       dampener = 1;
       }
     else if(egGs3.isPlaying() && (key == '+' || key == '=')){
-      egGs3.stop();
+      egGs3.pause();
       dampener = 1;
       }
     else if(egFs3.isPlaying() && (key == '-' || key == '_')){
-      egFs3.stop();
+      egFs3.pause();
       dampener = 1;
       }
   }
   void mousePressed(){
     if(!egE2.isPlaying() && egbuttons[0].isClicked){
       egE2.play();
-      dampener -= 0.01;
+      egE2.loop();
+      dampener -= 0.05;
     }
     else if(!egF2.isPlaying() && egbuttons[1].isClicked){
       egF2.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
      else if(!egG2.isPlaying() && egbuttons[2].isClicked){
       egG2.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!egA2.isPlaying() && egbuttons[3].isClicked){
       egA2.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!egB2.isPlaying() && egbuttons[4].isClicked){
       egB2.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!egC3.isPlaying() && egbuttons[5].isClicked){ 
       egC3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!egC3.isPlaying() && egbuttons[5].isClicked){ 
       egC3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!egD3.isPlaying() && egbuttons[6].isClicked){ 
       egD3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!egE3.isPlaying() && egbuttons[7].isClicked){ 
       egE3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
      else if(!egF3.isPlaying() && egbuttons[8].isClicked){ 
       egF3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!egG3.isPlaying() && egbuttons[9].isClicked){ 
       egG3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!egA3.isPlaying() && egbuttons[10].isClicked){ 
       egA3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!egB3.isPlaying() && egbuttons[11].isClicked){ 
       egB3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!egBb3.isPlaying() && egbuttons[12].isClicked){ 
       egBb3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
      else if(!egGs3.isPlaying() && egbuttons[13].isClicked){ 
       egGs3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
      else if(!egFs3.isPlaying() && egbuttons[14].isClicked){ 
       egFs3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
   }
   void mouseReleased(){
     if(!egbuttons[0].isClicked || !mousePressed){
-      egE2.stop();
+      egE2.pause();
       dampener = 1;
     }
     if(!egbuttons[1].isClicked || !mousePressed){
-      egF2.stop();
+      egF2.pause();
       dampener = 1;
     }
     if(!egbuttons[2].isClicked || !mousePressed){
-      egG2.stop();
+      egG2.pause();
       dampener = 1;
     }
     if(!egbuttons[3].isClicked || !mousePressed){
-      egA2.stop();
+      egA2.pause();
       dampener = 1;
     }
     if(!egbuttons[4].isClicked || !mousePressed){
-      egB2.stop();
+      egB2.pause();
       dampener = 1;
     }
     if(!egbuttons[5].isClicked || !mousePressed){
-      egC3.stop();
+      egC3.pause();
       dampener = 1;
     }
      if(!egbuttons[6].isClicked || !mousePressed){
-      egD3.stop();
+      egD3.pause();
       dampener = 1;
     }
     if(!egbuttons[7].isClicked || !mousePressed){
-      egE3.stop();
+      egE3.pause();
       dampener = 1;
     }
     if(!egbuttons[8].isClicked || !mousePressed){
-      egF3.stop();
+      egF3.pause();
       dampener = 1;
     }
     if(!egbuttons[9].isClicked || !mousePressed){
-      egG3.stop();
+      egG3.pause();
       dampener = 1;
     }
     if(!egbuttons[10].isClicked || !mousePressed){
-      egA3.stop();
+      egA3.pause();
       dampener = 1;
    }
    if(!egbuttons[11].isClicked || !mousePressed){
-      egB3.stop();
+      egB3.pause();
       dampener = 1;
    } 
    if(!egbuttons[12].isClicked || !mousePressed){
-      egBb3.stop();
+      egBb3.pause();
       dampener = 1;
    }
     if(!egbuttons[13].isClicked || !mousePressed){
-      egGs3.stop();
+      egGs3.pause();
       dampener = 1;
    }
     if(!egbuttons[14].isClicked || !mousePressed){
-      egFs3.stop();
+      egFs3.pause();
       dampener = 1;
    }
   }

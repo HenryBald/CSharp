@@ -29,75 +29,75 @@ class Piano {
     pbuttons[0].display();
     pbuttons[0].hover(mouseX, mouseY);
     pbuttons[0].mousePressed(mouseX, mouseY);
-    pC3.amp(dampener);
+    pC3.setVolume(dampener);
     pbuttons[1].display();
     pbuttons[1].hover(mouseX, mouseY);
     pbuttons[1].mousePressed(mouseX, mouseY);
-    pCs3.amp(dampener);
+    pCs3.setVolume(dampener);
     pbuttons[2].display();
     pbuttons[2].hover(mouseX, mouseY);
     pbuttons[2].mousePressed(mouseX, mouseY);
-    pD3.amp(dampener);
+    pD3.setVolume(dampener);
     pbuttons[4].display();
     pbuttons[4].hover(mouseX, mouseY);
     pbuttons[4].mousePressed(mouseX, mouseY);
-    pE3.amp(dampener);
+    pE3.setVolume(dampener);
     pbuttons[5].display();
     pbuttons[5].hover(mouseX, mouseY);
     pbuttons[5].mousePressed(mouseX, mouseY);
-    pF3.amp(dampener);
+    pF3.setVolume(dampener);
     pbuttons[6].display();
     pbuttons[6].hover(mouseX, mouseY);
     pbuttons[6].mousePressed(mouseX, mouseY);
-    pG3.amp(dampener);
+    pG3.setVolume(dampener);
     pbuttons[7].display();
     pbuttons[7].hover(mouseX, mouseY);
     pbuttons[7].mousePressed(mouseX, mouseY);
-    pGs3.amp(dampener);
+    pGs3.setVolume(dampener);
     pbuttons[8].display();
     pbuttons[8].hover(mouseX, mouseY);
     pbuttons[8].mousePressed(mouseX, mouseY);
-    pA3.amp(dampener);
+    pA3.setVolume(dampener);
     pbuttons[9].display();
     pbuttons[9].hover(mouseX, mouseY);
     pbuttons[9].mousePressed(mouseX, mouseY);
-    pBb3.amp(dampener);
+    pBb3.setVolume(dampener);
     pbuttons[10].display();
     pbuttons[10].hover(mouseX, mouseY);
     pbuttons[10].mousePressed(mouseX, mouseY);
-    pB3.amp(dampener);
+    pB3.setVolume(dampener);
     pbuttons[11].display();
     pbuttons[11].hover(mouseX, mouseY);
     pbuttons[11].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pC4.setVolume(dampener);
     pbuttons[12].display();
     pbuttons[12].hover(mouseX, mouseY);
     pbuttons[12].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pC4.setVolume(dampener);
     pbuttons[13].display();
     pbuttons[13].hover(mouseX, mouseY);
     pbuttons[13].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pC4.setVolume(dampener);
     pbuttons[14].display();
     pbuttons[14].hover(mouseX, mouseY);
     pbuttons[14].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pC4.setVolume(dampener);
     pbuttons[15].display();
     pbuttons[15].hover(mouseX, mouseY);
     pbuttons[15].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pC4.setVolume(dampener);
     pbuttons[15].display();
     pbuttons[15].hover(mouseX, mouseY);
     pbuttons[15].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pC4.setVolume(dampener);
     pbuttons[16].display();
     pbuttons[16].hover(mouseX, mouseY);
     pbuttons[16].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pC4.setVolume(dampener);
     pbuttons[17].display();
     pbuttons[17].hover(mouseX, mouseY);
     pbuttons[17].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pC4.setVolume(dampener);
   }
   void keyPressed(){
      if(!pC3.isPlaying() && (key == 'q' || key == 'Q')){
@@ -182,64 +182,64 @@ class Piano {
   void keyReleased(){
    beginNote = true;
    if(pC3.isPlaying() && (key == 'q' || key == 'Q')){
-      pC3.stop();
+      pC3.pause();
       dampener = 1;
     }
    else if(pCs3.isPlaying() && (key == '2' || key == '@')){
-     pCs3StartTest.stop();
-     pCs3.stop();
+     pCs3StartTest.pause();
+     pCs3.pause();
      dampener = 1;
    }
    else if(pD3.isPlaying() && (key == 'w' || key == 'W')){
-      pD3.stop();
+      pD3.pause();
       dampener = 1;
       }
    else if(pE3.isPlaying() && (key == 'e' || key == 'E')){
-      pE3.stop();
+      pE3.pause();
       dampener = 1;
       }
    else if(pF3.isPlaying() && (key == 'r' || key == 'R')){
-      pF3.stop();
+      pF3.pause();
       dampener = 1;
       }
    else if(pG3.isPlaying() && (key == 't' || key == 'T')){
-      pG3.stop();
+      pG3.pause();
       dampener = 1;
       }
     else if(pGs3.isPlaying() && (key == '5' || key == '%')){
-      pGs3.stop();
+      pGs3.pause();
       dampener = 1;
       }
     else if(pA3.isPlaying() && (key == 'y' || key == 'Y')){
-      pA3.stop();
+      pA3.pause();
       dampener = 1;
       }
     else if(pB3.isPlaying() && (key == 'u' || key == 'U')){
-      pGs3.stop();
+      pGs3.pause();
       dampener = 1;
       }
     else if(pC4.isPlaying() && (key == 'i' || key == 'I')){
-      pC4.stop();
+      pC4.pause();
       dampener = 1;
       }
        else if(pD4Start.isPlaying() && (key == '2' || key == '@')){
-     pD4Start.stop();
-     pD4Start.stop();
+     pD4Start.pause();
+     pD4Start.pause();
      dampener = 1;
    }
     else if(pCs3.isPlaying() && (key == '2' || key == '@')){
-     pCs3StartTest.stop();
-     pCs3.stop();
+     pCs3StartTest.pause();
+     pCs3.pause();
      dampener = 1;
    }
     else if(pCs3.isPlaying() && (key == '2' || key == '@')){
-     pCs3StartTest.stop();
-     pCs3.stop();
+     pCs3StartTest.pause();
+     pCs3.pause();
      dampener = 1;
    }
     else if(pCs3.isPlaying() && (key == '2' || key == '@')){
-     pCs3StartTest.stop();
-     pCs3.stop();
+     pCs3StartTest.pause();
+     pCs3.pause();
      dampener = 1;
    }
       
@@ -248,90 +248,90 @@ class Piano {
     mainCursor = loadImage("fingerTwo.png");
     if(!pC3.isPlaying() && pbuttons[0].isClicked){ 
       pC3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     } else if(!pCs3.isPlaying() && pbuttons[1].isClicked){ 
       pCs3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     } else if(!pD3.isPlaying() && pbuttons[2].isClicked){ 
       pD3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     } else if(!pE3.isPlaying() && pbuttons[4].isClicked){ 
       pE3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!pF3.isPlaying() && pbuttons[5].isClicked){ 
       pF3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
      else if(!pG3.isPlaying() && pbuttons[6].isClicked){ 
       pG3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!pGs3.isPlaying() && pbuttons[7].isClicked){ 
       pGs3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!pA3.isPlaying() && pbuttons[8].isClicked){ 
       pA3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!pBb3.isPlaying() && pbuttons[9].isClicked){ 
       pBb3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
     else if(!pB3.isPlaying() && pbuttons[10].isClicked){ 
       pB3.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
      else if(!pC4.isPlaying() && pbuttons[11].isClicked){ 
       pC4.play();
-      dampener -= 0.01;
+      dampener -= 0.05;
     }
   }
   void mouseReleased(){
     mainCursor = loadImage("fingerOne.png");
     if(!pbuttons[0].isClicked || !mousePressed){
-      pC3.stop();
+      pC3.pause();
       dampener = 1;
     }
     if(!pbuttons[1].isClicked || !mousePressed){
-      pCs3.stop();
+      pCs3.pause();
       dampener = 1;
     }
      if(!pbuttons[2].isClicked || !mousePressed){
-      pD3.stop();
+      pD3.pause();
       dampener = 1;
     }
     if(!pbuttons[4].isClicked || !mousePressed){
-      pE3.stop();
+      pE3.pause();
       dampener = 1;
     }
     if(!pbuttons[5].isClicked || !mousePressed){
-      pF3.stop();
+      pF3.pause();
       dampener = 1;
     }
     if(!pbuttons[6].isClicked || !mousePressed){
-      pG3.stop();
+      pG3.pause();
       dampener = 1;
     }
     if(!pbuttons[7].isClicked || !mousePressed){
-      pGs3.stop();
+      pGs3.pause();
       dampener = 1;
    }
    if(!pbuttons[8].isClicked || !mousePressed){
-      pA3.stop();
+      pA3.pause();
       dampener = 1;
    } 
    if(!pbuttons[9].isClicked || !mousePressed){
-      pBb3.stop();
+      pBb3.pause();
       dampener = 1;
    }
     if(!pbuttons[10].isClicked || !mousePressed){
-      pB3.stop();
+      pB3.pause();
       dampener = 1;
    }
     if(!pbuttons[11].isClicked || !mousePressed){
-      pC4.stop();
+      pC4.pause();
       dampener = 1;
     }
   }
