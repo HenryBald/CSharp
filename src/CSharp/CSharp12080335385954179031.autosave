@@ -5,11 +5,10 @@ import ddf.minim.*;
 // for recording audio
 Minim minim;
 AudioRecorder recorder;
-AudioInput out;
+AudioInput in;
 
 Sound vol;
 SoundFile metTick;
-String soundPlaying;
 
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
@@ -50,7 +49,7 @@ void setup() {
   m1 = new Metronome();
   minim = new Minim(this);
   // out = minim.getLineOut(Minim.MONO, 2048);
-  recorder = minim.createRecorder(out, "myrecording.wav");
+  recorder = minim.createRecorder(in, "myrecording.wav");
 
   surface.setTitle("CSharp - Online Music Creator");
   background = loadImage("CSharpStartScreen.png");
@@ -76,7 +75,7 @@ void setup() {
   buttonsAreOkay = true;
   scy = 160;
   scx = 63;
-  scy2 = 435;
+  scy2 = 390;
   scx2 = 497;
   backfxOff = false;
   //Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
@@ -527,6 +526,7 @@ void draw() {
       screen = '7';
     }
   }
+  theEffectsYipee.initiate();
 }
 void mousePressed() {
   if (overScroll) {
@@ -557,7 +557,7 @@ void mouseReleased() {
   locked2 = true;
   float volumeNum = norm(scy, 250, 90);
   vol.volume(volumeNum);
-  theEffectsYipee.applyEffect(scy2);
+  theEffectsYipee.effectValues();
 
   buttonsAreOkay = true;
   if (screen == '4') {
