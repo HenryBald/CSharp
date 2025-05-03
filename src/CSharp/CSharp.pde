@@ -5,10 +5,11 @@ import ddf.minim.*;
 // for recording audio
 Minim minim;
 AudioRecorder recorder;
-AudioInput in;
+AudioInput out;
 
 Sound vol;
 SoundFile metTick;
+String soundPlaying;
 
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
@@ -34,7 +35,7 @@ SoundFile dS1, dB2, dC3, dT4, dC5, dH6, dR7, dR8, dS9, dF0, dH1, dL2, dS3;
 eGuitar theEGuitarYipee = new eGuitar();
 Piano thePianoYipee = new Piano();
 Drumset theDrumsetYipee = new Drumset();
-Effect theEffectsYipee = new Effect();
+Effect theEffectsYipee = new Effect(this);
 //scroller
 float scx, scy, scx2, scy2;
 boolean overScroll = false, overScroll2 = false;
@@ -49,7 +50,7 @@ void setup() {
   m1 = new Metronome();
   minim = new Minim(this);
   // out = minim.getLineOut(Minim.MONO, 2048);
-  recorder = minim.createRecorder(in, "myrecording.wav");
+  recorder = minim.createRecorder(out, "myrecording.wav");
 
   surface.setTitle("CSharp - Online Music Creator");
   background = loadImage("CSharpStartScreen.png");
@@ -75,7 +76,7 @@ void setup() {
   buttonsAreOkay = true;
   scy = 160;
   scx = 63;
-  scy2 = 390;
+  scy2 = 435;
   scx2 = 497;
   backfxOff = false;
   //Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
@@ -180,7 +181,6 @@ void setup() {
   metTick = new SoundFile(this, "metronomeclick.mp3");
 
   vol = new Sound(this);
-  theEffectsYipee = new Effect();
 }
 
 
@@ -591,6 +591,7 @@ void mouseDragged() {
       scy2 = 460;
     } else {
       scy2 = mouseY-yOffset2;
+      theEffectsYipee.whoop = scy2;
     }
   }
 }
