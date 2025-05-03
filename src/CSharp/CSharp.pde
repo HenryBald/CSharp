@@ -527,7 +527,6 @@ void draw() {
       screen = '7';
     }
   }
-  theEffectsYipee.neededStuffOrSomething();
   theEffectsYipee.initiate();
 }
 void mousePressed() {
@@ -559,6 +558,7 @@ void mouseReleased() {
   locked2 = true;
   float volumeNum = norm(scy, 250, 90);
   vol.volume(volumeNum);
+  theEffectsYipee.effectValues();
 
   buttonsAreOkay = true;
   if (screen == '4') {
