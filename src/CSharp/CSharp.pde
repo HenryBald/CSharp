@@ -1,5 +1,6 @@
 import processing.sound.*;
 import ddf.minim.*;
+import javax.sound.sampled.Control;
 // William, Kirubashini, Henry, and Santhosh
 
 // for recording audio
@@ -7,7 +8,7 @@ Minim minim;
 AudioRecorder recorder;
 AudioInput in;
 SoundFile metTick;
-AudioOutput controls  ;
+AudioOutput controls;
 
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();
@@ -179,11 +180,6 @@ void setup() {
   metTick = new SoundFile(this, "metronomeclick.mp3");
 
   controls = minim.getLineOut();
-  
-  controls.printControls();
-  println("\nif this worked the new controls are:\n");
-  controls.getControls();
-  controls.volume();
   controls.printControls();
 }
 
@@ -560,8 +556,9 @@ void mousePressed() {
 void mouseReleased() {
   locked = true;
   locked2 = true;
-  volumeNum = norm(scy, 250, 90);
-  controls.setVolume(volumeNum);
+  volumeNum = map(scy, 250, 90, -80.0, 6.0);
+  controls.setGain(volumeNum);
+  println(controls.getGain());
   theEffectsYipee.effectValues();
 
   buttonsAreOkay = true;
