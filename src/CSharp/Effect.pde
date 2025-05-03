@@ -8,7 +8,7 @@ float gainNum;
     out = maybe.getLineOut(Minim.MONO); //<>//
   }
   
-  void effectValues(){
+  void neededStuffOrSomething(){
     gainNum = map(scy2, 460, 227, -2.0, 8.0);
   }
   
