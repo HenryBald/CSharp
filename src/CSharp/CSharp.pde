@@ -1,6 +1,5 @@
 import processing.sound.*;
 import ddf.minim.*;
-import ddf.minim.Controller;
 // William, Kirubashini, Henry, and Santhosh
 
 // for recording audio
@@ -8,7 +7,7 @@ Minim minim;
 AudioRecorder recorder;
 AudioInput in;
 SoundFile metTick;
-Controller controls;
+AudioOutput controls  ;
 
 ArrayList<BackgroundEffect> backgroundeffects = new ArrayList<BackgroundEffect>();
 ArrayList<Trivia> questions = new ArrayList<Trivia>();

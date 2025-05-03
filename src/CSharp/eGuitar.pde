@@ -4,7 +4,7 @@ class eGuitar {
   float dampener = 1;
   
   eGuitar() {
-    egbuttons[0] = new Button(180, 500, 73, 85, 25, "E2", true, "playsNote", "eGuitar", true); //<>// //<>//
+    egbuttons[0] = new Button(180, 500, 73, 85, 25, "E2", true, "playsNote", "eGuitar", true); //<>// //<>// //<>//
     egbuttons[1] = new Button(255, 500, 73, 85, 25, "F2", true, "playsNote", "eGuitar", true);
     egbuttons[2] = new Button(330, 500, 73, 85, 25, "G2", true, "playsNote", "eGuitar", true);
     egbuttons[3] = new Button(405, 500, 73, 85, 25, "A2", true, "playsNote", "eGuitar", true);
@@ -86,60 +86,71 @@ class eGuitar {
   }
   void keyPressed(){
     if (!egE2.isPlaying() && (key == 'e' || key == 'E')){
+      egE2.rewind();
       egE2.play();
-      dampener -= 0.1;
+      dampener -= 0.05;
       }
-     else if(!egF2.isPlaying() && (key == 'r' || key == 'R')){
+    if (!egF2.isPlaying() && (key == 'r' || key == 'R')){
+      egF2.rewind();
       egF2.play();
-      dampener -= 0.1;
+      dampener -= 0.05;
       }
       else if(!egG2.isPlaying() && (key == 't' || key == 'T')){
+      egG2.rewind();
       egG2.play();
-      dampener -= 0.1;
+      dampener -= 0.05;
       }
       else if(!egA2.isPlaying() && (key == 'y' || key == 'Y')){
+      egA2.rewind();
       egA2.play();
-      dampener -= 0.1;
+      dampener -= 0.05;
       }
       else if(!egB2.isPlaying() && (key == 'u' || key == 'U')){
+      egB2.rewind();
       egB2.play();
-      dampener -= 0.1;
+      dampener -= 0.05;
       }
       else if(!egC3.isPlaying() && (key == 'i' || key == 'I')){
+      egC3.rewind();
       egC3.play();
-      dampener -= 0.1;
+      dampener -= 0.05;
       }
       else if(!egD3.isPlaying() && (key == 'o' || key == 'O')){
+      egD3.rewind();
       egD3.play();
-      dampener -= 0.1;
+      dampener -= 0.05;
       }
       else if(!egE3.isPlaying() && (key == 'p' || key == 'P')){
+      egE3.rewind();
       egE3.play();
-      dampener -= 0.1;
+      dampener -= 0.05;
       }
       else if(!egF3.isPlaying() && (key == '[' || key == '{')){
+      egF3.rewind();
       egF3.play();
-      dampener -= 0.1;
+      dampener -= 0.05;
       }
       else if(!egG3.isPlaying() && (key == ']' || key == '}')){
+      egG3.rewind();
       egG3.play();
-      dampener -= 0.1;
+      dampener -= 0.05;
       }
       //else if(!egA3.isPlaying() && (key == '|')){
       //egA3.play();
-      //dampener -= 0.1;
+      //dampener -= 0.05;
       //}
       //else if(!egB3.isPlaying() && (key == 'q' || key == 'Q')){
       //egB3.play();
-      //dampener -= 0.1;
+      //dampener -= 0.05;
       //}
       //else if(!egBb3.isPlaying() && (key == '1' || key == '!')){
       //egBb3.play();
-      //dampener -= 0.1;
+      //dampener -= 0.05;
       //}
       else if(!egFs3.isPlaying() && (key == '+'|| key == '=')){
+      egFs3.rewind();
       egFs3.play();
-      dampener -= 0.1;
+      dampener -= 0.05;
       }
   }
   void keyReleased(){
@@ -203,66 +214,76 @@ class eGuitar {
   void mousePressed(){
     if(!egE2.isPlaying() && egbuttons[0].isClicked){
       egE2.play();
-      egE2.loop();
+      egE2.play();
       dampener -= 0.05;
     }
     else if(!egF2.isPlaying() && egbuttons[1].isClicked){
+      egF2.rewind();
       egF2.play();
       dampener -= 0.05;
     }
      else if(!egG2.isPlaying() && egbuttons[2].isClicked){
+      egG2.rewind();
       egG2.play();
       dampener -= 0.05;
     }
     else if(!egA2.isPlaying() && egbuttons[3].isClicked){
+      egA2.rewind();
       egA2.play();
       dampener -= 0.05;
     }
     else if(!egB2.isPlaying() && egbuttons[4].isClicked){
+      egB2.rewind();
       egB2.play();
       dampener -= 0.05;
     }
     else if(!egC3.isPlaying() && egbuttons[5].isClicked){ 
-      egC3.play();
-      dampener -= 0.05;
-    }
-    else if(!egC3.isPlaying() && egbuttons[5].isClicked){ 
+      egC3.rewind();
       egC3.play();
       dampener -= 0.05;
     }
     else if(!egD3.isPlaying() && egbuttons[6].isClicked){ 
+      egD3.rewind();
       egD3.play();
       dampener -= 0.05;
     }
     else if(!egE3.isPlaying() && egbuttons[7].isClicked){ 
+      egE3.rewind();
       egE3.play();
       dampener -= 0.05;
     }
      else if(!egF3.isPlaying() && egbuttons[8].isClicked){ 
+      egF3.rewind();
       egF3.play();
       dampener -= 0.05;
     }
     else if(!egG3.isPlaying() && egbuttons[9].isClicked){ 
+      egG3.rewind();
       egG3.play();
       dampener -= 0.05;
     }
     else if(!egA3.isPlaying() && egbuttons[10].isClicked){ 
+      egA3.rewind();
       egA3.play();
       dampener -= 0.05;
     }
     else if(!egB3.isPlaying() && egbuttons[11].isClicked){ 
+      egB3.rewind();
       egB3.play();
       dampener -= 0.05;
     }
     else if(!egBb3.isPlaying() && egbuttons[12].isClicked){ 
+      egBb3.rewind();
       egBb3.play();
       dampener -= 0.05;
     }
      else if(!egGs3.isPlaying() && egbuttons[13].isClicked){ 
+      egGs3.rewind();
       egGs3.play();
       dampener -= 0.05;
     }
      else if(!egFs3.isPlaying() && egbuttons[14].isClicked){ 
+      egFs3.rewind();
       egFs3.play();
       dampener -= 0.05;
     }
