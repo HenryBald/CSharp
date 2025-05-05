@@ -266,7 +266,7 @@ void draw() {
     } else if (buttons[7].isClicked && mousePressed && buttonsAreOkay) {
       screen = '6';
       buttons[7].isClicked = false;
-      background = loadImage("cSharpSettingsPage.png");
+      background = loadImage("effectsPage.png");
       buttonsAreOkay = false;
     } else if (buttons[10].isClicked && mousePressed && buttonsAreOkay) {
       screen = '7';
