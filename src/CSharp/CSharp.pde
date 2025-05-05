@@ -108,12 +108,12 @@ void setup() {
   buttons[11] = new Button(760, 485, 175, 100, 200, " ", false, "Guitar", "selectionsScreen", true);
   buttons[12] = new Button(878, 247, 284, 99, 40, " ", false, "Recording", "keyboard", false);
   buttons[13] = new Button(900, 80, 300, 75, 100, " ", false, "instrcutionsForDrums", "selectionScreen", true);
-  buttons[14] = new Button(100, 80, 300, 75, 100, "exitBackToDrums", false, "exitBackToDrums", "selectionScreen", false);
+  buttons[14] = new Button(50, 20, 100, 40, 30, "Back", false, "Drumset", "Instructions", false);
   buttons[15] = new Button(878, 49, 284, 99, 40, " ", false, "startPage", "keyboard", true);
   buttons[16] = new Button(878, 150, 284, 99, 40, " ", false, "effectsPage", "keyboard", true);
   buttons[17] = new Button(785, 345, 120, 50, 100, " ", false, "backGroundfxswitchON", "settingsPage", true);
   buttons[18] = new Button(945, 345, 120, 50, 100, " ", false, "backGroundfxswitchOFF", "settingsPage", true);
-  buttons[19] = new Button(125, 20, 250, 40, 30, "Change Insrument", false, "Drumset", "selectPage", false);
+  buttons[19] = new Button(125, 20, 250, 40, 30, "Change Insrument", false, "selectPage", "Drumset", false);
 
   // Button 19 makese it so you can exit the drum page, we can make changes to make it look better - Kirubashini S
 
@@ -527,6 +527,7 @@ void draw() {
 
     if (buttons[14].isClicked && mousePressed && buttonsAreOkay) {
       screen = '7';
+      buttonsAreOkay = false;
     }
   }
 }
