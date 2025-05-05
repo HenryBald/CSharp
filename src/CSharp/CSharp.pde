@@ -14,7 +14,7 @@ ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 //Ignore layerImage
-PImage logoImage, mainCursor, background, Drums, instructions;
+PImage logoImage, mainCursor, background, Drums, instructions, miniPiano, miniGuitar;
 Button[] buttons = new Button[20];
 float l, r, result;
 char op, screen;
@@ -294,6 +294,8 @@ void draw() {
   } else if (screen == '4') {
     background = loadImage("KeyboardGUI.png");
     theEGuitarYipee.neededStuffOrSomething();
+    miniGuitar = loadImage("Miniguitar.png");
+    image(miniGuitar, 300, 50);
     buttons[6].display();
     buttons[6].hover(mouseX, mouseY);
     buttons[6].mousePressed(mouseX, mouseY);
@@ -441,6 +443,8 @@ void draw() {
     background = loadImage("KeyboardGUI.png");
     thePianoYipee.pianoRefresher();
     //mainCursor = loadImage("fingerOne.png");
+    miniPiano = loadImage("miniPiano.png");
+    image(miniPiano, 325, 40);
     buttons[6].display();
     buttons[6].hover(mouseX, mouseY);
     buttons[6].mousePressed(mouseX, mouseY);
