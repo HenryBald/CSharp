@@ -17,12 +17,12 @@ class Piano {
     pbuttons[10] = new Button(435, 380, 67, 170, 25, "Bb3", true, "playsNote", "puitar", true);
     pbuttons[11] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
    // This is where the wrong sounds for buttons are so will can add his new sounds
-    pbuttons[12] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
-    pbuttons[13] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
-    pbuttons[14] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
-    pbuttons[15] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
-    pbuttons[16] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
-    pbuttons[17] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
+    pbuttons[12] = new Button(550, 500, 73, 85, 25, "C4", true, "playsNote", "puitar", true);
+    pbuttons[13] = new Button(625, 500, 73, 85, 25, "D4", true, "playsNote", "puitar", true);
+    pbuttons[14] = new Button(660, 380, 73, 85, 25, "Eb4", true, "playsNote", "puitar", true);
+    pbuttons[15] = new Button(775, 500, 73, 85, 25, "F4", true, "playsNote", "puitar", true);
+    pbuttons[16] = new Button(850, 500, 73, 85, 25, "G4", true, "playsNote", "puitar", true);
+    pbuttons[17] = new Button(925, 500, 73, 85, 25, "A4", true, "playsNote", "puitar", true);
 
   }
   void pianoRefresher() {
@@ -77,7 +77,7 @@ class Piano {
     pbuttons[13].display();
     pbuttons[13].hover(mouseX, mouseY);
     pbuttons[13].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pD4Start.amp(dampener);
     pbuttons[14].display();
     pbuttons[14].hover(mouseX, mouseY);
     pbuttons[14].mousePressed(mouseX, mouseY);
@@ -121,7 +121,6 @@ class Piano {
       pF3.play();
       dampener -= 0.1;
       } else if(!pG3.isPlaying() && (key == 't'|| key == 'T')){
-      pG3.play();
       dampener -= 0.1;
       } else if(!pGs3.isPlaying() && (key == '5' || key == '%')){
       pGs3.play();
@@ -152,7 +151,7 @@ class Piano {
           dampener -= 0.1;
         }
        }
-         else if(!pCs4Start.isPlaying() && (key == '9' || key == '(')){
+     else if(!pCs4Start.isPlaying() && (key == '9' || key == '(')){
         if(beginNote) {
           beginNote = false;
           pCs4Start.play();
@@ -161,24 +160,9 @@ class Piano {
           dampener -= 0.1;
         }
          }
-         else if(!pCs3.isPlaying() && (key == '2' || key == '@')){
-        if(beginNote) {
-          beginNote = false;
-          pCs3StartTest.play();
-        } else {
-          pCs3.play();
-          dampener -= 0.1;
-        }
-        } else if(!pC3.isPlaying() && (key == '7' || key == '8')){
-        if(beginNote) {
-          beginNote = false;
-          pCs3StartTest.play();
-        } else {
-          pCs3.play();
-          dampener -= 0.1;
-        }
+ 
   }
-         }
+         
   void keyReleased(){
    beginNote = true;
    if(pC3.isPlaying() && (key == 'q' || key == 'Q')){

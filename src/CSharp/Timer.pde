@@ -23,7 +23,7 @@ class Timer {
     int passedTime = millis()- savedTime;
     if (passedTime > totalTime) {
       return true;
-    } else {
+    }else{
       return false;
     }
   }
