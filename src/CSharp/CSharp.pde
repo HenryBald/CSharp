@@ -106,7 +106,7 @@ void setup() {
   buttons[9] = new Button(600, 254, 258, 80, 100, " ", false, "keyboard", "keyboard", true);
   buttons[10] = new Button(380, 350, 150, 80, 100, " ", false, "Drumset", "selectionScreen", true);
   buttons[11] = new Button(760, 485, 175, 100, 200, " ", false, "Guitar", "selectionsScreen", true);
-  buttons[12] = new Button(878, 247, 284, 99, 40, " ", false, "Recording", "keyboard", false);
+  buttons[12] = new Button(878, 247, 284, 99, 40, " Instructions ", false, "Recording", "keyboard", false);
   buttons[13] = new Button(900, 80, 300, 75, 100, " ", false, "instrcutionsForDrums", "selectionScreen", true);
   buttons[14] = new Button(50, 20, 100, 40, 30, "Back", false, "Drumset", "Instructions", false);
   buttons[15] = new Button(878, 49, 284, 99, 40, " ", false, "startPage", "keyboard", true);
@@ -343,8 +343,15 @@ void draw() {
       buttonsAreOkay = false;
       metOnScreen = false;
     }
-    //if (buttons[12].isClicked && mousePressed && !recorder.isRecording() && buttonsAreOkay) {
-    //  recorder.beginRecord();
+    
+    if (buttons[12].isClicked && mousePressed && buttonsAreOkay) {
+    screen = 'b';
+      
+    }
+      
+      
+      
+      //  recorder.beginRecord();
     //  buttonsAreOkay = false;
     //} else if (buttons[12].isClicked && mousePressed && recorder.isRecording() && buttonsAreOkay) {
     //  recorder.endRecord();
@@ -441,7 +448,7 @@ void draw() {
       buttons[13].isClicked = false; // ✅ reset the click flag
       buttonsAreOkay = false;
     }
-  } else if (screen == '8') {
+  } else if (screen == '8') {// OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOSJ#NSWHIJSIWH 
     background = loadImage("KeyboardGUI.png");
     thePianoYipee.pianoRefresher();
     //mainCursor = loadImage("fingerOne.png");
@@ -491,7 +498,14 @@ void draw() {
       buttonsAreOkay = false;
       metOnScreen = false;
     }
-    //if (buttons[12].isClicked && mousePressed && !recorder.isRecording() && buttonsAreOkay) {
+    if (buttons[12].isClicked && mousePressed && buttonsAreOkay) {
+    screen = 'a';
+      
+      
+      
+    }
+      
+      
     //  recorder.beginRecord();
     //  buttonsAreOkay = false;
     //} else if (buttons[12].isClicked && mousePressed && recorder.isRecording() && buttonsAreOkay) {
@@ -536,7 +550,29 @@ void draw() {
       buttonsAreOkay = false;
     }
   }
-}
+  else if (screen == 'a') {
+     background(200);
+    //PFont font;
+    //font = createFont("SpongeTitle.ttf", 25);
+    //textFont(font);
+    //textAlign(CENTER);
+    textSize(30);
+    text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and basic concepts.", width/2, 50);
+    text("Octives are different sounds ", 200, 200);
+    text("C3 = Q, ", 500, 400);
+  }
+  else if (screen == 'b') {
+     background(200);
+    //PFont font;
+    //font = createFont("SpongeTitle.ttf", 25);
+    //textFont(font);
+    //textAlign(CENTER);
+    textSize(30);
+    text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
+    text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
+    text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode", 500, 400);
+  }
+} 
 void mousePressed() {
   if (overScroll) {
     locked = false;

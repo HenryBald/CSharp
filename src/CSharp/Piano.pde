@@ -20,9 +20,8 @@ class Piano {
     pbuttons[12] = new Button(550, 500, 73, 85, 25, "C4", true, "playsNote", "puitar", true);
     pbuttons[13] = new Button(625, 500, 73, 85, 25, "D4", true, "playsNote", "puitar", true);
     pbuttons[14] = new Button(660, 380, 73, 85, 25, "Eb4", true, "playsNote", "puitar", true);
-    pbuttons[15] = new Button(775, 500, 73, 85, 25, "F4", true, "playsNote", "puitar", true);
-    pbuttons[16] = new Button(850, 500, 73, 85, 25, "G4", true, "playsNote", "puitar", true);
-    pbuttons[17] = new Button(925, 500, 73, 85, 25, "A4", true, "playsNote", "puitar", true);
+    pbuttons[15] = new Button(590, 380, 73, 85, 25, "Eb4", true, "playsNote", "puitar", true);
+
 
   }
   void pianoRefresher() {
@@ -81,23 +80,12 @@ class Piano {
     pbuttons[14].display();
     pbuttons[14].hover(mouseX, mouseY);
     pbuttons[14].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pCs4Start.amp(dampener);
     pbuttons[15].display();
     pbuttons[15].hover(mouseX, mouseY);
     pbuttons[15].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
-    pbuttons[15].display();
-    pbuttons[15].hover(mouseX, mouseY);
-    pbuttons[15].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
-    pbuttons[16].display();
-    pbuttons[16].hover(mouseX, mouseY);
-    pbuttons[16].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
-    pbuttons[17].display();
-    pbuttons[17].hover(mouseX, mouseY);
-    pbuttons[17].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pEb4Start.amp(dampener);
+
   }
   void keyPressed(){
      if(!pC3.isPlaying() && (key == 'q' || key == 'Q')){
@@ -121,6 +109,7 @@ class Piano {
       pF3.play();
       dampener -= 0.1;
       } else if(!pG3.isPlaying() && (key == 't'|| key == 'T')){
+       pG3.play();
       dampener -= 0.1;
       } else if(!pGs3.isPlaying() && (key == '5' || key == '%')){
       pGs3.play();
@@ -157,6 +146,15 @@ class Piano {
           pCs4Start.play();
         } else {
           pCs4.play();
+          dampener -= 0.1;
+        }
+         }
+         else if(!pEb4Start.isPlaying() && (key == '0' || key == ')')){
+        if(beginNote) {
+          beginNote = false;
+          pEb4Start.play();
+        } else {
+          pEb4Start.play();
           dampener -= 0.1;
         }
          }
@@ -271,6 +269,10 @@ class Piano {
       pC4.play();
       dampener -= 0.01;
     }
+    else if(!pD4Start.isPlaying() && pbuttons[13].isClicked){ 
+      pD4Start.play();
+      dampener -= 0.01;
+    }
   }
   void mouseReleased(){
     mainCursor = loadImage("fingerOne.png");
@@ -316,6 +318,10 @@ class Piano {
    }
     if(!pbuttons[11].isClicked || !mousePressed){
       pC4.stop();
+      dampener = 1;
+    }
+    if(!pbuttons[13].isClicked || !mousePressed){
+      pD4Start.stop();
       dampener = 1;
     }
   }
