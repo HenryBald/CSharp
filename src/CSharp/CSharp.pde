@@ -582,9 +582,9 @@ void draw() {
     //textFont(font);
     //textAlign(CENTER);
     textSize(30);
-    text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
-    text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
-    text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode", 500, 400);
+    //text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
+    //text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
+    //text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode", 500, 400);
     buttons[20].display();
     buttons[20].hover(mouseX, mouseY);
     buttons[20].mousePressed(mouseX, mouseY);
