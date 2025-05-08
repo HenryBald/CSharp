@@ -19,8 +19,8 @@ class Piano {
    // This is where the wrong sounds for buttons are so will can add his new sounds
     pbuttons[12] = new Button(550, 500, 73, 85, 25, "C4", true, "playsNote", "puitar", true);
     pbuttons[13] = new Button(625, 500, 73, 85, 25, "D4", true, "playsNote", "puitar", true);
-    pbuttons[14] = new Button(660, 380, 73, 85, 25, "Eb4", true, "playsNote", "puitar", true);
-    pbuttons[15] = new Button(590, 380, 73, 85, 25, "Eb4", true, "playsNote", "puitar", true);
+    pbuttons[14] = new Button(590, 380, 73, 85, 25, "Eb4", true, "playsNote", "puitar", true);
+    pbuttons[15] = new Button(660, 380, 73, 85, 25, "Eb4", true, "playsNote", "puitar", true);
 
 
   }
@@ -68,7 +68,7 @@ class Piano {
     pbuttons[11].display();
     pbuttons[11].hover(mouseX, mouseY);
     pbuttons[11].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pB3.amp(dampener);
     pbuttons[12].display();
     pbuttons[12].hover(mouseX, mouseY);
     pbuttons[12].mousePressed(mouseX, mouseY);
@@ -209,21 +209,17 @@ class Piano {
      pD4Start.stop();
      dampener = 1;
    }
-    else if(pCs3.isPlaying() && (key == '2' || key == '@')){
-     pCs3StartTest.stop();
-     pCs3.stop();
+    else if(pEb4Start.isPlaying() && (key == '0' || key == ')')){
+     pEb4Start.stop();
+     pEb4Start.stop();
      dampener = 1;
    }
-    else if(pCs3.isPlaying() && (key == '2' || key == '@')){
-     pCs3StartTest.stop();
-     pCs3.stop();
+   else if(pCs4Start.isPlaying() && (key == '9' || key == '(')){
+     pCs4Start.stop();
+     pC4.stop();
      dampener = 1;
    }
-    else if(pCs3.isPlaying() && (key == '2' || key == '@')){
-     pCs3StartTest.stop();
-     pCs3.stop();
-     dampener = 1;
-   }
+
       
   }
   void mousePressed(){
@@ -265,12 +261,20 @@ class Piano {
       pB3.play();
       dampener -= 0.01;
     }
-     else if(!pC4.isPlaying() && pbuttons[11].isClicked){ 
+     else if(!pC4.isPlaying() && pbuttons[12].isClicked){ 
       pC4.play();
       dampener -= 0.01;
     }
     else if(!pD4Start.isPlaying() && pbuttons[13].isClicked){ 
       pD4Start.play();
+      dampener -= 0.01;
+    }
+      else if(!pEb4Start.isPlaying() && pbuttons[15].isClicked){ 
+      pEb4Start.play();
+      dampener -= 0.01;
+    }
+     else if(!pCs4Start.isPlaying() && pbuttons[14].isClicked){ 
+      pCs4Start.play();
       dampener -= 0.01;
     }
   }
@@ -316,12 +320,20 @@ class Piano {
       pB3.stop();
       dampener = 1;
    }
-    if(!pbuttons[11].isClicked || !mousePressed){
+    if(!pbuttons[12].isClicked || !mousePressed){
       pC4.stop();
       dampener = 1;
     }
     if(!pbuttons[13].isClicked || !mousePressed){
       pD4Start.stop();
+      dampener = 1;
+    }
+    if(!pbuttons[14].isClicked || !mousePressed){
+      pCs4Start.stop();
+      dampener = 1;
+    }
+     if(!pbuttons[15].isClicked || !mousePressed){
+      pEb4Start.stop();
       dampener = 1;
     }
   }
