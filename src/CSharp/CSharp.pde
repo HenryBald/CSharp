@@ -15,7 +15,7 @@ ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 //Ignore layerImage
 PImage logoImage, mainCursor, background, Drums, instructions, miniPiano, miniGuitar;
-Button[] buttons = new Button[20];
+Button[] buttons = new Button[22];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay, backfxOff;
@@ -80,15 +80,15 @@ void setup() {
   backfxOff = false;
   //Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
   // the second part of the first question just reads out loud weird
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("Whnhjhhhhr a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
-  questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  //questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  //questions.add(new Trivia ("Whnhjhhhhr a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  //questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  //questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  //questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  //questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  //questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  //questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
+  //questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
 
 
   //buttons core
@@ -114,6 +114,8 @@ void setup() {
   buttons[17] = new Button(785, 345, 120, 50, 100, " ", false, "backGroundfxswitchON", "settingsPage", true);
   buttons[18] = new Button(945, 345, 120, 50, 100, " ", false, "backGroundfxswitchOFF", "settingsPage", true);
   buttons[19] = new Button(125, 20, 250, 40, 30, "Change Insrument", false, "selectPage", "Drumset", false);
+  buttons[20] = new Button(50, 20, 100, 40, 30, "Back", false, "Drumset", "Instructions", false);
+  buttons[21] = new Button(50, 20, 100, 40, 30, "Back", false, "Piano", "Instructions", false);
 
   // Button 19 makese it so you can exit the drum page, we can make changes to make it look better - Kirubashini S
 
@@ -297,7 +299,8 @@ void draw() {
     background = loadImage("KeyboardGUI.png");
     theEGuitarYipee.neededStuffOrSomething();
     miniGuitar = loadImage("Miniguitar.png");
-    image(miniGuitar, 300, 50);
+    miniGuitar.resize(235,235);
+    image(miniGuitar, 250, -15);
     buttons[6].display();
     buttons[6].hover(mouseX, mouseY);
     buttons[6].mousePressed(mouseX, mouseY);
@@ -469,6 +472,7 @@ void draw() {
     buttons[16].display();
     buttons[16].hover(mouseX, mouseY);
     buttons[16].mousePressed(mouseX, mouseY);
+
     if (buttons[9].isClicked && mousePressed && metOnScreen == false && buttonsAreOkay) {
       displayMet();
       buttons[9].isClicked = false;
@@ -500,10 +504,9 @@ void draw() {
     }
     if (buttons[12].isClicked && mousePressed && buttonsAreOkay) {
     screen = 'a';
-      
-      
-      
+        
     }
+
       
       
     //  recorder.beginRecord();
@@ -560,6 +563,15 @@ void draw() {
     text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and basic concepts.", width/2, 50);
     text("Octives are different sounds ", 200, 200);
     text("C3 = Q, ", 500, 400);
+    buttons[21].display();
+    buttons[21].hover(mouseX, mouseY);
+    buttons[21].mousePressed(mouseX, mouseY);
+    
+      if (buttons[21].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '8'; // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
+      buttons[21].isClicked = false;
+      buttonsAreOkay = false;
+      }
   }
   else if (screen == 'b') {
      background(200);
@@ -571,7 +583,16 @@ void draw() {
     text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
     text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
     text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode", 500, 400);
-  }
+    buttons[20].display();
+    buttons[20].hover(mouseX, mouseY);
+    buttons[20].mousePressed(mouseX, mouseY);
+if (buttons[20].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '4'; // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
+      buttons[20].isClicked = false;
+      buttonsAreOkay = false;
+      }  
+}
+  
 } 
 void mousePressed() {
   if (overScroll) {
