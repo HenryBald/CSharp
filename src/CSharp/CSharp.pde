@@ -559,10 +559,12 @@ void draw() {
     //font = createFont("SpongeTitle.ttf", 25);
     //textFont(font);
     //textAlign(CENTER);
-    textSize(30);
-    text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and basic concepts.", width/2, 50);
-    text("Octives are different sounds ", 200, 200);
-    text("C3 = Q, ", 500, 400);
+    textSize(20);
+    text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and basic concepts such as what an octive is:", width/2, 50);
+    text("An Octive is the interval between two of the same notes but one has a higher pitch or lower pitch. ", width/2, 100);
+    text("Template: The first key is C3 which is assigned to the letter Q && q: Remeber the 3 represents the\n octive so its C at the third octive.\n D third octive is in key  W && w \n E third octive is in key e && E\n F third octive in r && R \n g third Octive in t && T \n A third Octive in key y && Y \n B third octive in key u && U \n ", width/2, 300);
+    text("Template: Then starting with C and 4th Octive ( notice new poctive so there will be a higher pitch ) is key i && I\n \n D fourth octive is o && O \n C Sharp in foruth octive is key 9 && ( \n E Flat at fourth octive is key 0 && ) \n more keys coming soon......  ", width/2, 450);
+
     buttons[21].display();
     buttons[21].hover(mouseX, mouseY);
     buttons[21].mousePressed(mouseX, mouseY);
