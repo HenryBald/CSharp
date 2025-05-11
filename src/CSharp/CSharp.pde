@@ -578,10 +578,11 @@ void draw() {
     //font = createFont("SpongeTitle.ttf", 25);
     //textFont(font);
     //textAlign(CENTER);
-    textSize(30);
-    //text("Welcome to the instruction sections.\n this is where you can learn which key corresponds to which instrument\n and how to switch to special modes.", width/2, 50);
-    //text("Key q && Q is the snare\n Key w && W is the base\n Key e && E is the crash symbols\n Key r && R is Triangle\n Key t && T is cowbell", 200, 200);
-    //text("to turn the snare off go to the settings and click approprate box\n to side rim on snare click the key a || A\n REMEMBER mouse clicks are NOT accepted for special mode", 500, 400);
+    textSize(20);
+        text("Welcome to the instruction sections for electric guitar.\n this is where you can learn which key corresponds to which instrument\n and basic concepts such as what an octive is:", width/2, 50);
+    text("An Octive is the interval between two of the same notes but one has a higher pitch or lower pitch\n Also for electric guitar there are only octive 2 and 3. ", width/2, 100);
+      text("Template: the First key is E2 which is assigned to letter E && e: Remember the 2 represents the\n octive so its E at second octive\n F at second octive is in key R && r\n G at second octive is in key T && t\n A in second octive is in key Y && y\n B second octive is in key U && u\n ", width/2, 450);
+
     buttons[20].display();
     buttons[20].hover(mouseX, mouseY);
     buttons[20].mousePressed(mouseX, mouseY);
