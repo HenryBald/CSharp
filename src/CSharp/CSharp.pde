@@ -78,8 +78,6 @@ void setup() {
   scy2 = 435;
   scx2 = 497;
   backfxOff = false;
-  //Hi Santhosh! i like what you did, but I would trynto make the questions a tiny bit mor clear if possible
-  // the second part of the first question just reads out loud weird
   //questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "Remember a quarter note that counts in one beat and half of that is 8 meaning it would be a eight note since it counts at half a beat", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
   //questions.add(new Trivia ("Whnhjhhhhr a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
   //questions.add(new Trivia ("What is the word used for a musical note that is half the length of a quarter note?", "", 1, new String[]{"Whole Note", "Eight Note", "Half Note", "Sixteenth Note"} ));
@@ -117,7 +115,6 @@ void setup() {
   buttons[20] = new Button(50, 20, 100, 40, 30, "Back", false, "Drumset", "Instructions", false);
   buttons[21] = new Button(50, 20, 100, 40, 30, "Back", false, "Piano", "Instructions", false);
 
-  // Button 19 makese it so you can exit the drum page, we can make changes to make it look better - Kirubashini S
 
 
   //sounds core
