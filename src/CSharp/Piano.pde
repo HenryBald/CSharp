@@ -136,7 +136,7 @@ class Piano {
           beginNote = false;
           pD4Start.play();
         } else {
-          pD4Start.play();
+          pD4.play();
           dampener -= 0.1;
         }
        }
