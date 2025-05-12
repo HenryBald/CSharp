@@ -578,11 +578,12 @@ void draw() {
     //font = createFont("SpongeTitle.ttf", 25);
     //textFont(font);
     //textAlign(CENTER);
-    textSize(20);
+    textSize(15);
         text("Welcome to the instruction sections for electric guitar.\n this is where you can learn which key corresponds to which instrument\n and basic concepts such as what an octive is:", width/2, 50);
-    text("An Octive is the interval between two of the same notes but one has a higher pitch or lower pitch\n Also for electric guitar there are only octive 2 and 3. ", width/2, 100);
-      text("Template: the First key is E2 which is assigned to letter E && e: Remember the 2 represents the\n octive so its E at second octive\n F at second octive is in key R && r\n G at second octive is in key T && t\n A in second octive is in key Y && y\n B second octive is in key U && u\n ", width/2, 450);
-
+      text("An Octive is the interval between two of the same notes but one has a higher pitch or lower pitch\n Also for electric guitar there are only octive 2 and 3. ", width/2, 115);
+      text("Template: the First key is E2 which is assigned to letter E && e: Remember the 2 represents the\n octive so its E at second octive\n F at second octive is in key R && r\n G at second octive is in key T && t\n A in second octive is in key Y && y\n B second octive is in key U && u\n ", width/2, 200);
+      text("Template:Then starting with C at third octive ( notice new octive so there will be a higher pitch ) is key I && i \n D third octive is O && o \n E third octive is at key P && p \n F at third octive is in key [ && { \n G at third octive is in key ] && } \n A at third octive is in key Q && q \n B at third octive is in key W && w.  ", width/2, 300);
+      text("Now moving on the the flats and sharps..\n F sharp/ G flat in second octive is in key 5 && %\n G sharp and A flat at second opctive is in key 6 && ^\n A sharp and B flat at second octive is in key 7 && &\n C sharp and D Flat at third octive is in key 9 && ( \n D sharp and E flat in third octive is in key 0 && )\n  F sharp and G flat third octive is in key + && = \n  ",width/2,450);
     buttons[20].display();
     buttons[20].hover(mouseX, mouseY);
     buttons[20].mousePressed(mouseX, mouseY);
