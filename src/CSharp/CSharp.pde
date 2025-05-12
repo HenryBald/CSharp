@@ -97,7 +97,7 @@ void setup() {
   buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
   buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
   buttons[4] = new Button(680, 345, 220, 100, 100, " ", false, "keyboard", "selectPage", true);
-  buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
+  //buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
   buttons[6] = new Button(294, 252, 340, 80, 40, " ", false, "selectPage", "keyboard", true);
   buttons[7] = new Button(945, 270, 110, 200, 100, " ", false, "effectsPage", "selectPage", true);
   buttons[8] = new Button(85, 150, 75, 120, 100, " ", false, "selectPage", "settingsPage", true);
@@ -259,11 +259,11 @@ void draw() {
       buttons[11].isClicked = false;
       background = loadImage("KeyboardGUI.png");
       buttonsAreOkay = false;
-    } else if (buttons[3].isClicked && mousePressed && buttonsAreOkay) {
-      screen = '3';
-      buttons[3].isClicked = false;
-      background = loadImage("Trivias.png");
-      buttonsAreOkay = false;
+    //} else if (buttons[3].isClicked && mousePressed && buttonsAreOkay) {
+    //  screen = '3';
+    //  buttons[3].isClicked = false;
+    //  background = loadImage("Trivias.png");
+    //  buttonsAreOkay = false;
     } else if (buttons[7].isClicked && mousePressed && buttonsAreOkay) {
       screen = '6';
       buttons[7].isClicked = false;
@@ -274,24 +274,23 @@ void draw() {
       background = loadImage("coolStage.png");
       buttonsAreOkay = false;
     }
-  } else if (screen == '3') {
-    background = loadImage("Trivias.png");
-    buttons[5].display();
-    buttons[5].hover(mouseX, mouseY);
-    buttons[5].mousePressed(mouseX, mouseY);
-    PFont font;
-    font = createFont("SpongeTitle.ttf", 25);
-    textFont(font);
+  //} else if (screen == '3') {
+  //  background = loadImage("Trivias.png");
+  //  //buttons[5].display();
+  //  //buttons[5].hover(mouseX, mouseY);
+  //  //buttons[5].mousePressed(mouseX, mouseY);
+  //  PFont font;
+  //  font = createFont("SpongeTitle.ttf", 25);
+  //  textFont(font);
 
-    textAlign(CENTER);
-    text("Welcome to the trivia game: \n This is where you can unlock new instruments", width/2, 100);
+  //  textAlign(CENTER);
+  //  text("Welcome to the trivia game: \n This is where you can unlock new instruments", width/2, 100);
 
-
-    if (buttons[5].isClicked && mousePressed && buttonsAreOkay) {
-      screen = '5';
-      buttons[5].isClicked = false;
-      buttonsAreOkay = false;
-    }
+    //if (buttons[5].isClicked && mousePressed && buttonsAreOkay) {
+    //  screen = '5';
+    //  buttons[5].isClicked = false;
+    //  buttonsAreOkay = false;
+    //}
   } else if (screen == '4') {
     background = loadImage("KeyboardGUI.png");
     theEGuitarYipee.neededStuffOrSomething();
