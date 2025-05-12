@@ -120,6 +120,7 @@ void setup() {
   buttons[19] = new Button(125, 20, 250, 40, 30, "Change Insrument", false, "selectPage", "Drumset", false);
   buttons[20] = new Button(50, 20, 100, 40, 30, "Back", false, "Drumset", "Instructions", false);
   buttons[21] = new Button(50, 20, 100, 40, 30, "Back", false, "Piano", "Instructions", false);
+  buttons[22] = new Button(120, 375, 100, 25, 30, "", false, "Instructions", "selectPage", true);
 
 
 
@@ -244,6 +245,7 @@ void draw() {
     buttons[7].display();
     buttons[10].display();
     buttons[11].display();
+    buttons[22].display();
     buttons[2].hover(mouseX, mouseY);
     buttons[3].hover(mouseX, mouseY);
     buttons[4].hover(mouseX, mouseY);
@@ -251,6 +253,7 @@ void draw() {
     buttons[7].hover(mouseX, mouseY);
     buttons[10].hover(mouseX, mouseY);
     buttons[11].hover(mouseX, mouseY);
+    buttons[22].hover(mouseX, mouseY);
     buttons[2].mousePressed(mouseX, mouseY);
     buttons[3].mousePressed(mouseX, mouseY);
     buttons[4].mousePressed(mouseX, mouseY);
@@ -258,6 +261,8 @@ void draw() {
     buttons[7].mousePressed(mouseX, mouseY);
     buttons[10].mousePressed(mouseX, mouseY);
     buttons[11].mousePressed(mouseX, mouseY);
+    buttons[22].mousePressed(mouseX, mouseY);
+
     if (buttons[2].isClicked && mousePressed && buttonsAreOkay) {
       screen = '1';
       buttons[2].isClicked = false;
@@ -287,7 +292,11 @@ void draw() {
       screen = '7';
       background = loadImage("coolStage.png");
       buttonsAreOkay = false;
+    }else if (buttons[22].isClicked && mousePressed && buttonsAreOkay) {
+      screen = 'c';
+      buttonsAreOkay = false;
     }
+
   } else if (screen == '3') {
     background = loadImage("Trivias.png");
     buttons[5].display();
@@ -612,6 +621,19 @@ if (buttons[20].isClicked && mousePressed && buttonsAreOkay) {
       buttons[20].isClicked = false;
       buttonsAreOkay = false;
       }  
+}else if ( screen == 'c' ){
+  background(255);
+  textSize(20);
+  text("Instructions",1,1);
+  buttons[21].display();
+    buttons[21].hover(mouseX, mouseY);
+    buttons[21].mousePressed(mouseX, mouseY);
+    
+      if (buttons[21].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '2'; // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
+      buttons[21].isClicked = false;
+      buttonsAreOkay = false;
+      }
 }
   
 } 
