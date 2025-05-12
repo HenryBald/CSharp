@@ -452,7 +452,7 @@ void draw() {
     background = loadImage("KeyboardGUI.png");
     thePianoYipee.pianoRefresher();
     //mainCursor = loadImage("fingerOne.png");
-    miniPiano = loadImage("miniPiano.png");
+    miniPiano = loadImage("Minipiano.png");
     image(miniPiano, 325, 40);
     buttons[6].display();
     buttons[6].hover(mouseX, mouseY);
