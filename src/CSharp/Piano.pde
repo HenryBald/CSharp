@@ -17,12 +17,11 @@ class Piano {
     pbuttons[10] = new Button(435, 380, 67, 170, 25, "Bb3", true, "playsNote", "puitar", true);
     pbuttons[11] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
    // This is where the wrong sounds for buttons are so will can add his new sounds
-    pbuttons[12] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
-    pbuttons[13] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
-    pbuttons[14] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
-    pbuttons[15] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
-    pbuttons[16] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
-    pbuttons[17] = new Button(475, 500, 73, 85, 25, "B3", true, "playsNote", "puitar", true);
+    pbuttons[12] = new Button(550, 500, 73, 85, 25, "C4", true, "playsNote", "puitar", true);
+    pbuttons[13] = new Button(625, 500, 73, 85, 25, "D4", true, "playsNote", "puitar", true);
+    pbuttons[14] = new Button(590, 380, 73, 85, 25, "Eb4", true, "playsNote", "puitar", true);
+    pbuttons[15] = new Button(660, 380, 73, 85, 25, "Eb4", true, "playsNote", "puitar", true);
+
 
   }
   void pianoRefresher() {
@@ -69,7 +68,7 @@ class Piano {
     pbuttons[11].display();
     pbuttons[11].hover(mouseX, mouseY);
     pbuttons[11].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pB3.amp(dampener);
     pbuttons[12].display();
     pbuttons[12].hover(mouseX, mouseY);
     pbuttons[12].mousePressed(mouseX, mouseY);
@@ -77,27 +76,16 @@ class Piano {
     pbuttons[13].display();
     pbuttons[13].hover(mouseX, mouseY);
     pbuttons[13].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pD4Start.amp(dampener);
     pbuttons[14].display();
     pbuttons[14].hover(mouseX, mouseY);
     pbuttons[14].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pCs4Start.amp(dampener);
     pbuttons[15].display();
     pbuttons[15].hover(mouseX, mouseY);
     pbuttons[15].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
-    pbuttons[15].display();
-    pbuttons[15].hover(mouseX, mouseY);
-    pbuttons[15].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
-    pbuttons[16].display();
-    pbuttons[16].hover(mouseX, mouseY);
-    pbuttons[16].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
-    pbuttons[17].display();
-    pbuttons[17].hover(mouseX, mouseY);
-    pbuttons[17].mousePressed(mouseX, mouseY);
-    pC4.amp(dampener);
+    pEb4Start.amp(dampener);
+
   }
   void keyPressed(){
      if(!pC3.isPlaying() && (key == 'q' || key == 'Q')){
@@ -121,7 +109,7 @@ class Piano {
       pF3.play();
       dampener -= 0.1;
       } else if(!pG3.isPlaying() && (key == 't'|| key == 'T')){
-      pG3.play();
+       pG3.play();
       dampener -= 0.1;
       } else if(!pGs3.isPlaying() && (key == '5' || key == '%')){
       pGs3.play();
@@ -148,11 +136,11 @@ class Piano {
           beginNote = false;
           pD4Start.play();
         } else {
-          pD4Start.play();
+          pD4.play();
           dampener -= 0.1;
         }
        }
-         else if(!pCs4Start.isPlaying() && (key == '9' || key == '(')){
+     else if(!pCs4Start.isPlaying() && (key == '9' || key == '(')){
         if(beginNote) {
           beginNote = false;
           pCs4Start.play();
@@ -161,24 +149,18 @@ class Piano {
           dampener -= 0.1;
         }
          }
-         else if(!pCs3.isPlaying() && (key == '2' || key == '@')){
+         else if(!pEb4Start.isPlaying() && (key == '0' || key == ')')){
         if(beginNote) {
           beginNote = false;
-          pCs3StartTest.play();
+          pEb4Start.play();
         } else {
-          pCs3.play();
+          pEb4Start.play();
           dampener -= 0.1;
         }
-        } else if(!pC3.isPlaying() && (key == '7' || key == '8')){
-        if(beginNote) {
-          beginNote = false;
-          pCs3StartTest.play();
-        } else {
-          pCs3.play();
-          dampener -= 0.1;
-        }
-  }
          }
+ 
+  }
+         
   void keyReleased(){
    beginNote = true;
    if(pC3.isPlaying() && (key == 'q' || key == 'Q')){
@@ -227,21 +209,17 @@ class Piano {
      pD4Start.stop();
      dampener = 1;
    }
-    else if(pCs3.isPlaying() && (key == '2' || key == '@')){
-     pCs3StartTest.stop();
-     pCs3.stop();
+    else if(pEb4Start.isPlaying() && (key == '0' || key == ')')){
+     pEb4Start.stop();
+     pEb4Start.stop();
      dampener = 1;
    }
-    else if(pCs3.isPlaying() && (key == '2' || key == '@')){
-     pCs3StartTest.stop();
-     pCs3.stop();
+   else if(pCs4Start.isPlaying() && (key == '9' || key == '(')){
+     pCs4Start.stop();
+     pC4.stop();
      dampener = 1;
    }
-    else if(pCs3.isPlaying() && (key == '2' || key == '@')){
-     pCs3StartTest.stop();
-     pCs3.stop();
-     dampener = 1;
-   }
+
       
   }
   void mousePressed(){
@@ -283,8 +261,20 @@ class Piano {
       pB3.play();
       dampener -= 0.01;
     }
-     else if(!pC4.isPlaying() && pbuttons[11].isClicked){ 
+     else if(!pC4.isPlaying() && pbuttons[12].isClicked){ 
       pC4.play();
+      dampener -= 0.01;
+    }
+    else if(!pD4Start.isPlaying() && pbuttons[13].isClicked){ 
+      pD4Start.play();
+      dampener -= 0.01;
+    }
+      else if(!pEb4Start.isPlaying() && pbuttons[15].isClicked){ 
+      pEb4Start.play();
+      dampener -= 0.01;
+    }
+     else if(!pCs4Start.isPlaying() && pbuttons[14].isClicked){ 
+      pCs4Start.play();
       dampener -= 0.01;
     }
   }
@@ -330,8 +320,20 @@ class Piano {
       pB3.stop();
       dampener = 1;
    }
-    if(!pbuttons[11].isClicked || !mousePressed){
+    if(!pbuttons[12].isClicked || !mousePressed){
       pC4.stop();
+      dampener = 1;
+    }
+    if(!pbuttons[13].isClicked || !mousePressed){
+      pD4Start.stop();
+      dampener = 1;
+    }
+    if(!pbuttons[14].isClicked || !mousePressed){
+      pCs4Start.stop();
+      dampener = 1;
+    }
+     if(!pbuttons[15].isClicked || !mousePressed){
+      pEb4Start.stop();
       dampener = 1;
     }
   }
