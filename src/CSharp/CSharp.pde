@@ -14,8 +14,11 @@ ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 //Ignore layerImage
+<<<<<<< HEAD
 PImage logoImage, mainCursor, background, Drums, instructions, miniPiano, miniGuitar;
 Button[] buttons = new Button[23];
+=======
+>>>>>>> 8b4a1dbc44fa1975a5a9a59949f78846ff5d4e87
 PImage logoImage, mainCursor, background, Drums, instructions, miniPiano, miniGuitar, home;
 Button[] buttons = new Button[22];
 float l, r, result;
@@ -100,13 +103,19 @@ void setup() {
   //none of these buttons should be note buttons, those go in the constructors of their respective instrument class
   buttons[0] = new Button(315, 380, 300, 184, 120, "PLAY", false, "selectPage", "start", false);
   buttons[1] = new Button(705, 380, 300, 184, 120, "EXIT", false, "exit", "start", false);
+<<<<<<< HEAD
   buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
+=======
+>>>>>>> 8b4a1dbc44fa1975a5a9a59949f78846ff5d4e87
   
   buttons[2] = new Button(35,40 , 50 , 50 ,50, " ", false, "start", "selectPage", true);
  
   buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
   buttons[4] = new Button(680, 345, 220, 100, 100, " ", false, "keyboard", "selectPage", true);
+<<<<<<< HEAD
+=======
   buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
+>>>>>>> 8b4a1dbc44fa1975a5a9a59949f78846ff5d4e87
   buttons[6] = new Button(294, 252, 340, 80, 40, " ", false, "selectPage", "keyboard", true);
   buttons[7] = new Button(945, 270, 110, 200, 100, " ", false, "effectsPage", "selectPage", true);
   buttons[8] = new Button(85, 150, 75, 120, 100, " ", false, "selectPage", "settingsPage", true);
@@ -220,7 +229,10 @@ void draw() {
     buttons[0].display();
     buttons[1].display();
     buttons[0].hover(mouseX, mouseY);
+<<<<<<< HEAD
+=======
     //buttons[1].hover(mouseX, mouseY);
+>>>>>>> 8b4a1dbc44fa1975a5a9a59949f78846ff5d4e87
     buttons[0].mousePressed(mouseX, mouseY);
     buttons[1].mousePressed(mouseX, mouseY);
     if (buttons[0].isClicked && mousePressed && buttonsAreOkay) {
@@ -276,11 +288,14 @@ void draw() {
       buttons[11].isClicked = false;
       background = loadImage("KeyboardGUI.png");
       buttonsAreOkay = false;
+<<<<<<< HEAD
+=======
     } else if (buttons[3].isClicked && mousePressed && buttonsAreOkay) {
       screen = '3';
       buttons[3].isClicked = false;
       background = loadImage("Trivias.png");
       buttonsAreOkay = false;
+>>>>>>> 8b4a1dbc44fa1975a5a9a59949f78846ff5d4e87
     } else if (buttons[7].isClicked && mousePressed && buttonsAreOkay) {
       screen = '6';
       buttons[7].isClicked = false;
@@ -291,6 +306,8 @@ void draw() {
       background = loadImage("coolStage.png");
       buttonsAreOkay = false;
     }
+<<<<<<< HEAD
+=======
   } else if (screen == '3') {
     background = loadImage("Trivias.png");
     buttons[5].display();
@@ -307,6 +324,7 @@ void draw() {
     if (buttons[5].isClicked && mousePressed && buttonsAreOkay) {
       screen = '5';
       buttons[5].isClicked = false;
+>>>>>>> 8b4a1dbc44fa1975a5a9a59949f78846ff5d4e87
       buttonsAreOkay = false;
     }
   } else if (screen == '4') {
@@ -597,12 +615,15 @@ void draw() {
     //textAlign(CENTER);
     textSize(15);
 <<<<<<< HEAD
+<<<<<<< HEAD
       text("Welcome to the instruction section for electric guitar.\n this is where you can learn which key corresponds to which instrument\n and basic concepts such as what an octave is:", width/2, 50);
       text("An octave is the interval between two of the same notes but one has a higher pitch or lower pitch\n Also, for out electric guitar there are only octaves 2 and 3. ", width/2, 115);
       text("Template: the First key is E2 which is assigned to letter E && e: Remember the 2 represents the\n octave so its E at second octive\n F at second octave is in key R && r\n G at second octave is in key T && t\n A in second octave is in key Y && y\n B second octave is in key U && u\n ", width/2, 200);
       text("Template:Then starting with C at third octave ( notice new octave so there will be a higher pitch ) is key I && i \n D third octave is O && o \n E third octave is at key P && p \n F at third octave is in key [ && { \n G at third octave is in key ] && } \n A at third octave is in key Q && q \n B at third octave is in key W && w.  ", width/2, 300);
       text("Now moving on the the flats and sharps..\n F sharp/ G flat in second octave is in key 5 && %\n G sharp and A flat at second opctive is in key 6 && ^\n A sharp and B flat at second octave is in key 7 && &\n C sharp and D Flat at third octave is in key 9 && ( \n D sharp and E flat in third octave is in key 0 && )\n  F sharp and G flat third octave is in key + && = \n  ",width/2,450);
 =======
+=======
+>>>>>>> 8b4a1dbc44fa1975a5a9a59949f78846ff5d4e87
         text("Welcome to the instruction sections for electric guitar.\n this is where you can learn which key corresponds to which instrument\n and basic concepts such as what an octive is:", width/2, 50);
       text("An Octive is the interval between two of the same notes but one has a higher pitch or lower pitch\n Also for electric guitar there are only octive 2 and 3. ", width/2, 115);
       text("Template: the First key is E2 which is assigned to letter E && e: Remember the 2 represents the\n octive so its E at second octive\n F at second octive is in key R && r\n G at second octive is in key T && t\n A in second octive is in key Y && y\n B second octive is in key U && u\n ", width/2, 200);
