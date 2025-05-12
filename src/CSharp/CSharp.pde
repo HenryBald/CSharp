@@ -14,8 +14,8 @@ ArrayList<Trivia> questions = new ArrayList<Trivia>();
 ArrayList<Button> triviaButtons = new ArrayList<Button>();
 int currentQuestion = 0;
 //Ignore layerImage
-PImage logoImage, mainCursor, background, Drums, instructions, miniPiano, miniGuitar;
-Button[] buttons = new Button[23];
+PImage logoImage, mainCursor, background, Drums, instructions, miniPiano, miniGuitar, home;
+Button[] buttons = new Button[22];
 float l, r, result;
 char op, screen;
 boolean left, time4Drums, metOnScreen, recorded, buttonsAreOkay, backfxOff;
@@ -64,6 +64,10 @@ void setup() {
   Drums = loadImage("Drums.png");
   Drums.resize(640, 360);
   instructions = loadImage("instructions.png");
+  
+  home = loadImage("Home.png");
+  home.resize(5 , 5);
+  
   //surface.setCursor(mainCursor, 25, 25);
   screen = '1';
   l = 0.0;
@@ -94,10 +98,12 @@ void setup() {
   //none of these buttons should be note buttons, those go in the constructors of their respective instrument class
   buttons[0] = new Button(315, 380, 300, 184, 120, "PLAY", false, "selectPage", "start", false);
   buttons[1] = new Button(705, 380, 300, 184, 120, "EXIT", false, "exit", "start", false);
-  buttons[2] = new Button(100, 200, 300, 184, 40, "/\\ \n/     \\ \n|__*| ", false, "start", "selectPage", false);
+  
+  buttons[2] = new Button(35,40 , 50 , 50 ,50, " ", false, "start", "selectPage", true);
+ 
   buttons[3] = new Button(805, 35, 100, 100, 30, "Trivia", false, "book", "selectPage", false);
   buttons[4] = new Button(680, 345, 220, 100, 100, " ", false, "keyboard", "selectPage", true);
-  //buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
+  buttons[5] = new Button(500, 200, 300, 50, 40, "Begin", false, "Trivia", "selectPage", false);
   buttons[6] = new Button(294, 252, 340, 80, 40, " ", false, "selectPage", "keyboard", true);
   buttons[7] = new Button(945, 270, 110, 200, 100, " ", false, "effectsPage", "selectPage", true);
   buttons[8] = new Button(85, 150, 75, 120, 100, " ", false, "selectPage", "settingsPage", true);
@@ -114,7 +120,6 @@ void setup() {
   buttons[19] = new Button(125, 20, 250, 40, 30, "Change Insrument", false, "selectPage", "Drumset", false);
   buttons[20] = new Button(50, 20, 100, 40, 30, "Back", false, "Drumset", "Instructions", false);
   buttons[21] = new Button(50, 20, 100, 40, 30, "Back", false, "Piano", "Instructions", false);
-  buttons[22] = new Button(120, 375, 100, 25, 30, "", false, "Instructions", "selectPage", true);
 
 
 
@@ -212,7 +217,7 @@ void draw() {
     buttons[0].display();
     buttons[1].display();
     buttons[0].hover(mouseX, mouseY);
-    buttons[1].hover(mouseX, mouseY);
+    //buttons[1].hover(mouseX, mouseY);
     buttons[0].mousePressed(mouseX, mouseY);
     buttons[1].mousePressed(mouseX, mouseY);
     if (buttons[0].isClicked && mousePressed && buttonsAreOkay) {
@@ -225,6 +230,13 @@ void draw() {
     //Always make sure to turn it to false after mousePressed, but after changing the screen and stuff
   } else if (screen == '2') {
     background = loadImage("selectionScreen1.png");
+    home = loadImage("Home.png");
+    home.resize(80,80);
+    image (home, -5, 10);
+    
+    
+    
+    
     //mainCursor = loadImage("4881475.png");
     buttons[2].display();
     // buttons[3].display();
@@ -232,7 +244,6 @@ void draw() {
     buttons[7].display();
     buttons[10].display();
     buttons[11].display();
-    buttons[22].display();
     buttons[2].hover(mouseX, mouseY);
     buttons[3].hover(mouseX, mouseY);
     buttons[4].hover(mouseX, mouseY);
@@ -240,7 +251,6 @@ void draw() {
     buttons[7].hover(mouseX, mouseY);
     buttons[10].hover(mouseX, mouseY);
     buttons[11].hover(mouseX, mouseY);
-    buttons[22].hover(mouseX, mouseY);
     buttons[2].mousePressed(mouseX, mouseY);
     buttons[3].mousePressed(mouseX, mouseY);
     buttons[4].mousePressed(mouseX, mouseY);
@@ -248,8 +258,6 @@ void draw() {
     buttons[7].mousePressed(mouseX, mouseY);
     buttons[10].mousePressed(mouseX, mouseY);
     buttons[11].mousePressed(mouseX, mouseY);
-    buttons[22].mousePressed(mouseX, mouseY);
-
     if (buttons[2].isClicked && mousePressed && buttonsAreOkay) {
       screen = '1';
       buttons[2].isClicked = false;
@@ -265,11 +273,11 @@ void draw() {
       buttons[11].isClicked = false;
       background = loadImage("KeyboardGUI.png");
       buttonsAreOkay = false;
-    //} else if (buttons[3].isClicked && mousePressed && buttonsAreOkay) {
-    //  screen = '3';
-    //  buttons[3].isClicked = false;
-    //  background = loadImage("Trivias.png");
-    //  buttonsAreOkay = false;
+    } else if (buttons[3].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '3';
+      buttons[3].isClicked = false;
+      background = loadImage("Trivias.png");
+      buttonsAreOkay = false;
     } else if (buttons[7].isClicked && mousePressed && buttonsAreOkay) {
       screen = '6';
       buttons[7].isClicked = false;
@@ -280,27 +288,24 @@ void draw() {
       background = loadImage("coolStage.png");
       buttonsAreOkay = false;
     }
-     else if (buttons[22].isClicked && mousePressed && buttonsAreOkay) {
-      screen = 'c';
+  } else if (screen == '3') {
+    background = loadImage("Trivias.png");
+    buttons[5].display();
+    buttons[5].hover(mouseX, mouseY);
+    buttons[5].mousePressed(mouseX, mouseY);
+    PFont font;
+    font = createFont("SpongeTitle.ttf", 25);
+    textFont(font);
+
+    textAlign(CENTER);
+    text("Welcome to the trivia game: \n This is where you can unlock new instruments", width/2, 100);
+
+
+    if (buttons[5].isClicked && mousePressed && buttonsAreOkay) {
+      screen = '5';
+      buttons[5].isClicked = false;
       buttonsAreOkay = false;
     }
-  //} else if (screen == '3') {
-  //  background = loadImage("Trivias.png");
-  //  //buttons[5].display();
-  //  //buttons[5].hover(mouseX, mouseY);
-  //  //buttons[5].mousePressed(mouseX, mouseY);
-  //  PFont font;
-  //  font = createFont("SpongeTitle.ttf", 25);
-  //  textFont(font);
-
-  //  textAlign(CENTER);
-  //  text("Welcome to the trivia game: \n This is where you can unlock new instruments", width/2, 100);
-
-    //if (buttons[5].isClicked && mousePressed && buttonsAreOkay) {
-    //  screen = '5';
-    //  buttons[5].isClicked = false;
-    //  buttonsAreOkay = false;
-    //}
   } else if (screen == '4') {
     background = loadImage("KeyboardGUI.png");
     theEGuitarYipee.neededStuffOrSomething();
@@ -461,8 +466,8 @@ void draw() {
     background = loadImage("KeyboardGUI.png");
     thePianoYipee.pianoRefresher();
     //mainCursor = loadImage("fingerOne.png");
-    miniPiano = loadImage("Minipiano.png");
-    image(miniPiano, 325, 40);
+    //miniPiano = loadImage("miniPiano.png");
+    //image(miniPiano, 325, 40);
     buttons[6].display();
     buttons[6].hover(mouseX, mouseY);
     buttons[6].mousePressed(mouseX, mouseY);
@@ -588,7 +593,7 @@ void draw() {
     //textFont(font);
     //textAlign(CENTER);
     textSize(15);
-      text("Welcome to the instruction sections for electric guitar.\n this is where you can learn which key corresponds to which instrument\n and basic concepts such as what an octive is:", width/2, 50);
+        text("Welcome to the instruction sections for electric guitar.\n this is where you can learn which key corresponds to which instrument\n and basic concepts such as what an octive is:", width/2, 50);
       text("An Octive is the interval between two of the same notes but one has a higher pitch or lower pitch\n Also for electric guitar there are only octive 2 and 3. ", width/2, 115);
       text("Template: the First key is E2 which is assigned to letter E && e: Remember the 2 represents the\n octive so its E at second octive\n F at second octive is in key R && r\n G at second octive is in key T && t\n A in second octive is in key Y && y\n B second octive is in key U && u\n ", width/2, 200);
       text("Template:Then starting with C at third octive ( notice new octive so there will be a higher pitch ) is key I && i \n D third octive is O && o \n E third octive is at key P && p \n F at third octive is in key [ && { \n G at third octive is in key ] && } \n A at third octive is in key Q && q \n B at third octive is in key W && w.  ", width/2, 300);
@@ -601,19 +606,6 @@ if (buttons[20].isClicked && mousePressed && buttonsAreOkay) {
       buttons[20].isClicked = false;
       buttonsAreOkay = false;
       }  
-} else if ( screen == 'c' ){
-  background(255);
-  textSize(20);
-  text("Instructions",1,1);
-  buttons[21].display();
-    buttons[21].hover(mouseX, mouseY);
-    buttons[21].mousePressed(mouseX, mouseY);
-    
-      if (buttons[21].isClicked && mousePressed && buttonsAreOkay) {
-      screen = '2'; // for some reason, screen needed to be one character, and we are out of numbers but this is essentially screen 10
-      buttons[21].isClicked = false;
-      buttonsAreOkay = false;
-      }
 }
   
 } 
@@ -733,6 +725,12 @@ void applyAffect() {
 //again here to. wow.
 void removeAffect() {
 }
+
+void selectInstrument() {
+}
+void swicthInstrument() {
+}
+
 void displayMet()
 {
   metOnScreen = true;
