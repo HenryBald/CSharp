@@ -33,7 +33,7 @@ We created a music creator app which essentially lets the user click or press th
 ![DrumsGUI](https://github.com/HenryBald/CSharp/blob/main/assets/Drums.png)
 
 ## Keyboard GUI Mockup - Henry
-![KeyboardGUI](https://github.com/HenryBald/CSharp/blob/main/src/CSharp/data/KeyboardGUIFinalVers.png)
+![KeyboardGUI]((https://github.com/HenryBald/CSharp/blob/7fb2d06932f215cf9cd743536250437ee65e9566/src/CSharp/data/KeyboardGUI.png))
 
 ## Selection Screen GUI Mockup - William
 ![SelectionScreenGUI](https://github.com/HenryBald/CSharp/blob/main/src/CSharp/data/selectionScreen1.png)
